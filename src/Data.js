@@ -62,6 +62,16 @@ const data = {
       brand: "Spero",
       description: "Pure CBD whole plant NO THC",
     },
+    {
+      id: 3,
+      title: "Pure CBD 500mg",
+      image:
+        "https://www.sperocbd.com/wp-content/uploads/2020/08/speroheroproduct2.png",
+      price: 100,
+      countInStock: 20,
+      brand: "Spero",
+      description: "Pure CBD whole plant NO THC",
+    },
   ],
   ORDERS: [
     {

@@ -8,7 +8,8 @@ header {
   justify-content: space-between;
 }
 
-nav {
+nav,
+.flex {
   display: flex;
   flex-direction: column;
   padding-right: 30px;
@@ -61,4 +62,57 @@ ul {
 .nav-icon {
   background-color: 454955;
   cursor: pointer;
+}
+/* Card */
+.card {
+  padding: 2rem;
+  text-align: center;
+  border: 0.1rem solid #344055;
+  background-color: white;
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+.card a {
+  color: rgb(61, 60, 60);
+  cursor: pointer;
+}
+.card a:hover {
+  color: #fcab64;
+}
+.card-body {
+  padding: 1rem;
+}
+.card-body > * {
+  margin-bottom: 0.5rem;
+}
+
+.product img {
+  width: 100%;
+}
+
+.product {
+  list-style: none;
+}
+.group {
+  flex: 1;
+  justify-content: center;
+}
+.group2 {
+  flex: 2;
+}
+
+/* Table */
+table {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;
+}
+
+@media all and (min-width: 900px) {
+  .flex {
+    flex-direction: row;
+  }
+  table {
+    font-size: 20px;
+  }
 }
