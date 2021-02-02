@@ -13,10 +13,11 @@ export default class Header extends React.Component {
         <section className="logo">
           <h1>
             <Link to="/">eCannaB</Link>
-          </h1>
+          </h1>{" "}
+          {/*When the user is login the idea is to change the eCannaB with the user logo and the login with the user Name*/}
         </section>
         <section className="user">
-          <Link to="/singup">Signup</Link>
+          <Link to="/login">Login</Link>
         </section>
         <nav onClick={() => this.setState({ opened: !this.state.opened })}>
           <div className="nav-icon">
@@ -24,13 +25,13 @@ export default class Header extends React.Component {
           </div>
           {this.state.opened && (
             <ul id="menu">
-              <Link to="/">
+              <Link to="/dashboard">
                 <li>Dashboard</li>
               </Link>
-              <Link to="/">
+              <Link to="/products">
                 <li>Products</li>
               </Link>
-              <Link to="/">
+              <Link to="/orders">
                 <li>Orders</li>
               </Link>
             </ul>
