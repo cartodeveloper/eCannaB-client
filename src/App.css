@@ -1,0 +1,64 @@
+header {
+  display: absolute;
+  background-color: black;
+  padding-inline-start: 40px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  padding-right: 30px;
+}
+.logo {
+  flex: 7;
+}
+
+.logo h1 {
+  text-shadow: -1px 0 #f3eff5, 0 1px #f3eff5, 2px 0#F3EFF5, 0 -1px #f3eff5;
+  font-size: xx-large;
+}
+.logo a,
+.user a,
+#menu a {
+  color: #3f7d20;
+  text-decoration: none;
+}
+.user {
+  margin-right: 10px;
+}
+ul {
+  margin-top: 0;
+  text-align: right;
+}
+
+#menu a {
+  color: white;
+}
+.logo a:hover,
+.user a:hover,
+#menu a:hover,
+.nav-icon h3:hover {
+  color: #72b01d;
+}
+.user,
+.nav-icon h3 {
+  margin-top: 35px;
+}
+.user {
+  flex: 1;
+}
+#menu a {
+  flex: 2;
+}
+#menu li {
+  list-style: none;
+}
+
+.nav-icon {
+  background-color: 454955;
+  cursor: pointer;
+}
