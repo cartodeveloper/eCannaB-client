@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import "../App.css";
 import ProductList from "./ProductList";
+import Context from "../Context";
+import Order from "./Order";
 
 class Dashboard extends Component {
+  static contextType = Context;
   render() {
+    let { orders = [] } = this.context;
     return (
       <section className="dashboard">
         <h1>DASHBOARD</h1>
@@ -23,25 +27,17 @@ class Dashboard extends Component {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Pepito</td>
-                  <td>02/2/2021</td>
-                  <td>$120</td>
-                  <td>2000</td>
-                  <td>Procesing</td>
-                  <td>
-                    <button type="button" className="small">
-                      Edit
-                    </button>
-                    <button type="button" className="small">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
+                {orders.map((order) => (
+                  <Order key={order.id} {...order} {...this.props} />
+                ))}
               </tbody>
             </table>
           </div>
+          <div className="group">
+            <h2>CONTROLS</h2>
+          </div>
+        </section>
+        <section className="flex">
           <div className="group">
             <h2>PRODUCTS</h2>
             <ProductList {...this.props} />

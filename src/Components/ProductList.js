@@ -8,13 +8,11 @@ class ProductList extends Component {
   render() {
     let { products = [] } = this.context;
     return (
-      <section className="flex">
-        <ul className="product-list" aria-live="polite">
-          {products.map((product) => (
-            <Product key={product.id} {...product} {...this.props} />
-          ))}
-        </ul>
-      </section>
+      <ul className="flex" aria-live="polite">
+        {products.map((product) => (
+          <Product key={product.id} {...product} {...this.props} />
+        ))}
+      </ul>
     );
   }
 }

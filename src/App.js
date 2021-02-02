@@ -5,6 +5,7 @@ import Login from "./Components/Login";
 import Signup from "./Components/Singup";
 import Dashboard from "./Components/Dashboard";
 import Product from "./Components/Product";
+import ProductList from "./Components/Product";
 import data from "./data";
 import Context from "./Context";
 
@@ -25,6 +26,7 @@ class App extends Component {
           <main className="main">
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/product" component={Product} />
+            <Route path="/products" component={ProductList} />
           </main>
         </div>
       </Context.Provider>

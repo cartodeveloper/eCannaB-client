@@ -42,7 +42,7 @@ export default class Signup extends Component {
             <div className="flex-wrap">
               <label htmlFor="name">Name</label>
               <div className="input-icons">
-                <i class="fas fa-user"></i>
+                <i className="fas fa-user"></i>
                 <input
                   type="text"
                   placeholder="name"
