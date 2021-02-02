@@ -14,7 +14,7 @@ class Dashboard extends Component {
                 <th>ID</th>
                 <th>CUSTOMER</th>
                 <th>DATE</th>
-                <th>TOTAL</th>
+                <th>TOTAL </th>
                 <th>QUANTITY</th>
                 <th>STATUS</th>
                 <th>ACTIONS</th>
@@ -25,7 +25,7 @@ class Dashboard extends Component {
                 <td>1</td>
                 <td>Pepito</td>
                 <td>02/2/2021</td>
-                <td>12</td>
+                <td>$120</td>
                 <td>2000</td>
                 <td>Procesing</td>
                 <td>

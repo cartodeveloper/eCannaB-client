@@ -42,7 +42,7 @@ export default class Signup extends Component {
             <div className="flex-wrap">
               <label htmlFor="name">Name</label>
               <div className="input-icons">
-                <i className="fa fa-envelope icon"></i>
+                <i class="fas fa-user"></i>
                 <input
                   type="text"
                   placeholder="name"
@@ -74,21 +74,21 @@ export default class Signup extends Component {
                   name="password"
                 />
               </div>
-            </div>
-            <div className="flex-wrap">
-              <div className="input-icons">
-                <label htmlFor="confirm-password">Confirm password</label>
-                <input
-                  id="confirm-password"
-                  type="password"
-                  placeholder="type password again"
-                  name="confirmPassword"
-                />
-              </div>
+
+              <label htmlFor="confirm-password">Confirm password</label>
+              <input
+                id="confirm-password"
+                type="password"
+                placeholder="type password again"
+                name="confirmPassword"
+              />
             </div>
             <button type="submit" aria-label="signup">
               Sign Up
             </button>
+            <div>
+              Already have an account? <Link to="/login"> Login</Link>
+            </div>
           </fieldset>
         </form>
       </section>
