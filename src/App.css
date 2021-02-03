@@ -13,6 +13,7 @@ nav,
   display: flex;
   flex-direction: column;
   padding-right: 30px;
+  position: relative;
 }
 .logo {
   flex: 7;
@@ -62,6 +63,15 @@ ul {
 .nav-icon {
   background-color: 454955;
   cursor: pointer;
+}
+ul#menu {
+  margin-top: 0;
+  text-align: right;
+  position: absolute;
+  bottom: -100px;
+  background-color: black;
+  right: 0px;
+  padding: 20px;
 }
 /* Card */
 .card {

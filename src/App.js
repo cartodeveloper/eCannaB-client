@@ -20,11 +20,15 @@ class App extends Component {
     resources: data.RESOURCES,
     sites: data.SITES,
     error: null,
+
+    // SITES
     addSite: (newSite) => {
       this.setState({
         sites: [...this.state.sites, newSite],
       });
     },
+
+    // PRODUCTS
     addProduct: (newProduct) => {
       this.setState({
         products: [...this.state.products, newProduct],
@@ -40,6 +44,14 @@ class App extends Component {
         }),
       });
     },
+    deleteProduct: (id) => {
+      this.setState({
+        products: this.state.products.filter((p) => p.id !== id),
+      });
+    },
+    // ORDERS
+
+    // RESOURCES
   };
 
   render() {
@@ -54,8 +66,8 @@ class App extends Component {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/site" component={CreateSite} />
             <Route path="/addproduct" component={CreateProduct} />
-            <Route path="/editproduct" component={EditProduct} />
-            <Route path="/product" component={Product} />
+            <Route path="/editproduct/:id" component={EditProduct} />
+            <Route path="/product/:id" component={Product} />
             <Route path="/products" component={ProductList} />
           </main>
         </div>

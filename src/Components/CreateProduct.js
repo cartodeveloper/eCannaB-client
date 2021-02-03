@@ -38,13 +38,13 @@ class CreateProduct extends Component {
       })
       .then((newProduct) => {
         e.target.reset();
-        this.context.addProduct(newProduct);
-        this.props.history.push("/products");
       })
       .catch((e) => {
         this.setState({ error: e.message });
       });
       */
+    this.context.addProduct(this.state.newProduct);
+    this.props.history.push("/dashboard");
   };
   render() {
     const { error } = this.state;

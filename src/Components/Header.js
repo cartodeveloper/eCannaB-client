@@ -13,8 +13,7 @@ export default class Header extends React.Component {
         <section className="logo">
           <h1>
             <Link to="/">eCannaB</Link>
-          </h1>{" "}
-          {/*When the user is login the idea is to change the eCannaB with the user logo and the login with the user Name*/}
+          </h1>
         </section>
         <section className="user">
           <Link to="/login">Login</Link>

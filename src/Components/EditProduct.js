@@ -19,7 +19,7 @@ class EditProduct extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // const id= Number(this.props.match.params.id);
+    const id = Number(this.props.match.params.id);
     this.setState({ error: null });
     /* fetch(`${config.API_BASE_URL}/products/&{id}`, {
       method: "PUT",
@@ -39,13 +39,13 @@ class EditProduct extends Component {
       })
       .then((newProduct) => {
         e.target.reset();
-        this.context.updateProduct(newProduct, id);
-        this.props.history.push("/products");
       })
       .catch((e) => {
         this.setState({ error: e.message });
       });
       */
+    this.context.updateProduct(this.state.newProduct, id);
+    this.props.history.push("/dashboard");
   };
   componentDidMount() {
     setTimeout(() => {
@@ -61,9 +61,13 @@ class EditProduct extends Component {
     const { error, newProduct } = this.state;
     return newProduct ? (
       <section className="create-product">
-        <h2>Create a new product...</h2>
+        <h2>Edit your product...</h2>
         <p>All fields with * are required</p>
-        <form className="product-form" aria-label="create-product">
+        <form
+          onSubmit={this.handleSubmit}
+          className="product-form"
+          aria-label="create-product"
+        >
           {error && <p className="error">{error}</p>}
           <fieldset>
             <legend>Product Details</legend>
