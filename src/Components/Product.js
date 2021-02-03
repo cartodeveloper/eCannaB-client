@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Context from "../Context";
-import DeleteButton from "./DeleteButton";
+import DeleteProduct from "./DeleteProduct";
 import data from "../data";
 
 export default class Product extends Component {
@@ -35,7 +35,7 @@ export default class Product extends Component {
           <button type="click">
             <Link to={`/editproduct/${id}`}>Edit</Link>
           </button>
-          <DeleteButton key={Product} id={id} history={this.props.history} />
+          <DeleteProduct key={Product} id={id} history={this.props.history} />
         </div>
       </li>
     );
