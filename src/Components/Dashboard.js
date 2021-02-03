@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 import ProductList from "./ProductList";
+import { Link } from "react-router-dom";
 import Context from "../Context";
 import Order from "./Order";
 import Resource from "./Resource";
@@ -50,6 +51,9 @@ class Dashboard extends Component {
         <section className="flex">
           <div className="group">
             <h2>PRODUCTS</h2>
+            <button type="click">
+              <Link to="/addproduct">CREATE NEW PRODUCT</Link>
+            </button>
             <ProductList {...this.props} />
           </div>
         </section>

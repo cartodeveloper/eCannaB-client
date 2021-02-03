@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Context from "../Context";
 
-class CreateSite extends Component {
+class CreateProduct extends Component {
   static contextType = Context;
   state = {
     error: null,
-    newSite: {},
+    newProduct: {},
   };
 
   handleChange(e) {
@@ -20,9 +20,9 @@ class CreateSite extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({ error: null });
-    /* fetch(`${config.API_BASE_URL}/sites`, {
+    /* fetch(`${config.API_BASE_URL}/products`, {
       method: "POST",
-      body: JSON.stringify(this.state.newSite),
+      body: JSON.stringify(this.state.newProduct),
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${tokenService.getAuthToken()}`,
@@ -36,10 +36,10 @@ class CreateSite extends Component {
         }
         return res.json();
       })
-      .then((newSite) => {
+      .then((newProduct) => {
         e.target.reset();
-        this.context.addSite(newSite);
-        this.props.history.push("/site/subdomain");
+        this.context.addProduct(newProduct);
+        this.props.history.push("/products");
       })
       .catch((e) => {
         this.setState({ error: e.message });
@@ -49,84 +49,83 @@ class CreateSite extends Component {
   render() {
     const { error } = this.state;
     return (
-      <section className="create-site">
-        <h2>Fill out the form to create your site</h2>
+      <section className="create-product">
+        <h2>Create a new product...</h2>
         <p>All fields with * are required</p>
-        <form className="site-form" aria-label="create-site">
+        <form className="product-form" aria-label="create-product">
           {error && <p className="error">{error}</p>}
           <fieldset>
-            <legend>Your Site</legend>
-            <div className="site-name">
-              <label htmlFor="site-name" aria-label="site-name">
-                <h3>Site/Brand Name: *</h3>
+            <legend>Product Details</legend>
+            <div className="product-title">
+              <label htmlFor="product-title" aria-label="product-title">
+                <h3>Title: *</h3>
               </label>
               <input
-                placeholder="eg. Momentum 10X"
+                placeholder="eg. Multipurpose Oil Nano CBD 600mg"
                 type="text"
-                id="site-name"
-                name="site-name"
+                id="product-title"
+                name="product-title"
                 onChange={(e) => this.handleChange(e)}
                 required
               />
             </div>
-            <div className="site-subdomain">
-              <label htmlFor="site-subdomain" aria-label="site-subdomain">
-                <h3>Subdomain: *</h3>
+            <div className="product-price">
+              <label htmlFor="product-price" aria-label="product-price">
+                <h3>Price: *</h3>
               </label>
               <input
-                placeholder="eg. /momentum10x"
-                type="text"
-                id="site-subdomain"
-                name="site-subdomain"
+                placeholder="$160.00"
+                type="number"
+                id="product-price"
+                name="product-price"
                 onChange={(e) => this.handleChange(e)}
                 required
               />
             </div>
-            <div className="site-logo">
-              <label htmlFor="site-logo" aria-label="site-logo">
-                <h3>Logo: *</h3>
+            <div className="in-stock">
+              <label htmlFor="in-stock" aria-label="in-stock">
+                <h3>In Stock: *</h3>
+              </label>
+              <input
+                placeholder="500"
+                type="number"
+                id="in-stock"
+                name="in-stock"
+                onChange={(e) => this.handleChange(e)}
+                required
+              />
+            </div>
+            <div className="product-image">
+              <label htmlFor="product-image" aria-label="product-image">
+                <h3>Product Image: *</h3>
                 <p>Please provide an image url</p>
               </label>
               <input
                 placeholder="https://..."
                 type="url"
-                id="site-logo"
-                name="site-logo"
+                id="product-image"
+                name="product-image"
                 onChange={(e) => this.handleChange(e)}
                 required
-              />
-            </div>
-            <div className="site-logo">
-              <label htmlFor="site-logo" aria-label="site-logo">
-                <h3>Banner Image: *</h3>
-                <p>Please provide an image url</p>
-              </label>
-              <input
-                placeholder="https://..."
-                type="url"
-                id="site-banner"
-                name="site-banner"
-                onChange={(e) => this.handleChange(e)}
               />
             </div>
             <h3>Description:</h3>
             <p>
-              In a paragraph, explain what your brand is about and what
-              differentiates it from the others.
+              In a paragraph, give your customer a description of the product.
             </p>
             <textarea
-              id="site-description"
-              name="site-description"
+              id="product-description"
+              name="product-description"
               rows="5"
               cols="50"
               onChange={(e) => this.handleChange(e)}
-              placeholder="We're a brand commited with the health and overall wellness!"
+              placeholder="Amazing NANO CBD 100% Bioavailability- NON GMO"
             ></textarea>
             <section className="buttons-form">
               <button type="submit" onClick={this.handleClickCancel}>
                 Cancel
               </button>
-              <button type="submit">Create Site</button>
+              <button type="submit">Create Product</button>
             </section>
           </fieldset>
         </form>
@@ -135,4 +134,4 @@ class CreateSite extends Component {
   }
 }
 
-export default CreateSite;
+export default CreateProduct;

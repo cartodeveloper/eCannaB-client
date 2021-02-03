@@ -64,13 +64,13 @@ const data = {
     },
     {
       id: 3,
-      title: "Pure CBD 500mg",
+      title: "XTEND5 Royal Oil Isolate 500mg",
       image:
-        "https://www.sperocbd.com/wp-content/uploads/2020/08/speroheroproduct2.png",
-      price: 100,
+        "https://xtend5hemp.com/wp-content/uploads/sites/3/2020/10/royal-hemp-500mg-600x600.png",
+      price: 120,
       countInStock: 20,
-      brand: "Spero",
-      description: "Pure CBD whole plant NO THC",
+      brand: "XTEND5",
+      description: "Isolate CBD, natural, healing XTEND your health with us!",
     },
   ],
   ORDERS: [

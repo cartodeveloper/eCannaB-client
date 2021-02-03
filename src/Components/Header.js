@@ -28,14 +28,11 @@ export default class Header extends React.Component {
               <Link to="/dashboard">
                 <li>Dashboard</li>
               </Link>
-              <Link to="/products">
-                <li>Products</li>
-              </Link>
-              <Link to="/orders">
-                <li>Orders</li>
+              <Link to="/addproduct">
+                <li>+ Product</li>
               </Link>
               <Link to="/site">
-                <li>Create Site</li>
+                <li>+ Site</li>
               </Link>
               <Link to="/site/tjcbd">
                 <li>My Site</li>

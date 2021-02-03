@@ -26,6 +26,10 @@ export default class Product extends Component {
           <p>Brand: {brand}</p>
           <p>in Stock: {countInStock}</p>
           <p>Product Description: {description}</p>
+          {/* If user is Seller can edit and delete / if is a seller customer btn=Add to cart + quantity input ON*/}
+          <button>Edit</button>
+          <button>Delete</button>
+          <button>Add to my site</button>
         </div>
       </li>
     );

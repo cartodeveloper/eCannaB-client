@@ -8,6 +8,7 @@ import Product from "./Components/Product";
 import ProductList from "./Components/Product";
 import LandingPage from "./Components/LandingPage";
 import CreateSite from "./Components/CreateSite";
+import CreateProduct from "./Components/CreateProduct";
 import data from "./data";
 import Context from "./Context";
 
@@ -23,6 +24,11 @@ class App extends Component {
         sites: [...this.state.sites, newSite],
       });
     },
+    addProduct: (newProduct) => {
+      this.setState({
+        products: [...this.state.products, newProduct],
+      });
+    },
   };
 
   render() {
@@ -36,6 +42,7 @@ class App extends Component {
           <main className="main">
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/site" component={CreateSite} />
+            <Route path="/addproduct" component={CreateProduct} />
             <Route path="/product" component={Product} />
             <Route path="/products" component={ProductList} />
           </main>
