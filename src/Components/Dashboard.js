@@ -11,8 +11,16 @@ class Dashboard extends Component {
     return (
       <section className="dashboard">
         <h1>DASHBOARD</h1>
+        <section>
+          <div className="group">
+            <h2>CONTROLS (Search bar)</h2>
+          </div>
+        </section>
         <section className="flex">
-          <div className="group2">
+          <div className="group">
+            <h2>RESOURCES</h2>
+          </div>
+          <div className="group">
             <h2>ORDERS</h2>
             <table className="table">
               <thead>
@@ -32,9 +40,6 @@ class Dashboard extends Component {
                 ))}
               </tbody>
             </table>
-          </div>
-          <div className="group">
-            <h2>CONTROLS</h2>
           </div>
         </section>
         <section className="flex">

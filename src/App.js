@@ -6,6 +6,7 @@ import Signup from "./Components/Singup";
 import Dashboard from "./Components/Dashboard";
 import Product from "./Components/Product";
 import ProductList from "./Components/Product";
+import LandingPage from "./Components/LandingPage";
 import data from "./data";
 import Context from "./Context";
 
@@ -21,6 +22,7 @@ class App extends Component {
       <Context.Provider value={this.state}>
         <div className="app">
           <Route path="/" component={Header} />
+          <Route exact path="/" component={LandingPage} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <main className="main">
