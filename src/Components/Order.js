@@ -5,7 +5,6 @@ import Context from "../Context";
 export default class Order extends Component {
   static contextType = Context;
   render() {
-    let { order = [] } = this.context;
     const { id, customer_name, date, total, quantity, status } = this.props;
     return (
       <tr className="orders">

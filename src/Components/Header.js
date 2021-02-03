@@ -35,6 +35,9 @@ export default class Header extends React.Component {
                 <li>Orders</li>
               </Link>
               <Link to="/site">
+                <li>Create Site</li>
+              </Link>
+              <Link to="/site/tjcbd">
                 <li>My Site</li>
               </Link>
             </ul>
