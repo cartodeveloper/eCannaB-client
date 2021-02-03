@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Context from "../Context";
 
-class CreateProduct extends Component {
+class EditProduct extends Component {
   static contextType = Context;
   state = {
     error: null,
@@ -10,7 +10,7 @@ class CreateProduct extends Component {
 
   handleChange(e) {
     this.setState({
-      newSite: { ...this.state.newProduct, [e.target.name]: e.target.value },
+      newProduct: { ...this.state.newProduct, [e.target.name]: e.target.value },
     });
   }
   handleClickCancel = () => {
@@ -19,9 +19,10 @@ class CreateProduct extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    // const id= Number(this.props.match.params.id);
     this.setState({ error: null });
-    /* fetch(`${config.API_BASE_URL}/products`, {
-      method: "POST",
+    /* fetch(`${config.API_BASE_URL}/products/&{id}`, {
+      method: "PUT",
       body: JSON.stringify(this.state.newProduct),
       headers: {
         "content-type": "application/json",
@@ -38,7 +39,7 @@ class CreateProduct extends Component {
       })
       .then((newProduct) => {
         e.target.reset();
-        this.context.addProduct(newProduct);
+        this.context.updateProduct(newProduct, id);
         this.props.history.push("/products");
       })
       .catch((e) => {
@@ -46,9 +47,19 @@ class CreateProduct extends Component {
       });
       */
   };
+  componentDidMount() {
+    setTimeout(() => {
+      const id = Number(this.props.match.params.id);
+      const product = this.context.products.find((p) => p.id === id);
+      this.setState({
+        newProduct: product,
+      });
+    }, 1000);
+  }
+
   render() {
-    const { error } = this.state;
-    return (
+    const { error, newProduct } = this.state;
+    return newProduct ? (
       <section className="create-product">
         <h2>Create a new product...</h2>
         <p>All fields with * are required</p>
@@ -65,6 +76,7 @@ class CreateProduct extends Component {
                 type="text"
                 id="title"
                 name="title"
+                value={newProduct.title || ""}
                 onChange={(e) => this.handleChange(e)}
                 required
               />
@@ -78,6 +90,7 @@ class CreateProduct extends Component {
                 type="number"
                 id="price"
                 name="price"
+                value={newProduct.price || ""}
                 onChange={(e) => this.handleChange(e)}
                 required
               />
@@ -91,6 +104,7 @@ class CreateProduct extends Component {
                 type="number"
                 id="inStock"
                 name="inStock"
+                value={newProduct.inStock || ""}
                 onChange={(e) => this.handleChange(e)}
                 required
               />
@@ -105,6 +119,7 @@ class CreateProduct extends Component {
                 type="url"
                 id="p_image"
                 name="p_image"
+                value={newProduct.p_image || ""}
                 onChange={(e) => this.handleChange(e)}
                 required
               />
@@ -118,6 +133,7 @@ class CreateProduct extends Component {
               name="p_description"
               rows="5"
               cols="50"
+              value={newProduct.p_description || ""}
               onChange={(e) => this.handleChange(e)}
               placeholder="Amazing NANO CBD 100% Bioavailability- NON GMO"
             ></textarea>
@@ -125,13 +141,15 @@ class CreateProduct extends Component {
               <button type="submit" onClick={this.handleClickCancel}>
                 Cancel
               </button>
-              <button type="submit">Create Product</button>
+              <button type="submit">Update Product</button>
             </section>
           </fieldset>
         </form>
       </section>
+    ) : (
+      <h2>Loading Product...</h2>
     );
   }
 }
 
-export default CreateProduct;
+export default EditProduct;

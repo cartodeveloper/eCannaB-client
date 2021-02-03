@@ -45,32 +45,32 @@ const data = {
     {
       id: 1,
       title: "Multipurpose Oil 600mg Nano Cbd",
-      image:
+      p_image:
         "https://d2ebzu6go672f3.cloudfront.net/media/content/images/p1_CBD_MLOct19_gi1128604887.jpg",
       price: 120,
-      countInStock: 10,
+      inStock: 10,
       brand: "Momentum 10X",
-      description: "High quality NANO CBD, feel the natural healing.",
+      p_description: "High quality NANO CBD, feel the natural healing.",
     },
     {
       id: 2,
       title: "Pure CBD 500mg",
-      image:
+      p_image:
         "https://www.sperocbd.com/wp-content/uploads/2020/08/speroheroproduct2.png",
       price: 100,
-      countInStock: 20,
+      inStock: 20,
       brand: "Spero",
-      description: "Pure CBD whole plant NO THC",
+      p_description: "Pure CBD whole plant NO THC",
     },
     {
       id: 3,
       title: "XTEND5 Royal Oil Isolate 500mg",
-      image:
+      p_image:
         "https://xtend5hemp.com/wp-content/uploads/sites/3/2020/10/royal-hemp-500mg-600x600.png",
       price: 120,
-      countInStock: 20,
+      inStock: 20,
       brand: "XTEND5",
-      description: "Isolate CBD, natural, healing XTEND your health with us!",
+      p_description: "Isolate CBD, natural, healing XTEND your health with us!",
     },
   ],
   ORDERS: [

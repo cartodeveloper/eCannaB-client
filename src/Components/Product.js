@@ -9,25 +9,27 @@ export default class Product extends Component {
     let { product = [] } = this.context;
     const {
       title,
-      image,
+      p_image,
       price,
       countInStock,
       brand,
-      description,
+      p_description,
     } = this.props;
     return (
       <li className="product" key={this.props.id}>
         <div className="card">
           <Link to="/product">
-            <img src={image} alt="product" />
+            <img src={p_image} alt="product" />
             <h2>{title}</h2>
           </Link>
           <p>Price: {price}</p>
           <p>Brand: {brand}</p>
           <p>in Stock: {countInStock}</p>
-          <p>Product Description: {description}</p>
+          <p>Product Description: {p_description}</p>
           {/* If user is Seller can edit and delete / if is a seller customer btn=Add to cart + quantity input ON*/}
-          <button>Edit</button>
+          <button type="click">
+            <Link to="/editproduct">Edit</Link>
+          </button>
           <button>Delete</button>
           <button>Add to my site</button>
         </div>

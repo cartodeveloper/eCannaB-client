@@ -9,6 +9,7 @@ import ProductList from "./Components/Product";
 import LandingPage from "./Components/LandingPage";
 import CreateSite from "./Components/CreateSite";
 import CreateProduct from "./Components/CreateProduct";
+import EditProduct from "./Components/EditProduct";
 import data from "./data";
 import Context from "./Context";
 
@@ -29,6 +30,16 @@ class App extends Component {
         products: [...this.state.products, newProduct],
       });
     },
+    updateProduct: (newProduct, id) => {
+      this.setState({
+        products: this.state.products.map((p) => {
+          if (p.id === id) {
+            return newProduct;
+          }
+          return p;
+        }),
+      });
+    },
   };
 
   render() {
@@ -43,6 +54,7 @@ class App extends Component {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/site" component={CreateSite} />
             <Route path="/addproduct" component={CreateProduct} />
+            <Route path="/editproduct" component={EditProduct} />
             <Route path="/product" component={Product} />
             <Route path="/products" component={ProductList} />
           </main>
