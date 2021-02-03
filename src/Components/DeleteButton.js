@@ -26,7 +26,7 @@ export default class DeleteButton extends Component {
       });
       */
     this.context.deleteProduct(id);
-    this.props.history.push("/dashboard");
+    this.props.history.push("/products");
   };
   render() {
     return (
