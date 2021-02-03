@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Context from "../Context";
 import DeleteProduct from "./DeleteProduct";
-import data from "../data";
 
 export default class Product extends Component {
   static contextType = Context;

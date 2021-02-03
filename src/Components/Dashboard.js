@@ -14,14 +14,10 @@ class Dashboard extends Component {
     return (
       <section className="dashboard">
         <h1>DASHBOARD</h1>
-        <section>
-          <div className="group">
-            <h2>CONTROLS (Search bar)</h2>
-          </div>
-        </section>
         <section className="flex">
           <div className="group">
             <h2>RESOURCES</h2>
+
             {resources.map((resource) => (
               <Resource key={resource.id} {...resource} {...this.props} />
             ))}

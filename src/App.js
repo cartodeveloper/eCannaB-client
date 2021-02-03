@@ -10,6 +10,7 @@ import LandingPage from "./Components/LandingPage";
 import CreateSite from "./Components/CreateSite";
 import CreateProduct from "./Components/CreateProduct";
 import EditProduct from "./Components/EditProduct";
+import EditOrder from "./Components/EditOrder";
 import data from "./data";
 import Context from "./Context";
 
@@ -50,6 +51,21 @@ class App extends Component {
       });
     },
     // ORDERS
+    updateOrder: (newOrder, id) => {
+      this.setState({
+        products: this.state.products.map((o) => {
+          if (o.id === id) {
+            return newOrder;
+          }
+          return o;
+        }),
+      });
+    },
+    deleteOrder: (id) => {
+      this.setState({
+        orders: this.state.orders.filter((o) => o.id !== id),
+      });
+    },
 
     // RESOURCES
   };
@@ -66,6 +82,7 @@ class App extends Component {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/addsite" component={CreateSite} />
             <Route path="/addproduct" component={CreateProduct} />
+            <Route path="/editorder/:id" component={EditOrder} />
             <Route path="/editproduct/:id" component={EditProduct} />
             <Route path="/product/:id" component={Product} />
             <Route path="/products" component={ProductList} />

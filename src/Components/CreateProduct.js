@@ -52,7 +52,11 @@ class CreateProduct extends Component {
       <section className="create-product">
         <h2>Create a new product...</h2>
         <p>All fields with * are required</p>
-        <form className="product-form" aria-label="create-product">
+        <form
+          onSubmit={this.handleSubmit}
+          className="product-form"
+          aria-label="create-product"
+        >
           {error && <p className="error">{error}</p>}
           <fieldset>
             <legend>Product Details</legend>

@@ -15,6 +15,10 @@ nav,
   padding-right: 30px;
   position: relative;
 }
+
+.flex {
+  padding: 2px;
+}
 .logo {
   flex: 7;
 }
@@ -77,21 +81,25 @@ ul#menu {
 .card {
   display: flex;
   flex-direction: row;
+  margin-top: 34px;
+  padding: 1%;
 }
-.card a {
+.card a,
+.card button {
   color: rgb(61, 60, 60);
   cursor: pointer;
 }
-.card a:hover {
+.card a:hover,
+.card button:hover {
   color: #fcab64;
 }
-.card-body {
-  padding: 1rem;
-}
-.card-body > * {
-  margin-bottom: 0.5rem;
-}
 
+.card h2 {
+  font-size: 15px;
+}
+.card p {
+  font-size: 13px;
+}
 .product img {
   width: 100%;
 }
@@ -102,6 +110,7 @@ ul#menu {
 .group {
   flex: 1;
   justify-content: center;
+  margin-top: 30px;
 }
 .group2 {
   flex: 2;
@@ -111,7 +120,7 @@ ul#menu {
 table {
   margin-left: auto;
   margin-right: auto;
-  font-size: 12px;
+  font-size: 10.5px;
 }
 
 @media all and (min-width: 900px) {
@@ -120,5 +129,11 @@ table {
   }
   table {
     font-size: 20px;
+  }
+  .card h2 {
+    font-size: 20px;
+  }
+  .card p {
+    font-size: 15px;
   }
 }
