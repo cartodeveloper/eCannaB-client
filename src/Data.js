@@ -18,6 +18,15 @@ const data = {
         "Spero uses non-GMO, organically-produced hemp harvested only from – farmsright here in the U.S. of A for sustain nably-made products you can trust.",
       subdomain: "sperocbd",
     },
+    {
+      id: 3,
+      brand: "XTEND5",
+      logo:
+        "https://www.sperocbd.com/wp-content/uploads/2020/08/cropped-Spero-logo.png",
+      seller_description:
+        "XTEND5 uses non-GMO, organically-produced hemp harvested only from – farmsright here in the U.S. of A for sustain nably-made products you can trust.",
+      subdomain: "XTEND5",
+    },
   ],
   RESOURCES: [
     {

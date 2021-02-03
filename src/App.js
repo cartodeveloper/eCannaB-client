@@ -64,7 +64,7 @@ class App extends Component {
           <Route path="/login" component={Login} />
           <main className="main">
             <Route path="/dashboard" component={Dashboard} />
-            <Route path="/site" component={CreateSite} />
+            <Route path="/addsite" component={CreateSite} />
             <Route path="/addproduct" component={CreateProduct} />
             <Route path="/editproduct/:id" component={EditProduct} />
             <Route path="/product/:id" component={Product} />
