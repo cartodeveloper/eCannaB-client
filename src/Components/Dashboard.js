@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import Context from "../Context";
 import Order from "./Order";
 import Resource from "./Resource";
-import Product from "./Product";
 
 class Dashboard extends Component {
   static contextType = Context;

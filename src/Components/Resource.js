@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Context from "../Context";
+import AddToSiteButton from "./AddToSiteButton";
 
 export default class Resource extends Component {
   static contextType = Context;
@@ -11,7 +12,7 @@ export default class Resource extends Component {
         <a href={link} target="_blank" rel="noreferrer">
           Resource
         </a>
-        <button>Add to my site</button>
+        <AddToSiteButton history={this.props.history} />
       </li>
     );
   }

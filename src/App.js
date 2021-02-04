@@ -34,6 +34,11 @@ class App extends Component {
         sites: [...this.state.sites, newSite],
       });
     },
+    addToSite: (newSiteResource) => {
+      this.setState({
+        sites: [...this.state.sites, newSiteResource],
+      });
+    },
 
     // PRODUCTS
     addProduct: (newProduct) => {
