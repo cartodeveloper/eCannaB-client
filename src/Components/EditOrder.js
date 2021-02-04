@@ -67,44 +67,43 @@ class EditOrder extends Component {
           className="edit_order"
           aria-label="edit_order"
         >
-          {error && <p className="order_id">{error}</p>}
+          {error && <p className="id">{error}</p>}
           <fieldset>
             <legend>Order Details</legend>
-            <div className="order_id">
+            <div className="id">
               <label htmlFor="id" aria-label="id">
                 <h3>Order Id: </h3>
               </label>
               <input
-                type="order_id"
-                id="order_id"
-                name="order_id"
+                type="id"
+                id="number"
+                name="id"
                 value={newOrder.id || ""}
                 onChange={(e) => this.handleChange(e)}
                 required
               />
             </div>
-            <div className="order_c_name">
-              <label htmlFor="order_c_name" aria-label="order_c_name">
+            <div className="customer_name">
+              <label htmlFor="customer_name" aria-label="customer_name">
                 <h3>Order Name: *</h3>
               </label>
               <input
                 type="text"
-                id="order_c_name"
-                name="order_c_name"
+                id="customer_name"
+                name="customer_name"
                 value={newOrder.customer_name || ""}
                 onChange={(e) => this.handleChange(e)}
                 required
               />
             </div>
             <div className="">
-              <label htmlFor="c_total" aria-label="c_total">
+              <label htmlFor="total" aria-label="total">
                 <h3>Total Paid: *</h3>
               </label>
               <input
-                placeholder="$160.00"
                 type="number"
-                id="c_total"
-                name="c_total"
+                id="total"
+                name="total"
                 value={newOrder.total || ""}
                 onChange={(e) => this.handleChange(e)}
                 required
@@ -115,11 +114,23 @@ class EditOrder extends Component {
                 <h3>Quantity: *</h3>
               </label>
               <input
-                placeholder="300"
                 type="number"
                 id="quantity"
                 name="quantity"
                 value={newOrder.quantity || ""}
+                onChange={(e) => this.handleChange(e)}
+                required
+              />
+            </div>
+            <div className="">
+              <label htmlFor="status" aria-label="status">
+                <h3>Status: *</h3>
+              </label>
+              <input
+                type="text"
+                id="status"
+                name="status"
+                value={newOrder.status || ""}
                 onChange={(e) => this.handleChange(e)}
                 required
               />
