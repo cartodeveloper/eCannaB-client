@@ -67,6 +67,19 @@ class CreateProduct extends Component {
             <legend>Product Details</legend>
             <div className="title">
               <label htmlFor="title" aria-label="title">
+                <h3>Brand: *</h3>
+              </label>
+              <input
+                placeholder="MOMENTUM 10X"
+                type="text"
+                id="brand"
+                name="brand"
+                onChange={(e) => this.handleChange(e)}
+                required
+              />
+            </div>
+            <div className="title">
+              <label htmlFor="title" aria-label="title">
                 <h3>Title: *</h3>
               </label>
               <input

@@ -30,7 +30,7 @@ export default class Product extends Component {
             <button type="click">
               <Link to={`/editproduct/${id}`}>Edit</Link>
             </button>
-            <DeleteProduct key={Product} id={id} history={this.props.history} />
+            <DeleteProduct id={id} history={this.props.history} />
           </div>
         </div>
       </li>

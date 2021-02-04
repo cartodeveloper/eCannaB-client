@@ -21,7 +21,7 @@ export default class Order extends Component {
         <td>{status}</td>
         <td>
           <Link to={`/editorder/${id}`}>Edit</Link>
-          <DeleteOrder key={Order} id={id} history={this.props.history} />
+          <DeleteOrder id={id} history={this.props.history} />
         </td>
       </tr>
     );

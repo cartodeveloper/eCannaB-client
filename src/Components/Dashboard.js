@@ -12,7 +12,7 @@ class Dashboard extends Component {
   render() {
     let { orders = [] } = this.context;
     let { resources = [] } = this.context;
-    console.log(resources);
+
     return (
       <section className="dashboard">
         <h1>DASHBOARD</h1>
