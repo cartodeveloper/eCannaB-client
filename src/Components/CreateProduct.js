@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Context from "../Context";
+import { v4 as uuidv4 } from "uuid";
 
 class CreateProduct extends Component {
   static contextType = Context;
@@ -10,7 +11,11 @@ class CreateProduct extends Component {
 
   handleChange(e) {
     this.setState({
-      newSite: { ...this.state.newProduct, [e.target.name]: e.target.value },
+      newProduct: {
+        ...this.state.newProduct,
+        [e.target.name]: e.target.value,
+        id: uuidv4(),
+      },
     });
   }
   handleClickCancel = () => {
