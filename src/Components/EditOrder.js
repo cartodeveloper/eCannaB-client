@@ -110,6 +110,20 @@ class EditOrder extends Component {
                 required
               />
             </div>
+            <div className="">
+              <label htmlFor="quantity" aria-label="quantity">
+                <h3>Quantity: *</h3>
+              </label>
+              <input
+                placeholder="300"
+                type="number"
+                id="quantity"
+                name="quantity"
+                value={newOrder.quantity || ""}
+                onChange={(e) => this.handleChange(e)}
+                required
+              />
+            </div>
             <section className="buttons-form">
               <button type="submit" onClick={this.handleClickCancel}>
                 Cancel
@@ -120,7 +134,7 @@ class EditOrder extends Component {
         </form>
       </section>
     ) : (
-      <h2>Loading Product...</h2>
+      <h2>Loading Order...</h2>
     );
   }
 }

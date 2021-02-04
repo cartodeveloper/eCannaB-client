@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 
 /*TokenService.hasAuthToken() ? (
-    <Redirect to="/dashboard" />
+    <Redirect to="/home" />
   ) :*/
 
-function LandingPage() {
+function LandingSite() {
   return (
-    <div className="landing-page">
+    <div className="landing_site">
       <section>
-        <h2>LandingPage</h2>
+        <h2>Landing Page for Seller Site</h2>
       </section>
     </div>
   );
 }
 
-export default LandingPage;
+export default LandingSite;

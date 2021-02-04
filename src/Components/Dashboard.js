@@ -17,7 +17,6 @@ class Dashboard extends Component {
         <section className="flex">
           <div className="group">
             <h2>RESOURCES</h2>
-
             {resources.map((resource) => (
               <Resource key={resource.id} {...resource} {...this.props} />
             ))}

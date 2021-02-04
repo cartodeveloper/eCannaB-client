@@ -4,6 +4,7 @@ import Product from "./Product";
 
 class ProductList extends Component {
   static contextType = Context;
+  state = {};
 
   render() {
     let { products = [] } = this.context;

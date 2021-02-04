@@ -13,6 +13,8 @@ import EditProduct from "./Components/EditProduct";
 import EditOrder from "./Components/EditOrder";
 import data from "./data";
 import Context from "./Context";
+import LandingSite from "./Components/LandingSite";
+import HeaderSite from "./Components/HeaderSite";
 
 class App extends Component {
   state = {
@@ -74,11 +76,12 @@ class App extends Component {
     return (
       <Context.Provider value={this.state}>
         <div className="app">
-          <Route path="/" component={Header} />
-          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/" component={Header} />
+          <Route exact path="/subdomain" component={HeaderSite} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <main className="main">
+            <Route exact path="/" component={LandingPage} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/addsite" component={CreateSite} />
             <Route path="/addproduct" component={CreateProduct} />
@@ -86,6 +89,7 @@ class App extends Component {
             <Route path="/editproduct/:id" component={EditProduct} />
             <Route path="/product/:id" component={Product} />
             <Route path="/products" component={ProductList} />
+            <Route exact path="/landingsite" component={LandingSite} />
           </main>
         </div>
       </Context.Provider>
