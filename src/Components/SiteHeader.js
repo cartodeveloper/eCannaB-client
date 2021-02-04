@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Context from "../Context";
 import "../App.css";
 
-export default class Header extends React.Component {
+export default class SiteHeader extends React.Component {
   static contextType = Context;
 
   state = {
@@ -33,7 +33,7 @@ export default class Header extends React.Component {
               <Link to="/cart">
                 <li>Cart</li>
               </Link>
-              <Link to="/products">
+              <Link to="/siteproducts">
                 <li>Products</li>
               </Link>
               <Link to="/resources">

@@ -6,7 +6,7 @@ import { Redirect } from "react-router-dom";
     <Redirect to="/home" />
   ) :*/
 
-function LandingSite() {
+function SiteLanding() {
   return (
     <div className="landing_site">
       <section>
@@ -16,4 +16,4 @@ function LandingSite() {
   );
 }
 
-export default LandingSite;
+export default SiteLanding;

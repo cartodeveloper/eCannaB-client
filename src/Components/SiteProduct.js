@@ -6,21 +6,18 @@ export default class SiteProduct extends Component {
   static contextType = Context;
 
   render() {
-    const {
-      id,
-      title,
-      p_image,
-      price,
-      inStock,
-      brand,
-      p_description,
-    } = this.props;
+    const { id, title, p_image, price, inStock, brand, p_description } = this
+      .props.id
+      ? this.props
+      : this.context.products.find(
+          (p) => p.id === Number(this.props.match.params.id)
+        );
 
     return (
       <li className="product" key={id}>
         <div className="card">
           <div className="group">
-            <Link to={`/product/${id}`}>
+            <Link to={`/siteproduct/${id}`}>
               <img src={p_image} alt="product" />
             </Link>
           </div>
@@ -28,9 +25,10 @@ export default class SiteProduct extends Component {
             <h2>{title}</h2>
             <p>Price: {price}</p>
             <p>Brand: {brand}</p>
-            <p>in Stock: {inStock}</p>
+            <p>Available: {inStock}</p>
             <p>Product Description: {p_description}</p>
           </div>
+          <button>Add to Cart</button>
         </div>
       </li>
     );

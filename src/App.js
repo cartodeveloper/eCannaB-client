@@ -13,9 +13,10 @@ import EditProduct from "./Components/EditProduct";
 import EditOrder from "./Components/EditOrder";
 import data from "./data";
 import Context from "./Context";
-import LandingSite from "./Components/LandingSite";
-import HeaderSite from "./Components/HeaderSite";
+import SiteLanding from "./Components/SiteLanding";
+import SiteHeader from "./Components/SiteHeader";
 import AddResource from "./Components/AddResource";
+import SiteProduct from "./Components/SiteProduct";
 
 class App extends Component {
   state = {
@@ -90,7 +91,7 @@ class App extends Component {
       <Context.Provider value={this.state}>
         <div className="app">
           <Route path="/" component={Header} />
-          <Route exact path="/subdomain" component={HeaderSite} />
+          <Route exact path="/subdomain" component={SiteHeader} />
           <main className="main">
             <Route exact path="/" component={LandingPage} />
             <Route path="/signup" component={Signup} />
@@ -102,8 +103,9 @@ class App extends Component {
             <Route path="/editorder/:id" component={EditOrder} />
             <Route path="/editproduct/:id" component={EditProduct} />
             <Route path="/product/:id" component={Product} />
-            <Route path="/products" component={ProductList} />
-            <Route exact path="/landingsite" component={LandingSite} />
+            <Route exact path="/sitelanding" component={SiteLanding} />
+            <Route path="/siteproduct/:id" component={SiteProduct} />
+            <Route path="/siteproducts" component={SiteProduct} />
           </main>
         </div>
       </Context.Provider>
