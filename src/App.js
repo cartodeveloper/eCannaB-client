@@ -5,7 +5,6 @@ import Login from "./Components/Login";
 import Signup from "./Components/Singup";
 import Dashboard from "./Components/Dashboard";
 import Product from "./Components/Product";
-import ProductList from "./Components/Product";
 import LandingPage from "./Components/LandingPage";
 import CreateSite from "./Components/CreateSite";
 import CreateProduct from "./Components/CreateProduct";
@@ -13,6 +12,8 @@ import EditProduct from "./Components/EditProduct";
 import EditOrder from "./Components/EditOrder";
 import data from "./data";
 import Context from "./Context";
+import SiteLogin from "./Components/SiteLogin";
+import SiteSignup from "./Components/SiteSignup";
 import SiteLanding from "./Components/SiteLanding";
 import SiteHeader from "./Components/SiteHeader";
 import AddResource from "./Components/AddResource";
@@ -104,6 +105,8 @@ class App extends Component {
             <Route path="/editproduct/:id" component={EditProduct} />
             <Route path="/product/:id" component={Product} />
             <Route exact path="/sitelanding" component={SiteLanding} />
+            <Route path="/sitesignup" component={SiteSignup} />
+            <Route path="/sitelogin" component={SiteLogin} />
             <Route path="/siteproduct/:id" component={SiteProduct} />
             <Route path="/siteproducts" component={SiteProduct} />
           </main>
