@@ -5,18 +5,23 @@ import { Link } from "react-router-dom";
 import Context from "../Context";
 import Order from "./Order";
 import Resource from "./Resource";
+import Product from "./Product";
 
 class Dashboard extends Component {
   static contextType = Context;
   render() {
     let { orders = [] } = this.context;
     let { resources = [] } = this.context;
+    console.log(resources);
     return (
       <section className="dashboard">
         <h1>DASHBOARD</h1>
         <section className="flex">
           <div className="group">
-            <h2>RESOURCES</h2>
+            <h2>ALL RESOURCES</h2>
+            <button type="click">
+              <Link to="/addresource">Add Resource</Link>
+            </button>
             {resources.map((resource) => (
               <Resource key={resource.id} {...resource} {...this.props} />
             ))}

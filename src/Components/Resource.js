@@ -5,15 +5,14 @@ import Context from "../Context";
 export default class Resource extends Component {
   static contextType = Context;
   render() {
-    const { id, link } = this.props;
+    const { link } = this.props;
     return (
-      <section className="resource">
-        {id}
+      <li className="resource">
         <a href={link} target="_blank" rel="noreferrer">
           Resource
         </a>
         <button>Add to my site</button>
-      </section>
+      </li>
     );
   }
 }

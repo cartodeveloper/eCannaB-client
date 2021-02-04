@@ -15,12 +15,14 @@ import data from "./data";
 import Context from "./Context";
 import LandingSite from "./Components/LandingSite";
 import HeaderSite from "./Components/HeaderSite";
+import AddResource from "./Components/AddResource";
 
 class App extends Component {
   state = {
     orders: data.ORDERS,
     products: data.PRODUCTS,
     resources: data.RESOURCES,
+    cart: [],
     sites: data.SITES,
     error: null,
 
@@ -52,6 +54,12 @@ class App extends Component {
         products: this.state.products.filter((p) => p.id !== id),
       });
     },
+    // CART
+    addToCart: (product) => {
+      this.setState({
+        cart: [...this.state.cart, product],
+      });
+    },
     // ORDERS
     updateOrder: (newOrder, id) => {
       this.setState({
@@ -70,20 +78,26 @@ class App extends Component {
     },
 
     // RESOURCES
+    addResource: (newResource) => {
+      this.setState({
+        resources: [...this.state.resources, newResource],
+      });
+    },
   };
 
   render() {
     return (
       <Context.Provider value={this.state}>
         <div className="app">
-          <Route exact path="/" component={Header} />
+          <Route path="/" component={Header} />
           <Route exact path="/subdomain" component={HeaderSite} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/login" component={Login} />
           <main className="main">
             <Route exact path="/" component={LandingPage} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/addsite" component={CreateSite} />
+            <Route path="/addresource" component={AddResource} />
             <Route path="/addproduct" component={CreateProduct} />
             <Route path="/editorder/:id" component={EditOrder} />
             <Route path="/editproduct/:id" component={EditProduct} />
