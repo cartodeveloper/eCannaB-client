@@ -60,67 +60,67 @@ class CreateSite extends Component {
           {error && <p className="error">{error}</p>}
           <fieldset>
             <legend>Your Site</legend>
-            <div className="site-name">
-              <label htmlFor="site-name" aria-label="site-name">
+            <div className="brand">
+              <label htmlFor="brand" aria-label="brand">
                 <h3>Site/Brand Name: *</h3>
               </label>
               <input
                 placeholder="eg. Momentum 10X"
                 type="text"
-                id="site-name"
-                name="site-name"
+                id="brand"
+                name="brand"
                 onChange={(e) => this.handleChange(e)}
                 required
               />
             </div>
-            <div className="site-subdomain">
-              <label htmlFor="site-subdomain" aria-label="site-subdomain">
+            <div className="subdomain">
+              <label htmlFor="subdomain" aria-label="subdomain">
                 <h3>Subdomain: *</h3>
               </label>
               <input
                 placeholder="eg. /momentum10x"
                 type="text"
-                id="site-subdomain"
-                name="site-subdomain"
+                id="subdomain"
+                name="subdomain"
                 onChange={(e) => this.handleChange(e)}
                 required
               />
             </div>
-            <div className="site-logo">
-              <label htmlFor="site-logo" aria-label="site-logo">
+            <div className="logo">
+              <label htmlFor="logo" aria-label="logo">
                 <h3>Logo: *</h3>
                 <p>Please provide an image url</p>
               </label>
               <input
                 placeholder="https://..."
                 type="url"
-                id="site-logo"
-                name="site-logo"
+                id="logo"
+                name="logo"
                 onChange={(e) => this.handleChange(e)}
                 required
               />
             </div>
-            <div className="site-logo">
-              <label htmlFor="site-logo" aria-label="site-logo">
-                <h3>Banner Image: *</h3>
+            <div className="banner">
+              <label htmlFor="banner" aria-label="banner">
+                <h3>Banner Image: </h3>
                 <p>Please provide an image url</p>
               </label>
               <input
                 placeholder="https://..."
                 type="url"
-                id="site-banner"
-                name="site-banner"
+                id="banner"
+                name="banner"
                 onChange={(e) => this.handleChange(e)}
               />
             </div>
-            <h3>Description:</h3>
+            <h3>Description: *</h3>
             <p>
               In a paragraph, explain what your brand is about and what
               differentiates it from the others.
             </p>
             <textarea
-              id="site-description"
-              name="site-description"
+              id="seller_description"
+              name="seller_description"
               rows="5"
               cols="50"
               onChange={(e) => this.handleChange(e)}

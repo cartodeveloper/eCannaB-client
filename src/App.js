@@ -19,6 +19,7 @@ import SiteHeader from "./Components/SiteHeader";
 import AddResource from "./Components/AddResource";
 import SiteProduct from "./Components/SiteProduct";
 import SiteProductList from "./Components/SiteProductList";
+import SiteHome from "./Components/SiteHome";
 
 class App extends Component {
   state = {
@@ -108,9 +109,11 @@ class App extends Component {
           <Route path="/" component={Header} />
           <Route exact path="/subdomain" component={SiteHeader} />
           <main className="main">
+            {/*eCannaB Public Routes*/}
             <Route exact path="/" component={LandingPage} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
+            {/*Private routes for eCannaB user= Seller*/}
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/addsite" component={CreateSite} />
             <Route path="/addresource" component={AddResource} />
@@ -118,9 +121,12 @@ class App extends Component {
             <Route path="/editorder/:id" component={EditOrder} />
             <Route path="/editproduct/:id" component={EditProduct} />
             <Route path="/product/:id" component={Product} />
+            {/*Seller Public Site Routes*/}
             <Route exact path="/sitelanding" component={SiteLanding} />
+            <Route path="/subdomain" component={SiteHome} />
             <Route path="/sitesignup" component={SiteSignup} />
             <Route path="/sitelogin" component={SiteLogin} />
+            {/*Private routes for seller's customer*/}
             <Route path="/siteproduct/:id" component={SiteProduct} />
             <Route path="/siteproducts" component={SiteProductList} />
           </main>
