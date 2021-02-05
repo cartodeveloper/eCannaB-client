@@ -38,13 +38,13 @@ class CreateSite extends Component {
       })
       .then((newSite) => {
         e.target.reset();
-        this.context.addSite(newSite);
-        this.props.history.push("/site/subdomain");
       })
       .catch((e) => {
         this.setState({ error: e.message });
       });
       */
+    this.context.addSite(this.state.newSite);
+    this.props.history.push("/subdomain");
   };
   render() {
     const { error } = this.state;
@@ -52,7 +52,11 @@ class CreateSite extends Component {
       <section className="create-site">
         <h2>Fill out the form to create your site</h2>
         <p>All fields with * are required</p>
-        <form className="site-form" aria-label="create-site">
+        <form
+          onSubmit={this.handleSubmit}
+          className="site-form"
+          aria-label="create-site"
+        >
           {error && <p className="error">{error}</p>}
           <fieldset>
             <legend>Your Site</legend>

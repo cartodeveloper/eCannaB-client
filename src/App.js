@@ -64,9 +64,16 @@ class App extends Component {
       });
     },
     // CART
-    addToCart: (product) => {
+    addToCart: (p_Cart, id) => {
       this.setState({
-        cart: [...this.state.cart, product],
+        cart: [
+          ...this.state.products.map((product) => {
+            if (product.id === id) {
+              return p_Cart;
+            }
+            return "Sorry there are no items in the cart";
+          }),
+        ],
       });
     },
     // ORDERS

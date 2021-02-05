@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Context from "../Context";
-import { v4 as uuidv4 } from "uuid";
+import AddToCart from "./AddToCart";
 
 export default class SiteProduct extends Component {
   static contextType = Context;
+  handleClickCancel = () => {
+    this.props.history.push("/dashboard");
+  };
 
   render() {
     const { id, title, p_image, price, inStock, brand, p_description } = this
@@ -14,7 +17,6 @@ export default class SiteProduct extends Component {
           (p) => p.id === Number(this.props.match.params.id)
         );
 
-    console.log(id);
     return (
       <li className="product" key={id}>
         <div className="card">
@@ -29,8 +31,8 @@ export default class SiteProduct extends Component {
             <p>Brand: {brand}</p>
             <p>Available: {inStock}</p>
             <p>Product Description: {p_description}</p>
+            <AddToCart {...this.props} />
           </div>
-          <button>Add to Cart</button>
         </div>
       </li>
     );

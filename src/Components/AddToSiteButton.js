@@ -3,18 +3,18 @@ import Context from "../Context";
 
 export default class AddToSiteButton extends Component {
   static contextType = Context;
-  static contextType = Context;
   state = {
     error: null,
     newSiteResource: {},
   };
   handleAdd(e) {
+    e.preventDefault();
     this.setState({
       newSiteResource: {
         ...this.state.newSiteResource,
       },
     });
-    this.context.addResource(this.state.newResource);
+    this.context.addToSite(this.state.newSiteResource);
     this.props.history.push("/resources");
   }
 

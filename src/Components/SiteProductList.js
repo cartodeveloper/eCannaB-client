@@ -9,11 +9,14 @@ class SiteProductList extends Component {
   render() {
     let { products = [] } = this.context;
     return (
-      <ul className="flex" aria-live="polite">
-        {products.map((p) => (
-          <SiteProduct key={p.id} {...p} {...this.props} />
-        ))}
-      </ul>
+      <section>
+        <h2>PRODUCTS AVAILABLE</h2>
+        <ul className="flex" aria-live="polite">
+          {products.map((p) => (
+            <SiteProduct key={p.id} {...p} {...this.props} />
+          ))}
+        </ul>
+      </section>
     );
   }
 }
