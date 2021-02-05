@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Context from "../Context";
+import { v4 as uuidv4 } from "uuid";
 
 export default class SiteProduct extends Component {
   static contextType = Context;
@@ -13,6 +14,7 @@ export default class SiteProduct extends Component {
           (p) => p.id === Number(this.props.match.params.id)
         );
 
+    console.log(id);
     return (
       <li className="product" key={id}>
         <div className="card">

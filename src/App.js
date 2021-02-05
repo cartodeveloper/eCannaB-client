@@ -18,6 +18,7 @@ import SiteLanding from "./Components/SiteLanding";
 import SiteHeader from "./Components/SiteHeader";
 import AddResource from "./Components/AddResource";
 import SiteProduct from "./Components/SiteProduct";
+import SiteProductList from "./Components/SiteProductList";
 
 class App extends Component {
   state = {
@@ -26,6 +27,7 @@ class App extends Component {
     resources: data.RESOURCES,
     cart: [],
     sites: data.SITES,
+    siteProducts: data.SITEPRODUCTS,
     error: null,
 
     // SITES
@@ -113,7 +115,7 @@ class App extends Component {
             <Route path="/sitesignup" component={SiteSignup} />
             <Route path="/sitelogin" component={SiteLogin} />
             <Route path="/siteproduct/:id" component={SiteProduct} />
-            <Route path="/siteproducts" component={SiteProduct} />
+            <Route path="/siteproducts" component={SiteProductList} />
           </main>
         </div>
       </Context.Provider>

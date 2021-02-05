@@ -3,6 +3,7 @@ import Context from "../Context";
 
 class SiteHome extends Component {
   static contextType = Context;
+
   render() {
     return (
       <section className="site_home">

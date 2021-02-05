@@ -10,8 +10,8 @@ class SiteProductList extends Component {
     let { products = [] } = this.context;
     return (
       <ul className="flex" aria-live="polite">
-        {products.map((product) => (
-          <SiteProduct key={product.id} {...product} {...this.props} />
+        {products.map((p) => (
+          <SiteProduct key={p.id} {...p} {...this.props} />
         ))}
       </ul>
     );

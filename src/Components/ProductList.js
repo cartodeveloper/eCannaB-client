@@ -4,10 +4,10 @@ import Product from "./Product";
 
 class ProductList extends Component {
   static contextType = Context;
-  state = {};
 
   render() {
     let { products = [] } = this.context;
+
     return (
       <ul className="flex" aria-live="polite">
         {products.map((product) => (
