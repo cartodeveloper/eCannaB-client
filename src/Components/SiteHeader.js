@@ -22,7 +22,7 @@ export default class SiteHeader extends React.Component {
           </h1>
         </section>
         <section className="user">
-          <Link to="/login">Login</Link>
+          <Link to="/sitelogin">Login</Link>
         </section>
         <nav onClick={() => this.setState({ opened: !this.state.opened })}>
           <div className="nav-icon">

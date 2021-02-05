@@ -33,7 +33,7 @@ export default class Header extends React.Component {
               <Link to="/addsite">
                 <li>+ Site</li>
               </Link>
-              <Link to="/site/tjcbd">
+              <Link to="/subdomain">
                 <li>My Site</li>
               </Link>
             </ul>

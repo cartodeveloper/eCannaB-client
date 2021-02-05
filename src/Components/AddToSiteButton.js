@@ -8,18 +8,15 @@ export default class AddToSiteButton extends Component {
     error: null,
     newSiteResource: {},
   };
-  handleChange(e) {
+  handleAdd(e) {
     this.setState({
       newSiteResource: {
         ...this.state.newSiteResource,
       },
     });
-  }
-
-  handleAdd = () => {
     this.context.addResource(this.state.newResource);
     this.props.history.push("/resources");
-  };
+  }
 
   render() {
     return (
