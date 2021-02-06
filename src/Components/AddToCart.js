@@ -44,7 +44,7 @@ class AddToCart extends Component {
       <button
         type="button"
         name="addToCart"
-        onClick={(e) => this.handleSubmit(e)}
+        onSubmit={(e) => this.handleSubmit(e)}
       >
         Add To Cart
       </button>

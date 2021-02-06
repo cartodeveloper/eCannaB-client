@@ -8,6 +8,7 @@ const data = {
       seller_description:
         "We're a brand commited with the health and overall wellness!",
       subdomain: "momentum10x",
+      resources: [],
     },
     {
       id: 2,
@@ -17,6 +18,7 @@ const data = {
       seller_description:
         "Spero uses non-GMO, organically-produced hemp harvested only from – farmsright here in the U.S. of A for sustain nably-made products you can trust.",
       subdomain: "sperocbd",
+      resources: [],
     },
     {
       id: 3,
@@ -26,6 +28,7 @@ const data = {
       seller_description:
         "XTEND5 uses non-GMO, organically-produced hemp harvested only from – farmsright here in the U.S. of A for sustain nably-made products you can trust.",
       subdomain: "XTEND5",
+      resources: [],
     },
   ],
   RESOURCES: [
@@ -33,21 +36,25 @@ const data = {
       id: 1,
       link:
         "https://cdn.shopify.com/s/files/1/0229/1770/9860/files/MOMENTUM_10X_English.pdf?v=1583794815",
+      name: "Why CBD is great",
     },
     {
       id: 2,
       link:
         "https://cdn.shopify.com/s/files/1/0229/1770/9860/files/MOMENTUM_10X_English.pdf?v=1583794815",
+      name: "Why CBD cures cancer",
     },
     {
       id: 3,
       link:
         "https://cdn.shopify.com/s/files/1/0229/1770/9860/files/MOMENTUM_10X_English.pdf?v=1583794815",
+      name: "Why CBD tastes awful",
     },
     {
       id: 4,
       link:
         "https://cdn.shopify.com/s/files/1/0229/1770/9860/files/MOMENTUM_10X_English.pdf?v=1583794815",
+      name: "Why CBD smells",
     },
   ],
   PRODUCTS: [

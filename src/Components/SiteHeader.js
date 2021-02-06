@@ -11,13 +11,16 @@ export default class SiteHeader extends React.Component {
   };
 
   render() {
-    const { logo } = this.props;
+    const s =
+      this.context.sites.find(
+        (site) => site.subdomain === this.props.match.params.subdomain
+      ) || {};
     return (
       <header>
         <section className="logo">
           <h1>
             <Link to="/subdomain">
-              <img src={logo} alt="seller_logo" />
+              <img src={s.logo} alt="seller_logo" />
             </Link>
           </h1>
         </section>

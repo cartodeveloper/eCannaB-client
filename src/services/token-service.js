@@ -15,3 +15,6 @@ export default {
   },
 };
  */
+
+// TOKEN_KEY = ecannab_token
+// SITE_TOKEN_KEY = ecannab_subdomain_token

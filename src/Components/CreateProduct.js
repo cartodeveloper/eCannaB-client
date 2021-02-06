@@ -14,7 +14,7 @@ class CreateProduct extends Component {
       newProduct: {
         ...this.state.newProduct,
         [e.target.name]: e.target.value,
-        id: uuidv4(),
+        id: this.context.products.length + 1,
       },
     });
   }

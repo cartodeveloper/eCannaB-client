@@ -4,7 +4,6 @@ import ProductList from "./ProductList";
 import { Link } from "react-router-dom";
 import Context from "../Context";
 import Order from "./Order";
-import Resource from "./Resource";
 
 class Dashboard extends Component {
   static contextType = Context;
@@ -22,7 +21,19 @@ class Dashboard extends Component {
               <Link to="/addresource">Add Resource</Link>
             </button>
             {resources.map((resource) => (
-              <Resource key={resource.id} {...resource} {...this.props} />
+              <li>
+                <Link to={resource.link}>{resource.name}</Link>
+                <button
+                  onClick={() =>
+                    this.context.addResourceToSite(
+                      this.context.siteID,
+                      resource.id
+                    )
+                  }
+                >
+                  Add to Site
+                </button>
+              </li>
             ))}
           </div>
           <div className="group">
