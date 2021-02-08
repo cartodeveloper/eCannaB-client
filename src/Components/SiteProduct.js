@@ -21,7 +21,7 @@ export default class SiteProduct extends Component {
       <li className="product" key={id}>
         <div className="card">
           <div className="group">
-            <Link to={`/siteproduct/${id}`}>
+            <Link to={`/s/:subdomain/product/${id}`}>
               <img src={p_image} alt="product" />
             </Link>
           </div>

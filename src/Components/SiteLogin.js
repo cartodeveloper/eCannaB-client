@@ -68,7 +68,8 @@ export default class SiteLogin extends Component {
               Login
             </button>
             <div>
-              New customer? <Link to="/sitesignup">Create your account</Link>
+              New customer?{" "}
+              <Link to="/s/:subdomain/signup">Create your account</Link>
             </div>
           </fieldset>
         </form>

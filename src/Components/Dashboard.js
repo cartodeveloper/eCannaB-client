@@ -21,7 +21,7 @@ class Dashboard extends Component {
               <Link to="/addresource">Add Resource</Link>
             </button>
             {resources.map((resource) => (
-              <li>
+              <li key={resource.id}>
                 <Link to={resource.link}>{resource.name}</Link>
                 <button
                   onClick={() =>

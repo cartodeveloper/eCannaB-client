@@ -19,13 +19,13 @@ export default class SiteHeader extends React.Component {
       <header>
         <section className="logo">
           <h1>
-            <Link to="/subdomain">
+            <Link to="/s/:subdomain">
               <img src={s.logo} alt="seller_logo" />
             </Link>
           </h1>
         </section>
         <section className="user">
-          <Link to="/sitelogin">Login</Link>
+          <Link to="/s/:subdomain/login">Login</Link>
         </section>
         <nav onClick={() => this.setState({ opened: !this.state.opened })}>
           <div className="nav-icon">
@@ -33,13 +33,10 @@ export default class SiteHeader extends React.Component {
           </div>
           {this.state.opened && (
             <ul id="menu">
-              <Link to="/cart">
+              <Link to="/s/:subdomain/cart">
                 <li>Cart</li>
               </Link>
-              <Link to="/siteproducts">
-                <li>Products</li>
-              </Link>
-              <Link to="/resources">
+              <Link to="/s/:subdomain/resources">
                 <li>Resources</li>
               </Link>
             </ul>

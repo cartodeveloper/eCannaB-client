@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Context from "../Context";
-import { v4 as uuidv4 } from "uuid";
 
 export default class AddResource extends Component {
   static contextType = Context;
@@ -13,8 +12,8 @@ export default class AddResource extends Component {
     this.setState({
       newResource: {
         ...this.state.newResource,
-        link: e.target.value,
-        id: uuidv4(),
+        [e.target.name]: e.target.value,
+        id: this.context.products.length + 1,
       },
     });
   }
@@ -63,15 +62,28 @@ export default class AddResource extends Component {
           {error && <p className="error">{error}</p>}
           <fieldset>
             <legend>Add Resource</legend>
-            <div className="resource">
-              <label htmlFor="resource" aria-label="resource">
+            <div className="name">
+              <label htmlFor="name" aria-label="name">
+                <h3>Resource Name: *</h3>
+              </label>
+              <input
+                placeholder="eg. Why Nano CBD?"
+                type="text"
+                id="name"
+                name="name"
+                onChange={(e) => this.handleChange(e)}
+                required
+              />
+            </div>
+            <div className="link">
+              <label htmlFor="link" aria-label="link">
                 <h3>Resource Link: *</h3>
               </label>
               <input
                 placeholder="https://..."
                 type="url"
-                id="resource"
-                name="resource"
+                id="link"
+                name="link"
                 onChange={(e) => this.handleChange(e)}
                 required
               />

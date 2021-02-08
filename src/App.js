@@ -18,7 +18,6 @@ import SiteHeader from "./Components/SiteHeader";
 import AddResource from "./Components/AddResource";
 import SiteProduct from "./Components/SiteProduct";
 import SiteProductList from "./Components/SiteProductList";
-import SiteHome from "./Components/SiteHome";
 
 class App extends Component {
   state = {
@@ -72,9 +71,9 @@ class App extends Component {
       });
     },
     // CART
-    addToCart: (pid, qty) => {
+    addToCart: (pid) => {
       this.setState({
-        cart: [...this.state.cart, { pid, qty }],
+        cart: [...this.state.cart, { pid }],
       });
     },
     // ORDERS
@@ -107,6 +106,7 @@ class App extends Component {
       <Context.Provider value={this.state}>
         <div className="app">
           <Route
+            exact
             path={[
               "/",
               "/signup",
@@ -115,7 +115,8 @@ class App extends Component {
               "/addsite",
               "/editorder",
               "/editproduct",
-              "/product",
+              "/addresource",
+              "/product/:id",
             ]}
             component={Header}
           />
@@ -135,10 +136,10 @@ class App extends Component {
             <Route path="/product/:id" component={Product} />
             {/*Seller Public Site Routes*/}
             <Route path="/s/:subdomain/" component={SiteProductList} />
-            <Route path="/s/:subdomain/signup" component={SiteSignup} />
+            <Route exact path="/s/:subdomain/signup" component={SiteSignup} />
             <Route path="/s/:subdomain/login" component={SiteLogin} />
             <Route path="/s/:subdomain/product/:id" component={SiteProduct} />
-            <Route path="/s/:subdomain/resources" component={SiteProductList} />
+            <Route path="/s/:subdomain/products" component={SiteProductList} />
             {/*Private routes for seller's customer*/}
           </main>
         </div>
