@@ -110,14 +110,14 @@ class EditOrder extends Component {
               />
             </div>
             <div className="">
-              <label htmlFor="quantity" aria-label="quantity">
-                <h3>Quantity: *</h3>
+              <label htmlFor="p_title" aria-label="p_title">
+                <h3>Product Title: *</h3>
               </label>
               <input
-                type="number"
-                id="quantity"
-                name="quantity"
-                value={newOrder.quantity || ""}
+                type="text"
+                id="p_title"
+                name="p_title"
+                value={newOrder.status || ""}
                 onChange={(e) => this.handleChange(e)}
                 required
               />

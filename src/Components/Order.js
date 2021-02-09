@@ -6,7 +6,7 @@ import Context from "../Context";
 export default class Order extends Component {
   static contextType = Context;
   render() {
-    const { id, customer_name, date, total, quantity, status } = this.props.id
+    const { id, customer_name, date, total, p_title, status } = this.props.id
       ? this.props
       : this.context.products.find(
           (p) => p.id === Number(this.props.match.params.id)
@@ -17,7 +17,7 @@ export default class Order extends Component {
         <td>{customer_name}</td>
         <td>{date}</td>
         <td>{total}</td>
-        <td>{quantity}</td>
+        <td>{p_title}</td>
         <td>{status}</td>
         <td>
           <Link to={`/editorder/${id}`}>Edit</Link>

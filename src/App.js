@@ -27,7 +27,6 @@ class App extends Component {
     cart: [],
     siteID: 1,
     sites: data.SITES,
-    siteProducts: data.SITEPRODUCTS,
     error: null,
 
     // SITES
@@ -115,6 +114,7 @@ class App extends Component {
               "/addsite",
               "/editorder",
               "/editproduct",
+              "/addproduct",
               "/addresource",
               "/product/:id",
             ]}
@@ -140,7 +140,7 @@ class App extends Component {
             <Route path="/s/:subdomain/login" component={SiteLogin} />
             <Route path="/s/:subdomain/product/:id" component={SiteProduct} />
             <Route path="/s/:subdomain/products" component={SiteProductList} />
-            {/*Private routes for seller's customer*/}
+            {/*Private routes for seller's customer = JUST the cart and checkout*/}
           </main>
         </div>
       </Context.Provider>
