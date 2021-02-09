@@ -117,7 +117,7 @@ class EditOrder extends Component {
                 type="text"
                 id="p_title"
                 name="p_title"
-                value={newOrder.status || ""}
+                value={newOrder.p_title || ""}
                 onChange={(e) => this.handleChange(e)}
                 required
               />
