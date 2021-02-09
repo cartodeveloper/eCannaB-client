@@ -1,13 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import TokenService from "../services/token-service";
 import { Redirect } from "react-router-dom";
 
-/*TokenService.hasAuthToken() ? (
-    <Redirect to="/dashboard" />
-  ) :*/
-
 function LandingPage() {
-  return (
+  return TokenService.hasAuthToken() ? (
+    <Redirect to="/dashboard" />
+  ) : (
     <div className="landing-page">
       <section>
         <h2>LandingPage</h2>

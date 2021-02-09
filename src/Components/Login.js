@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Context from "../Context";
 import AuthAPIService from "../services/auth-api-service";
 import TokenService from "../services/token-service";
 
 export default class Login extends Component {
+  static contextType = Context;
   state = {
     error: null,
   };
@@ -16,7 +18,8 @@ export default class Login extends Component {
     AuthAPIService.loginUser(user)
       .then((loginResponse) => {
         TokenService.saveAuthToken(loginResponse.authToken);
-        this.props.history.push("/home");
+
+        this.props.history.push("/dashboard");
       })
       .catch((res) => {
         this.setState({ error: res.error });
@@ -59,7 +62,6 @@ export default class Login extends Component {
                   type="password"
                   placeholder="password"
                   name="password"
-                  onChange={(e) => console.log(e)}
                 />
               </div>
             </div>

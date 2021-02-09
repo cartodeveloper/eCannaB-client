@@ -1,10 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import TokenService from "../services/token-service";
 import Context from "../Context";
 import "../App.css";
 
 export default class SiteHeader extends React.Component {
   static contextType = Context;
+  logout = (e) => {
+    e.preventDefault();
+    TokenService.clearAuthToken();
+    this.context.logout();
+    this.props.history.push("/");
+  };
 
   state = {
     opened: false,

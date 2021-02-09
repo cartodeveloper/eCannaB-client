@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Context from "../Context";
-import { v4 as uuidv4 } from "uuid";
 
 class CreateProduct extends Component {
   static contextType = Context;
