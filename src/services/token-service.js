@@ -1,4 +1,4 @@
-/*import config from "../config";
+import config from "../config";
 
 export default {
   saveAuthToken(token) {
@@ -14,7 +14,6 @@ export default {
     window.localStorage.removeItem(config.TOKEN_KEY);
   },
 };
- */
 
 // TOKEN_KEY = ecannab_token
 // SITE_TOKEN_KEY = ecannab_subdomain_token

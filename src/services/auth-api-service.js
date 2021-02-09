@@ -1,8 +1,8 @@
-/*import config from "../config";
+import { API_BASE_URL } from "../config";
 
 export default {
   postUser(user) {
-    return fetch(`${config.API_BASE_URL}/users`, {
+    return fetch(`${API_BASE_URL}/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -14,7 +14,7 @@ export default {
   },
 
   loginUser(user) {
-    return fetch(`${config.API_BASE_URL}/auth/login`, {
+    return fetch(`${API_BASE_URL}/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,4 +25,3 @@ export default {
     );
   },
 };
-*/

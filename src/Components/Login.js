@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import AuthAPIService from "../services/auth-api-service";
+import TokenService from "../services/token-service";
 
 export default class Login extends Component {
   state = {
     error: null,
   };
-  /* handleLogin = (e) => {
+  handleLogin = (e) => {
     e.preventDefault();
     const { email, password } = e.target;
     this.setState({ error: null });
@@ -14,14 +16,12 @@ export default class Login extends Component {
     AuthAPIService.loginUser(user)
       .then((loginResponse) => {
         TokenService.saveAuthToken(loginResponse.authToken);
-        this.context.getProducts();
-        this.context.getResources();
         this.props.history.push("/home");
       })
       .catch((res) => {
         this.setState({ error: res.error });
       });
-  }; */
+  };
 
   render() {
     return (
@@ -45,7 +45,6 @@ export default class Login extends Component {
                   placeholder="email"
                   id="email"
                   name="email"
-                  onChange={(e) => console.log(e)}
                 />
               </div>
             </div>
