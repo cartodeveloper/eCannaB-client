@@ -26,7 +26,7 @@ class App extends Component {
   state = {
     orders: data.ORDERS,
     products: data.PRODUCTS,
-    resources: data.RESOURCES,
+    resources: [],
     cart: [],
     siteID: 1,
     sites: [],
