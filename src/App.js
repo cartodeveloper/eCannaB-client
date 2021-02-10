@@ -156,6 +156,7 @@ class App extends Component {
   componentDidMount() {
     if (tokenService.hasAuthToken()) {
       this.state.getSites();
+      this.state.getResources();
     }
   }
 
