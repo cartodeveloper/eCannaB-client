@@ -29,7 +29,7 @@ class App extends Component {
     resources: data.RESOURCES,
     cart: [],
     siteID: 1,
-    sites: data.SITES,
+    sites: [],
     error: null,
 
     // SITES
@@ -153,6 +153,8 @@ class App extends Component {
       return this.setState({ sites: [] });
     },
   };
+
+  // eCannaB User access
   componentDidMount() {
     if (tokenService.hasAuthToken()) {
       this.state.getSites();

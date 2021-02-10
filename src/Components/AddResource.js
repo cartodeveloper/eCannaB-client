@@ -49,6 +49,7 @@ export default class AddResource extends Component {
         this.setState({ error: e.message });
       });
   };
+
   render() {
     const { error } = this.state;
     return (
