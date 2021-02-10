@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Context from "../Context";
-import AddToCart from "./AddToCart";
 
 export default class SiteProduct extends Component {
   static contextType = Context;
@@ -31,7 +30,7 @@ export default class SiteProduct extends Component {
             <p>Brand: {brand}</p>
             <p>Available: {inStock}</p>
             <p>Product Description: {p_description}</p>
-            <AddToCart {...this.props} />
+            <button>Add To Cart</button>
           </div>
         </div>
       </li>

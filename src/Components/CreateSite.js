@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Context from "../Context";
+import config from "../config";
+import tokenService from "../services/token-service";
 
 class CreateSite extends Component {
   static contextType = Context;
@@ -20,14 +22,14 @@ class CreateSite extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({ error: null });
-    /* fetch(`${config.API_BASE_URL}/sites`, {
+    fetch(`${config.API_BASE_URL}/s`, {
       method: "POST",
       body: JSON.stringify(this.state.newSite),
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${tokenService.getAuthToken()}`,
-      }, 
-    }) 
+      },
+    })
       .then((res) => {
         if (!res.ok) {
           return res.json().then((error) => {
@@ -38,19 +40,18 @@ class CreateSite extends Component {
       })
       .then((newSite) => {
         e.target.reset();
+        this.context.addSite(newSite);
+        this.props.history.push("/s/:subdomain");
       })
       .catch((e) => {
         this.setState({ error: e.message });
       });
-      */
-    this.context.addSite(this.state.newSite);
-    this.props.history.push("/subdomain");
   };
   render() {
     const { error } = this.state;
     return (
       <section className="create-site">
-        <h2>Fill out the form to create your site</h2>
+        <h2>Fill out the form with your site information</h2>
         <p>All fields with * are required</p>
         <form
           onSubmit={this.handleSubmit}

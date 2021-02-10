@@ -17,6 +17,7 @@ import SiteSignup from "./Components/SiteSignup";
 import SiteHeader from "./Components/SiteHeader";
 import AddResource from "./Components/AddResource";
 import SiteProduct from "./Components/SiteProduct";
+import Cart from "./Components/Cart";
 import SiteProductList from "./Components/SiteProductList";
 import tokenService from "./services/token-service";
 import config from "./config";
@@ -37,6 +38,23 @@ class App extends Component {
         sites,
         error: null,
       });
+    },
+    getSites: () => {
+      fetch(`${config.API_BASE_URL}/s`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${tokenService.getAuthToken()}`,
+        },
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(res.status);
+          }
+          return res.json();
+        })
+        .then(this.state.setSites)
+        .catch((error) => this.setState({ error }));
     },
     addSite: (newSite) => {
       this.setState({
@@ -101,13 +119,14 @@ class App extends Component {
     },
 
     // RESOURCES
-    addResource: (newResource) => {
+    setResources: (resources) => {
       this.setState({
-        resources: [...this.state.resources, newResource],
+        resources,
+        error: null,
       });
     },
-    getSites: () => {
-      fetch(`${config.API_BASE_URL}/sites`, {
+    getResources: () => {
+      fetch(`${config.API_BASE_URL}/resources`, {
         method: "GET",
         headers: {
           "content-type": "application/json",
@@ -120,8 +139,13 @@ class App extends Component {
           }
           return res.json();
         })
-        .then(this.state.setSites)
+        .then(this.state.setResources)
         .catch((error) => this.setState({ error }));
+    },
+    addResource: (newResource) => {
+      this.setState({
+        resources: [...this.state.resources, newResource],
+      });
     },
 
     //Logout
@@ -176,6 +200,7 @@ class App extends Component {
             <Route path="/s/:subdomain/product/:id" component={SiteProduct} />
             <Route path="/s/:subdomain/products" component={SiteProductList} />
             {/*Private routes for seller's customer = JUST the cart and checkout*/}
+            <Route path="/s/:subdomain/cart" component={Cart} />
           </main>
         </div>
       </Context.Provider>

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Context from "../Context";
+import config from "../config";
+import tokenService from "../services/token-service";
 
 export default class AddResource extends Component {
   static contextType = Context;
@@ -12,7 +14,6 @@ export default class AddResource extends Component {
       newResource: {
         ...this.state.newResource,
         [e.target.name]: e.target.value,
-        id: this.context.products.length + 1,
       },
     });
   }
@@ -23,14 +24,14 @@ export default class AddResource extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({ error: null });
-    /* fetch(`${config.API_BASE_URL}/resources`, {
+    fetch(`${config.API_BASE_URL}/resources`, {
       method: "POST",
       body: JSON.stringify(this.state.newResource),
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${tokenService.getAuthToken()}`,
-      }, 
-    }) 
+      },
+    })
       .then((res) => {
         if (!res.ok) {
           return res.json().then((error) => {
@@ -41,13 +42,12 @@ export default class AddResource extends Component {
       })
       .then((newResource) => {
         e.target.reset();
+        this.context.addResource(newResource);
+        this.props.history.push("/dashboard");
       })
       .catch((e) => {
         this.setState({ error: e.message });
       });
-      */
-    this.context.addResource(this.state.newResource);
-    this.props.history.push("/dashboard");
   };
   render() {
     const { error } = this.state;
