@@ -7,7 +7,12 @@ header {
   flex-direction: row;
   justify-content: space-between;
 }
-
+header img {
+  width: 150px;
+}
+.home img {
+  width: 100%;
+}
 nav,
 .flex {
   display: flex;

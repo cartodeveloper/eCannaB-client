@@ -21,6 +21,7 @@ import Cart from "./Components/Cart";
 import SiteProductList from "./Components/SiteProductList";
 import tokenService from "./services/token-service";
 import config from "./config";
+import EditSite from "./Components/EditSite";
 
 class App extends Component {
   state = {
@@ -61,6 +62,16 @@ class App extends Component {
         sites: [...this.state.sites, newSite],
       });
     },
+    updateSite: (newSite, id) => {
+      this.setState({
+        sites: this.state.sites.map((s) => {
+          if (s.id === id) {
+            return newSite;
+          }
+          return s;
+        }),
+      });
+    },
     addResourceToSite: (siteid, resourceid) => {
       this.setState({
         sites: [
@@ -75,6 +86,29 @@ class App extends Component {
     },
 
     // PRODUCTS
+    setProducts: (products) => {
+      this.setState({
+        products,
+        error: null,
+      });
+    },
+    getProducts: () => {
+      fetch(`${config.API_BASE_URL}/products`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${tokenService.getAuthToken()}`,
+        },
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(res.status);
+          }
+          return res.json();
+        })
+        .then(this.state.setProducts)
+        .catch((error) => this.setState({ error }));
+    },
     addProduct: (newProduct) => {
       this.setState({
         products: [...this.state.products, newProduct],
@@ -159,6 +193,7 @@ class App extends Component {
     if (tokenService.hasAuthToken()) {
       this.state.getSites();
       this.state.getResources();
+      // this.state.getProducts();
     }
   }
 
@@ -174,6 +209,7 @@ class App extends Component {
               "/login",
               "/dashboard",
               "/addsite",
+              "/editsite/:id",
               "/editorder",
               "/editproduct",
               "/addproduct",
@@ -191,6 +227,7 @@ class App extends Component {
             {/*Private routes for eCannaB user= Seller*/}
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/addsite" component={CreateSite} />
+            <Route path="/editsite/:id" component={EditSite} />
             <Route path="/addresource" component={AddResource} />
             <Route path="/addproduct" component={CreateProduct} />
             <Route path="/editorder/:id" component={EditOrder} />
