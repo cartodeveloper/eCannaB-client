@@ -25,6 +25,7 @@ import EditSite from "./Components/EditSite";
 
 class App extends Component {
   state = {
+    customers: [],
     orders: data.ORDERS,
     products: data.PRODUCTS,
     resources: [],
@@ -130,9 +131,9 @@ class App extends Component {
       });
     },
     // CART
-    addToCart: (pid) => {
+    addToCart: (pid, p_title, price) => {
       this.setState({
-        cart: [...this.state.cart, { pid }],
+        cart: [...this.state.cart, { pid, p_title, price }],
       });
     },
     // ORDERS
@@ -190,11 +191,13 @@ class App extends Component {
 
   // eCannaB User access
   componentDidMount() {
-    if (tokenService.hasAuthToken()) {
-      this.state.getSites();
-      this.state.getResources();
-      // this.state.getProducts();
-    }
+    setTimeout(() => {
+      if (tokenService.hasAuthToken()) {
+        this.state.getSites();
+        this.state.getResources();
+        // this.state.getProducts();
+      }
+    }, 1000);
   }
 
   render() {

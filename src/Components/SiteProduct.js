@@ -8,6 +8,18 @@ export default class SiteProduct extends Component {
     this.props.history.push("/dashboard");
   };
 
+  handleAddToCart = () => {
+    let pid = this.props.id;
+    this.context.products.map((product) => {
+      let p_title = product.title;
+      let price = product.price;
+      if (product.id === pid) {
+        this.context.addToCart(pid, p_title, price);
+        return this.props.history.push("/s/:subdomain/cart");
+      }
+    });
+  };
+
   render() {
     const { id, title, p_image, price, inStock, brand, p_description } = this
       .props.id
@@ -30,7 +42,8 @@ export default class SiteProduct extends Component {
             <p>Brand: {brand}</p>
             <p>Available: {inStock}</p>
             <p>Product Description: {p_description}</p>
-            <button>Add To Cart</button>
+
+            <button onClick={this.handleAddToCart}>Add To Cart</button>
           </div>
         </div>
       </li>
