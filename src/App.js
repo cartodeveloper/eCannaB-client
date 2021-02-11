@@ -195,7 +195,7 @@ class App extends Component {
       if (tokenService.hasAuthToken()) {
         this.state.getSites();
         this.state.getResources();
-        // this.state.getProducts();
+        this.state.getProducts();
       }
     }, 1000);
   }

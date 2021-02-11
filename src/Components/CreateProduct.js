@@ -103,15 +103,15 @@ class CreateProduct extends Component {
                 required
               />
             </div>
-            <div className="inStock">
-              <label htmlFor="inStock" aria-label="inStock">
+            <div className="in_stock">
+              <label htmlFor="in_stock" aria-label="in_stock">
                 <h3>In Stock: *</h3>
               </label>
               <input
                 placeholder="500"
                 type="number"
-                id="inStock"
-                name="inStock"
+                id="in_stock"
+                name="in_stock"
                 onChange={(e) => this.handleChange(e)}
                 required
               />
