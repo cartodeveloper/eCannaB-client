@@ -44,6 +44,7 @@ class CreateProduct extends Component {
       .then((newProduct) => {
         e.target.reset();
         this.context.addProduct(newProduct);
+        console.log(newProduct);
         this.props.history.push("/dashboard");
       })
       .catch((e) => {
@@ -52,6 +53,7 @@ class CreateProduct extends Component {
   };
   render() {
     const { error } = this.state;
+    const { sites = [] } = this.context;
     return (
       <section className="create-product">
         <h2>Create a new product...</h2>
@@ -64,6 +66,20 @@ class CreateProduct extends Component {
           {error && <p className="error">{error}</p>}
           <fieldset>
             <legend>Product Details</legend>
+            <div>
+              <select
+                name="site_id"
+                id="site_id"
+                onChange={(e) => this.handleChange(e)}
+              >
+                <option value="">Select site id</option>
+                {sites.map((site) => (
+                  <option key={site.id} value={site.id}>
+                    {site.id}
+                  </option>
+                ))}
+              </select>
+            </div>
             <div className="title">
               <label htmlFor="title" aria-label="title">
                 <h3>Brand: *</h3>
