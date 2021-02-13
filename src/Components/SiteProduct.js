@@ -15,8 +15,11 @@ export default class SiteProduct extends Component {
       let price = product.price;
       if (product.id === pid) {
         this.context.addToCart(pid, p_title, price);
-        return this.props.history.push("/s/:subdomain/cart");
+        return this.props.history.push(
+          `/s/${this.props.match.params.subdomain}/cart`
+        );
       }
+      return pid;
     });
   };
 
@@ -32,7 +35,7 @@ export default class SiteProduct extends Component {
       <li className="product" key={id}>
         <div className="card">
           <div className="group">
-            <Link to={`/s/:subdomain/product/${id}`}>
+            <Link to={`/s/${this.props.match.params.subdomain}/product/${id}`}>
               <img src={p_image} alt="product" />
             </Link>
           </div>
@@ -43,7 +46,11 @@ export default class SiteProduct extends Component {
             <p>Available: {inStock}</p>
             <p>Product Description: {p_description}</p>
 
-            <button onClick={this.handleAddToCart}>Add To Cart</button>
+            {this.context.cart.find((p) => p.pid === id) ? (
+              <span>In Cart</span>
+            ) : (
+              <button onClick={this.handleAddToCart}>Add To Cart</button>
+            )}
           </div>
         </div>
       </li>

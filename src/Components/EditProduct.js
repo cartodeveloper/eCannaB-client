@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import Context from "../Context";
+import config from "../config";
+import tokenService from "../services/token-service";
 
 class EditProduct extends Component {
   static contextType = Context;
+  static defaultProps = {
+    match: {
+      params: {
+        id: 0,
+      },
+    },
+  };
   state = {
     error: null,
     newProduct: {},
@@ -21,14 +30,14 @@ class EditProduct extends Component {
     e.preventDefault();
     const id = Number(this.props.match.params.id);
     this.setState({ error: null });
-    /* fetch(`${config.API_BASE_URL}/products/&{id}`, {
+    fetch(`${config.API_BASE_URL}/products/${id}`, {
       method: "PUT",
       body: JSON.stringify(this.state.newProduct),
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${tokenService.getAuthToken()}`,
-      }, 
-    }) 
+      },
+    })
       .then((res) => {
         if (!res.ok) {
           return res.json().then((error) => {
@@ -39,13 +48,12 @@ class EditProduct extends Component {
       })
       .then((newProduct) => {
         e.target.reset();
+        this.context.updateProduct(newProduct, id);
+        this.props.history.push("/dashboard");
       })
       .catch((e) => {
         this.setState({ error: e.message });
       });
-      */
-    this.context.updateProduct(this.state.newProduct, id);
-    this.props.history.push("/dashboard");
   };
   componentDidMount() {
     setTimeout(() => {
@@ -59,6 +67,7 @@ class EditProduct extends Component {
 
   render() {
     const { error, newProduct } = this.state;
+    const { sites = [] } = this.context;
     return newProduct ? (
       <section className="create-product">
         <h2>Edit your product...</h2>
@@ -71,6 +80,21 @@ class EditProduct extends Component {
           {error && <p className="error">{error}</p>}
           <fieldset>
             <legend>Product Details</legend>
+            <div>
+              <select
+                name="site_id"
+                id="site_id"
+                value={newProduct.site_id || ""}
+                onChange={(e) => this.handleChange(e)}
+              >
+                <option value="">Select site id</option>
+                {sites.map((site) => (
+                  <option key={site.id} value={site.id}>
+                    {site.id}
+                  </option>
+                ))}
+              </select>
+            </div>
             <div className="title">
               <label htmlFor="title" aria-label="title">
                 <h3>Title: *</h3>

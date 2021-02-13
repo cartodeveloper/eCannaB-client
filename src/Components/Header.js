@@ -49,12 +49,16 @@ export default class Header extends React.Component {
                   <Link to="/addproduct">
                     <li>+ Product</li>
                   </Link>
-                  <Link to="/addsite">
-                    <li>+ Site</li>
-                  </Link>
-                  <Link to="/s/:subdomain">
-                    <li>My Site</li>
-                  </Link>
+                  {!this.context.sites.length && (
+                    <Link to="/addsite">
+                      <li>+ Site</li>
+                    </Link>
+                  )}
+                  {this.context.sites.length && (
+                    <Link to={`/s/${this.context.sites[0].subdomain}`}>
+                      <li>My Site</li>
+                    </Link>
+                  )}
                 </ul>
               )}
             </nav>

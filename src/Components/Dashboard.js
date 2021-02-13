@@ -17,14 +17,16 @@ class Dashboard extends Component {
         <h1>DASHBOARD</h1>
         <section className="flex">
           <div className="group">
-            <h2>SITES</h2>
-            <button type="click">
-              <Link to="/addsite">CREATE NEW SITE</Link>
-            </button>
-            <p>Live Sites</p>
+            <h2>Your Site</h2>
+            {!sites.length && (
+              <button type="click">
+                <Link to="/addsite">CREATE NEW SITE</Link>
+              </button>
+            )}
             {sites.map((site) => (
               <li key={site.id}>
-                <Link to={`/s/${site.subdomain}`}>{site.subdomain}</Link>
+                SITE ID:<strong> {site.id} </strong>
+                <Link to={`/s/${site.subdomain}`}> {site.subdomain}</Link>
                 <button type="click">
                   <Link to={`/editsite/${site.id}`}>Edit</Link>
                 </button>

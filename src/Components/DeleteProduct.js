@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Context from "../Context";
+import config from "../config";
+import tokenService from "../services/token-service";
 
 export default class DeleteButton extends Component {
   static contextType = Context;
@@ -7,7 +9,8 @@ export default class DeleteButton extends Component {
   handleDelete = (e) => {
     e.preventDefault();
     const id = this.props.id;
-    /* fetch(`${config.API_BASE_URL}/products/${id}`, {
+    console.log(id);
+    fetch(`${config.API_BASE_URL}/products/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -20,13 +23,12 @@ export default class DeleteButton extends Component {
         }
       })
       .then((res) => {
+        this.context.deleteProduct(id);
+        this.props.history.push("/dashboard");
       })
       .catch((error) => {
         console.log(error);
       });
-      */
-    this.context.deleteProduct(id);
-    this.props.history.push("/dashboard");
   };
   render() {
     return (

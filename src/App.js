@@ -27,10 +27,10 @@ class App extends Component {
   state = {
     customers: [],
     orders: data.ORDERS,
-    products: data.PRODUCTS,
+    products: [],
     resources: [],
     cart: [],
-    siteID: 1,
+    siteID: 4,
     sites: [],
     error: null,
 

@@ -25,9 +25,11 @@ class CreateProduct extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({ error: null });
+    const product = this.state.newProduct;
+    product.site_id = this.context.sites[0].id;
     fetch(`${config.API_BASE_URL}/products`, {
       method: "POST",
-      body: JSON.stringify(this.state.newProduct),
+      body: JSON.stringify(product),
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${tokenService.getAuthToken()}`,
@@ -66,20 +68,7 @@ class CreateProduct extends Component {
           {error && <p className="error">{error}</p>}
           <fieldset>
             <legend>Product Details</legend>
-            <div>
-              <select
-                name="site_id"
-                id="site_id"
-                onChange={(e) => this.handleChange(e)}
-              >
-                <option value="">Select site id</option>
-                {sites.map((site) => (
-                  <option key={site.id} value={site.id}>
-                    {site.id}
-                  </option>
-                ))}
-              </select>
-            </div>
+
             <div className="title">
               <label htmlFor="title" aria-label="title">
                 <h3>Brand: *</h3>

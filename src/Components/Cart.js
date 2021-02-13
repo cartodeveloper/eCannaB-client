@@ -4,10 +4,6 @@ import Context from "../Context";
 
 class Cart extends Component {
   static contextType = Context;
-  state = {
-    error: null,
-    total: 0,
-  };
 
   render() {
     let { cart = [] } = this.context;
@@ -16,7 +12,7 @@ class Cart extends Component {
         <h2>This is the cart</h2>
         <ul>
           {cart.map((cart) => (
-            <li key={cart.id}>
+            <li key={cart.pid}>
               PRODUCT ID: {cart.pid}
               <p>{cart.p_title}</p>
               <p>${cart.price}</p>
@@ -24,10 +20,14 @@ class Cart extends Component {
           ))}
         </ul>
         <hr />
-        <h3>TOTAL:</h3>
-        <section className="user">
-          <Link to="/s/:subdomain/login">Login</Link>
-        </section>
+        <h3>
+          TOTAL:{" $"}
+          {parseFloat(
+            cart.reduce((total, p) => {
+              return total + Number(p.price);
+            }, 0)
+          )}
+        </h3>
       </section>
     );
   }
