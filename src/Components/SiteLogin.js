@@ -1,27 +1,27 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import AuthAPIService from "../services/auth-api-service";
+import TokenService from "../services/token-service-customer";
 
 export default class SiteLogin extends Component {
   state = {
     error: null,
   };
-  /* handleLogin = (e) => {
+  handleLogin = (e) => {
     e.preventDefault();
     const { email, password } = e.target;
     this.setState({ error: null });
-    const user = { email: email.value, password: password.value };
+    const customer = { email: email.value, password: password.value };
 
-    AuthAPIService.loginUser(user)
+    AuthAPIService.loginCustomer(customer)
       .then((loginResponse) => {
-        TokenService.saveAuthToken(loginResponse.authToken);
-        this.context.getProducts();
-        this.context.getResources();
-        this.props.history.push("/home");
+        TokenService.saveAuthTokenSite(loginResponse.authToken);
+        this.props.history.push(`/s/${this.props.match.params.subdomain}`);
       })
       .catch((res) => {
         this.setState({ error: res.error });
       });
-  }; */
+  };
 
   render() {
     return (
@@ -45,7 +45,6 @@ export default class SiteLogin extends Component {
                   placeholder="email"
                   id="email"
                   name="email"
-                  onChange={(e) => console.log(e)}
                 />
               </div>
             </div>
@@ -60,7 +59,6 @@ export default class SiteLogin extends Component {
                   type="password"
                   placeholder="password"
                   name="password"
-                  onChange={(e) => console.log(e)}
                 />
               </div>
             </div>
@@ -69,7 +67,9 @@ export default class SiteLogin extends Component {
             </button>
             <div>
               New customer?{" "}
-              <Link to="/s/:subdomain/signup">Create your account</Link>
+              <Link to={`/s/${this.props.match.params.subdomain}/signup`}>
+                Create your account
+              </Link>
             </div>
           </fieldset>
         </form>

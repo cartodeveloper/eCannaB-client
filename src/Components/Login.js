@@ -18,6 +18,9 @@ export default class Login extends Component {
     AuthAPIService.loginUser(user)
       .then((loginResponse) => {
         TokenService.saveAuthToken(loginResponse.authToken);
+        this.context.getSites();
+        this.context.getProducts();
+        this.context.getResources();
         this.props.history.push("/dashboard");
       })
       .catch((res) => {

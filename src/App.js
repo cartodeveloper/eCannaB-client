@@ -25,7 +25,7 @@ import EditSite from "./Components/EditSite";
 
 class App extends Component {
   state = {
-    customers: [],
+    //customers: [],
     orders: data.ORDERS,
     products: [],
     resources: [],
@@ -77,6 +77,7 @@ class App extends Component {
         sites: this.state.sites.filter((s) => s.id !== id),
       });
     },
+    // SITE RESOURCES
     addResourceToSite: (siteid, resourceid) => {
       this.setState({
         sites: [

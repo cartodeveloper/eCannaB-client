@@ -49,7 +49,11 @@ export default class SiteProduct extends Component {
             {this.context.cart.find((p) => p.pid === id) ? (
               <span>In Cart</span>
             ) : (
-              <button onClick={this.handleAddToCart}>Add To Cart</button>
+              <>
+                {!this.context.cart.length && (
+                  <button onClick={this.handleAddToCart}>Add To Cart</button>
+                )}
+              </>
             )}
           </div>
         </div>
