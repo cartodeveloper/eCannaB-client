@@ -188,9 +188,13 @@ class App extends Component {
       });
     },
 
-    //Logout
+    //Logout User
     logout: () => {
       return this.setState({ sites: [] });
+    },
+    //Logout Customer
+    logoutCustomer: () => {
+      return this.setState({ cart: [] });
     },
   };
 
