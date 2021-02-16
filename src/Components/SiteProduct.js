@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Context from "../Context";
+import tokenService from "../services/token-service-customer";
 
 export default class SiteProduct extends Component {
   static contextType = Context;
@@ -50,8 +51,17 @@ export default class SiteProduct extends Component {
               <span>In Cart</span>
             ) : (
               <>
-                {!this.context.cart.length && (
-                  <button onClick={this.handleAddToCart}>Add To Cart</button>
+                {tokenService.hasAuthTokenSite() ? (
+                  <>
+                    <button onClick={this.handleAddToCart}>Add To Cart</button>
+                  </>
+                ) : (
+                  <section className="user">
+                    <p>Please be sure to Login to add to cart</p>
+                    <Link to={`/s/${this.props.match.params.subdomain}/login`}>
+                      Login
+                    </Link>
+                  </section>
                 )}
               </>
             )}
