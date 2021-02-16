@@ -9,7 +9,7 @@ export default class DeleteButton extends Component {
   handleDelete = (e) => {
     e.preventDefault();
     const id = this.props.id;
-    fetch(`${config.API_BASE_URL}/products/${id}`, {
+    fetch(`${config.API_BASE_URL}/s/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -22,7 +22,7 @@ export default class DeleteButton extends Component {
         }
       })
       .then((res) => {
-        this.context.deleteProduct(id);
+        this.context.deleteSite(id);
         this.props.history.push("/dashboard");
       })
       .catch((error) => {
@@ -34,7 +34,7 @@ export default class DeleteButton extends Component {
       <div className="DeleteBtn">
         <button
           onClick={(e) => {
-            if (window.confirm("Are you sure you wish to delete this product?"))
+            if (window.confirm("Are you sure you wish to delete your site?"))
               this.handleDelete(e);
           }}
         >

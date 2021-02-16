@@ -4,6 +4,7 @@ import ProductList from "./ProductList";
 import { Link } from "react-router-dom";
 import Context from "../Context";
 import Order from "./Order";
+import DeleteSite from "./DeleteSite";
 
 class Dashboard extends Component {
   static contextType = Context;
@@ -30,6 +31,7 @@ class Dashboard extends Component {
                 <button type="click">
                   <Link to={`/editsite/${site.id}`}>Edit</Link>
                 </button>
+                <DeleteSite id={site.id} history={this.props.history} />
               </li>
             ))}
           </div>
@@ -63,10 +65,8 @@ class Dashboard extends Component {
                 <tr>
                   <th>ID</th>
                   <th>CUSTOMER</th>
-                  <th>DATE</th>
                   <th>TOTAL </th>
                   <th>PRODUCT</th>
-                  <th>STATUS</th>
                   <th>ACTIONS</th>
                 </tr>
               </thead>

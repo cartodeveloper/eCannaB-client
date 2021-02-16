@@ -30,7 +30,6 @@ class App extends Component {
     products: [],
     resources: [],
     cart: [],
-    siteID: 4,
     sites: [],
     error: null,
 
@@ -71,6 +70,11 @@ class App extends Component {
           }
           return s;
         }),
+      });
+    },
+    deleteSite: (id) => {
+      this.setState({
+        sites: this.state.sites.filter((s) => s.id !== id),
       });
     },
     addResourceToSite: (siteid, resourceid) => {

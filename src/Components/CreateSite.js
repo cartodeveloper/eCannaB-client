@@ -41,7 +41,7 @@ class CreateSite extends Component {
       .then((newSite) => {
         e.target.reset();
         this.context.addSite(newSite);
-        this.props.history.push("/s/:subdomain");
+        this.props.history.push(`/s/${this.props.match.params.subdomain}`);
       })
       .catch((e) => {
         this.setState({ error: e.message });
