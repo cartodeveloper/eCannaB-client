@@ -2,7 +2,7 @@ import Context from "../Context";
 import React, { Component } from "react";
 import SiteProduct from "./SiteProduct";
 
-class SiteProductList extends Component {
+class SiteHome extends Component {
   static contextType = Context;
   state = {
     filter: {
@@ -61,4 +61,4 @@ class SiteProductList extends Component {
     );
   }
 }
-export default SiteProductList;
+export default SiteHome;

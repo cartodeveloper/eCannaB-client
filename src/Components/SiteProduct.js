@@ -36,9 +36,7 @@ export default class SiteProduct extends Component {
       <li className="product" key={id}>
         <div className="card">
           <div className="group">
-            <Link to={`/s/${this.props.match.params.subdomain}/product/${id}`}>
-              <img src={p_image} alt="product" />
-            </Link>
+            <img src={p_image} alt="product" />
           </div>
           <div className="group">
             <h2>{title}</h2>
@@ -57,7 +55,7 @@ export default class SiteProduct extends Component {
                   </>
                 ) : (
                   <section className="user">
-                    <p>Please be sure to Login to add to cart</p>
+                    <p>Please be sure to Login to make an order.</p>
                     <Link to={`/s/${this.props.match.params.subdomain}/login`}>
                       Login
                     </Link>

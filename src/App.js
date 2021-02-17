@@ -18,7 +18,7 @@ import SiteHeader from "./Components/SiteHeader";
 import AddResource from "./Components/AddResource";
 import SiteProduct from "./Components/SiteProduct";
 import Cart from "./Components/Cart";
-import SiteProductList from "./Components/SiteProductList";
+import SiteHome from "./Components/SiteHome";
 import tokenService from "./services/token-service";
 import config from "./config";
 import EditSite from "./Components/EditSite";
@@ -246,11 +246,10 @@ class App extends Component {
             <Route path="/editproduct/:id" component={EditProduct} />
             <Route path="/product/:id" component={Product} />
             {/*Seller Public Site Routes*/}
-            <Route path="/s/:subdomain/" component={SiteProductList} />
+            <Route path="/s/:subdomain/" component={SiteHome} />
             <Route exact path="/s/:subdomain/signup" component={SiteSignup} />
             <Route path="/s/:subdomain/login" component={SiteLogin} />
             <Route path="/s/:subdomain/product/:id" component={SiteProduct} />
-            <Route path="/s/:subdomain/products" component={SiteProductList} />
             {/*Private routes for seller's customer = JUST the cart and checkout*/}
             <Route path="/s/:subdomain/cart" component={Cart} />
           </main>
