@@ -5,6 +5,13 @@ import AuthAPIService from "../services/auth-api-service";
 
 export default class SiteSignup extends Component {
   static contextType = Context;
+  static defaultProps = {
+    match: {
+      params: {
+        id: 0,
+      },
+    },
+  };
   state = {
     error: null,
   };

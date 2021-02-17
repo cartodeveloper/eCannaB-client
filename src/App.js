@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Header from "./Components/Header";
 import Login from "./Components/Login";
-import Signup from "./Components/Singup";
+import Signup from "./Components/Signup";
 import Dashboard from "./Components/Dashboard";
 import Product from "./Components/Product";
 import LandingPage from "./Components/LandingPage";

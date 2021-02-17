@@ -6,6 +6,13 @@ import "../App.css";
 
 export default class SiteHeader extends React.Component {
   static contextType = Context;
+  static defaultProps = {
+    match: {
+      params: {
+        id: 0,
+      },
+    },
+  };
   logoutCustomer = (e) => {
     e.preventDefault();
     tokenService.clearAuthTokenSite();

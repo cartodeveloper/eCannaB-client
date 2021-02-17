@@ -5,6 +5,15 @@ import tokenService from "../services/token-service-customer";
 
 export default class SiteProduct extends Component {
   static contextType = Context;
+
+  static defaultProps = {
+    match: {
+      params: {
+        id: 0,
+      },
+    },
+  };
+
   handleClickCancel = () => {
     this.props.history.push("/dashboard");
   };

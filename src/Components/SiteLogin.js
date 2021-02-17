@@ -4,6 +4,13 @@ import AuthAPIService from "../services/auth-api-service";
 import TokenService from "../services/token-service-customer";
 
 export default class SiteLogin extends Component {
+  static defaultProps = {
+    match: {
+      params: {
+        id: 0,
+      },
+    },
+  };
   state = {
     error: null,
   };

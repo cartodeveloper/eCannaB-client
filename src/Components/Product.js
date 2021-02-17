@@ -5,6 +5,13 @@ import DeleteProduct from "./DeleteProduct";
 
 export default class Product extends Component {
   static contextType = Context;
+  static defaultProps = {
+    match: {
+      params: {
+        id: 0,
+      },
+    },
+  };
   render() {
     const {
       id,
