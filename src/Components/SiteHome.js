@@ -31,17 +31,21 @@ class SiteHome extends Component {
 
   render() {
     const products = this.filterProducts();
-    const s =
+    const site =
       this.context.sites.find(
         (site) => site.subdomain === this.props.match.params.subdomain
       ) || {};
 
     return (
       <section className="home">
-        <h2>{s.seller_description}</h2>
+        <h2>{site.seller_description}</h2>
         <section>
-          <img src={s.banner} alt="site-banner" />
+          <img src={site.banner} alt="site-banner" />
         </section>
+        <section>
+          <h2>RESOURCES</h2>
+        </section>
+        <hr />
         <h2>PRODUCTS AVAILABLE</h2>
         <section className="input-search">
           <input

@@ -63,7 +63,7 @@ export default class SiteHeader extends React.Component {
                   <Link
                     to={`/s/${this.props.match.params.subdomain}/resources`}
                   >
-                    <li>Resources</li>
+                    <li>Orders</li>
                   </Link>
                 </ul>
               )}

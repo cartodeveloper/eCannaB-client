@@ -128,6 +128,21 @@ table {
   font-size: 10.5px;
 }
 
+/* Footer */
+footer {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+footer a {
+  text-shadow: -1px 0 #f3eff5, 0 1px #f3eff5, 2px 0#F3EFF5, 0 -1px #f3eff5;
+}
+footer a:hover {
+  color: #72b01d;
+}
 @media all and (min-width: 900px) {
   .flex {
     flex-direction: row;

@@ -46,7 +46,6 @@ class CreateProduct extends Component {
       .then((newProduct) => {
         e.target.reset();
         this.context.addProduct(newProduct);
-        console.log(newProduct);
         this.props.history.push("/dashboard");
       })
       .catch((e) => {

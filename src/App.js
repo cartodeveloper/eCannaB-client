@@ -22,10 +22,10 @@ import SiteHome from "./Components/SiteHome";
 import tokenService from "./services/token-service";
 import config from "./config";
 import EditSite from "./Components/EditSite";
+import Footer from "./Components/Footer";
 
 class App extends Component {
   state = {
-    //customers: [],
     orders: data.ORDERS,
     products: [],
     resources: [],
@@ -81,11 +81,12 @@ class App extends Component {
     addResourceToSite: (siteid, resourceid) => {
       this.setState({
         sites: [
-          ...this.state.sites.map((s) => {
-            if (s.id === siteid) {
-              s.resources = [...s.resources, resourceid];
+          ...this.state.sites.map((site) => {
+            console.log(site);
+            if (site.id === siteid) {
+              site.resources = [...site.resources, resourceid];
             }
-            return s;
+            return site;
           }),
         ],
       });
@@ -222,7 +223,7 @@ class App extends Component {
               "/dashboard",
               "/addsite",
               "/editsite/:id",
-              "/editorder",
+              "/editorder/:id",
               "/editproduct",
               "/addproduct",
               "/addresource",
@@ -250,9 +251,10 @@ class App extends Component {
             <Route exact path="/s/:subdomain/signup" component={SiteSignup} />
             <Route path="/s/:subdomain/login" component={SiteLogin} />
             <Route path="/s/:subdomain/product/:id" component={SiteProduct} />
-            {/*Private routes for seller's customer = JUST the cart and checkout*/}
+            {/*Private routes for seller's customer = JUST the cart*/}
             <Route path="/s/:subdomain/cart" component={Cart} />
           </main>
+          <Footer />
         </div>
       </Context.Provider>
     );
