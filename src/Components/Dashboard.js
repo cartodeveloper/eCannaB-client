@@ -49,7 +49,7 @@ class Dashboard extends Component {
                   onClick={() =>
                     this.context.addResourceToSite(
                       this.context.sites[0].id,
-                      resource.id
+                      resource
                     )
                   }
                 >

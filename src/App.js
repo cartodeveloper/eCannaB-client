@@ -78,14 +78,20 @@ class App extends Component {
       });
     },
     // SITE RESOURCES
+
     addResourceToSite: (siteid, resourceid) => {
       this.setState({
         sites: [
           ...this.state.sites.map((site) => {
             console.log(site);
             if (site.id === siteid) {
+              if (site.resources === null) {
+                site.resources = [];
+              }
               site.resources = [...site.resources, resourceid];
+              console.log(site.resources);
             }
+
             return site;
           }),
         ],

@@ -1,6 +1,7 @@
 import Context from "../Context";
 import React, { Component } from "react";
 import SiteProduct from "./SiteProduct";
+import { Link } from "react-router-dom";
 
 class SiteHome extends Component {
   static contextType = Context;
@@ -44,6 +45,15 @@ class SiteHome extends Component {
         </section>
         <section>
           <h2>RESOURCES</h2>
+          {Object.keys(site.resources).map((siteResource, i) => (
+            <li className="site-resources" key={i}>
+              <span className="site-resource-link">
+                <a href={site.resources[siteResource].link} target="_blank">
+                  {site.resources[siteResource].name}
+                </a>
+              </span>
+            </li>
+          )) || null}
         </section>
         <hr />
         <h2>PRODUCTS AVAILABLE</h2>

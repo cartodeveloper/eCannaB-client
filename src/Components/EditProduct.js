@@ -80,21 +80,6 @@ class EditProduct extends Component {
           {error && <p className="error">{error}</p>}
           <fieldset>
             <legend>Product Details</legend>
-            <div>
-              <select
-                name="site_id"
-                id="site_id"
-                value={newProduct.site_id || ""}
-                onChange={(e) => this.handleChange(e)}
-              >
-                <option value="">Select site id</option>
-                {sites.map((site) => (
-                  <option key={site.id} value={site.id}>
-                    {site.id}
-                  </option>
-                ))}
-              </select>
-            </div>
             <div className="title">
               <label htmlFor="title" aria-label="title">
                 <h3>Title: *</h3>
