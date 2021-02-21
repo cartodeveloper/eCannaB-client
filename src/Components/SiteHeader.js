@@ -51,22 +51,14 @@ export default class SiteHeader extends React.Component {
                 Logout
               </Link>
             </section>
-            <nav onClick={() => this.setState({ opened: !this.state.opened })}>
+            <nav>
               <div className="nav-icon">
-                <h3>NAV</h3>
-              </div>
-              {this.state.opened && (
-                <ul id="menu">
+                <h3>
                   <Link to={`/s/${this.props.match.params.subdomain}/cart`}>
-                    <li>Cart</li>
+                    <i className="fas fa-shopping-cart" />
                   </Link>
-                  <Link
-                    to={`/s/${this.props.match.params.subdomain}/resources`}
-                  >
-                    <li>Orders</li>
-                  </Link>
-                </ul>
-              )}
+                </h3>
+              </div>
             </nav>
           </>
         ) : (

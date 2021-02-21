@@ -21,7 +21,9 @@ export default class Header extends React.Component {
       <header>
         <section className="logo">
           <h1>
-            <Link to="/">eCannaB</Link>
+            <Link to="/">
+              <img src="/images/5.png" alt="seller_logo" />
+            </Link>
           </h1>
         </section>
         {tokenService.hasAuthToken() ? (

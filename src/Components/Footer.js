@@ -17,8 +17,10 @@ class Footer extends Component {
   render() {
     return tokenServiceCustomer.hasAuthTokenSite() ? (
       <footer className="site-footer">
-        Copyright © 2021 {this.props.match.params.subdomain} Powered by
-        <Link to="/"> eCannaB</Link>
+        <p>Copyright © 2021 {this.props.match.params.subdomain} </p>
+        <Link to="/">
+          <img src="/images/5.png" alt="seller_logo" />
+        </Link>
       </footer>
     ) : (
       <footer className="eCannab-footer">© 2021 eCannaB, Inc.</footer>
