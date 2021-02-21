@@ -45,15 +45,25 @@ class SiteHome extends Component {
         </section>
         <section>
           <h2>RESOURCES</h2>
-          {Object.keys(site.resources).map((siteResource, i) => (
-            <li className="site-resources" key={i}>
-              <span className="site-resource-link">
-                <a href={site.resources[siteResource].link} target="_blank">
-                  {site.resources[siteResource].name}
-                </a>
-              </span>
-            </li>
-          )) || null}
+          {site.resources == null ? (
+            <>
+              <p>No Resources available at the moment...</p>
+            </>
+          ) : (
+            Object.keys(site.resources).map((siteResource, i) => (
+              <li className="site-resources" key={i}>
+                <span className="site-resource-link">
+                  <a
+                    href={site.resources[siteResource].link}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    {site.resources[siteResource].name}
+                  </a>
+                </span>
+              </li>
+            ))
+          )}
         </section>
         <hr />
         <h2>PRODUCTS AVAILABLE</h2>

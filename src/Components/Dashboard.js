@@ -44,7 +44,9 @@ class Dashboard extends Component {
             </button>
             {resources.map((resource) => (
               <li key={resource.id}>
-                <Link to={resource.link}>{resource.name}</Link>
+                <a target="_blank" rel="noreferrer" href={resource.link}>
+                  {resource.name}
+                </a>
                 <button
                   onClick={() =>
                     this.context.addResourceToSite(

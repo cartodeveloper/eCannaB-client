@@ -67,7 +67,6 @@ class EditProduct extends Component {
 
   render() {
     const { error, newProduct } = this.state;
-    const { sites = [] } = this.context;
     return newProduct ? (
       <section className="create-product">
         <h2>Edit your product...</h2>

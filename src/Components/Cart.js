@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Context from "../Context";
 import config from "../config";
-import tokenService from "../services/token-service-customer";
+import tokenServiceCustomer from "../services/token-service-customer";
 
 class Cart extends Component {
   static contextType = Context;
@@ -22,7 +22,7 @@ class Cart extends Component {
       body: JSON.stringify(this.state.newOrder),
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${tokenService.getAuthTokenSite()}`,
+        authorization: `Bearer ${tokenServiceCustomer.getAuthTokenSite()}`,
       },
     })
       .then((res) => {

@@ -54,7 +54,6 @@ class CreateProduct extends Component {
   };
   render() {
     const { error } = this.state;
-    const { sites = [] } = this.context;
     return (
       <section className="create-product">
         <h2>Create a new product...</h2>
