@@ -95,8 +95,11 @@ class Dashboard extends Component {
             <button type="click" id="c-p">
               <Link to="/addproduct">CREATE NEW PRODUCT</Link>
             </button>
-
-            <ProductList {...this.props} />
+            {this.context.products.length ? (
+              <ProductList {...this.props} />
+            ) : (
+              <p>No product has been created so far..</p>
+            )}
           </div>
         </section>
       </section>

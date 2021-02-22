@@ -56,10 +56,12 @@ export default class Header extends React.Component {
                       <li>+ Site</li>
                     </Link>
                   )}
-                  {this.context.sites.length && (
+                  {this.context.sites.length ? (
                     <Link to={`/s/${this.context.sites[0].subdomain}`}>
                       <li>My Site</li>
                     </Link>
+                  ) : (
+                    <p></p>
                   )}
                 </ul>
               )}
