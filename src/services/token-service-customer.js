@@ -1,6 +1,6 @@
 import config from "../config";
 
-export default {
+const tokenServiceCustomer = {
   saveAuthTokenSite(token) {
     window.localStorage.setItem(config.SITE_TOKEN_KEY, token);
   },
@@ -14,3 +14,5 @@ export default {
     window.localStorage.removeItem(config.SITE_TOKEN_KEY);
   },
 };
+
+export default tokenServiceCustomer;

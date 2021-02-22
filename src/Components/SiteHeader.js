@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import tokenService from "../services/token-service-customer";
+import tokenServiceCustomer from "../services/token-service-customer";
 import Context from "../Context";
 import "../App.css";
 
@@ -15,7 +15,7 @@ export default class SiteHeader extends React.Component {
   };
   logoutCustomer = (e) => {
     e.preventDefault();
-    tokenService.clearAuthTokenSite();
+    tokenServiceCustomer.clearAuthTokenSite();
     this.context.logoutCustomer();
     this.props.history.push(`/s/${this.props.match.params.subdomain}`);
   };
@@ -38,7 +38,7 @@ export default class SiteHeader extends React.Component {
             </Link>
           </h1>
         </section>
-        {tokenService.hasAuthTokenSite() ? (
+        {tokenServiceCustomer.hasAuthTokenSite() ? (
           <>
             <section className="user">
               <Link

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthAPIService from "../services/auth-api-service";
-import TokenService from "../services/token-service-customer";
+import tokenServiceCustomer from "../services/token-service-customer";
 
 export default class SiteLogin extends Component {
   static defaultProps = {
@@ -25,7 +25,7 @@ export default class SiteLogin extends Component {
 
     AuthAPIService.loginCustomer(customer)
       .then((loginResponse) => {
-        TokenService.saveAuthTokenSite(loginResponse.authToken);
+        tokenServiceCustomer.saveAuthTokenSite(loginResponse.authToken);
         this.props.history.push(`/s/${this.props.match.params.subdomain}`);
       })
       .catch((res) => {

@@ -22,9 +22,17 @@
     "deploy": "vercel --prod"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
+    "extends": "react-app",
+    "overrides": [
+      {
+        "files": [
+          "src/services/*.auth-api-service.js",
+          "src/services/*.token-service-customer.js"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
