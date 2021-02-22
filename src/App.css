@@ -34,8 +34,16 @@ header,
   background-color: white;
   color: black;
 }
-.site-header .user a {
+.site-header .user a,
+#login-modal {
   background-color: rgb(91, 1, 133);
+  color: white;
+}
+#login-modal {
+  box-shadow: 5px 5px 5px 2px rgb(201, 201, 197);
+}
+#login-modal a {
+  margin: 10px;
   color: white;
 }
 

@@ -14,6 +14,9 @@ export default class SiteLogin extends Component {
   state = {
     error: null,
   };
+  handleClickCancel = () => {
+    this.props.history.push(`/s/${this.props.match.params.subdomain}`);
+  };
   handleLogin = (e) => {
     e.preventDefault();
     const { email, password } = e.target;
@@ -32,15 +35,19 @@ export default class SiteLogin extends Component {
 
   render() {
     return (
-      <section>
-        <form
-          className="login-form"
-          aria-label="login-form"
-          onSubmit={this.handleLogin}
-        >
-          {this.state.error && <p className="error">{this.state.error}</p>}
-          <fieldset aria-label="email">
-            <legend>SITE Login</legend>
+      <section id="myModal" className="modal">
+        <div className="modal-content" id="login-modal">
+          <span onClick={this.handleClickCancel} className="close">
+            &times;
+          </span>
+          <form
+            className="login-form"
+            aria-label="login-form"
+            onSubmit={this.handleLogin}
+          >
+            {this.state.error && <p className="error">{this.state.error}</p>}
+
+            <h2>Login</h2>
             <div className="flex-wrap">
               <label className="login-email" htmlFor="email">
                 Email
@@ -78,8 +85,8 @@ export default class SiteLogin extends Component {
                 Create your account
               </Link>
             </div>
-          </fieldset>
-        </form>
+          </form>
+        </div>
       </section>
     );
   }

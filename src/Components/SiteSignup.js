@@ -15,6 +15,9 @@ export default class SiteSignup extends Component {
   state = {
     error: null,
   };
+  handleClickCancel = () => {
+    this.props.history.push(`/s/${this.props.match.params.subdomain}`);
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -45,15 +48,19 @@ export default class SiteSignup extends Component {
 
   render() {
     return (
-      <section>
-        <form
-          className="singup-form"
-          aria-label="signup-form"
-          onSubmit={this.handleSubmit}
-        >
-          {this.state.error && <p className="error">{this.state.error}</p>}
-          <fieldset>
-            <legend>SITE Create Account</legend>
+      <section id="myModal" className="modal">
+        <div className="modal-content" id="login-modal">
+          <span onClick={this.handleClickCancel} className="close">
+            &times;
+          </span>
+          <form
+            className="singup-form"
+            aria-label="signup-form"
+            onSubmit={this.handleSubmit}
+          >
+            {this.state.error && <p className="error">{this.state.error}</p>}
+
+            <h2>SITE Create Account</h2>
             <div className="flex-wrap">
               <label htmlFor="new-email">Email</label>
               <div className="input-icons">
@@ -95,8 +102,8 @@ export default class SiteSignup extends Component {
                 Login
               </Link>
             </div>
-          </fieldset>
-        </form>
+          </form>
+        </div>
       </section>
     );
   }
