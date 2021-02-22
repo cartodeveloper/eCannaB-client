@@ -17,6 +17,7 @@ class Dashboard extends Component {
     return (
       <section className="dashboard">
         <h1>DASHBOARD</h1>
+
         <section className="flex" id="banner-site">
           <div className="group">
             <fieldset>
@@ -76,7 +77,7 @@ class Dashboard extends Component {
                   <th>ID</th>
                   <th>CUSTOMER</th>
                   <th>TOTAL </th>
-                  <th>PRODUCT</th>
+                  <th>PRODUCTS</th>
                   <th>ACTIONS</th>
                 </tr>
               </thead>
@@ -91,7 +92,7 @@ class Dashboard extends Component {
         <section className="flex" id="products-user">
           <div className="group">
             <h2 id="h2">PRODUCTS</h2>
-            <button type="click">
+            <button type="click" id="c-p">
               <Link to="/addproduct">CREATE NEW PRODUCT</Link>
             </button>
 

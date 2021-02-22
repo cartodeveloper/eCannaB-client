@@ -1,7 +1,6 @@
 import Context from "../Context";
 import React, { Component } from "react";
 import SiteProduct from "./SiteProduct";
-import { Link } from "react-router-dom";
 
 class SiteHome extends Component {
   static contextType = Context;

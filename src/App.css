@@ -265,7 +265,9 @@ table {
   font-weight: bolder;
 }
 #banner-site .site:hover,
-.banner-buttons button:hover {
+.banner-buttons button:hover,
+#all-resources button[type="click"]:hover,
+#products-user #c-p:hover {
   background-color: rgb(76, 88, 39);
   color: white;
 }
@@ -312,7 +314,9 @@ table {
   font-size: 30px;
 }
 
-.banner-buttons button {
+.banner-buttons button,
+#all-resources button[type="click"],
+#products-user #c-p {
   font-family: "Marcellus";
   text-transform: uppercase;
   cursor: pointer;
@@ -322,6 +326,19 @@ table {
   color: white;
   border-radius: 4px;
   padding: 10px;
+  border: 2px solid rgb(238, 255, 186);
+}
+#all-resources button[type="click"] {
+  width: 150px;
+  margin-bottom: 20px;
+}
+#products-user #c-p {
+  width: 200px;
+}
+#all-resources button[type="click"] a,
+#products-user #c-p a {
+  text-decoration: none;
+  color: white;
 }
 #banner-site .banner-buttons a {
   font-size: 15px;
@@ -374,10 +391,10 @@ main .dashboard {
   table {
     font-size: 20px;
   }
-  .card h2 {
+  .product h2 {
     font-size: 20px;
   }
-  .card p {
+  .product p {
     font-size: 15px;
   }
 }

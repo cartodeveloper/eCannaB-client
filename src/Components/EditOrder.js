@@ -72,7 +72,7 @@ class EditOrder extends Component {
             <legend>Order Details</legend>
             <div className="id">
               <label htmlFor="id" aria-label="id">
-                <h3>Order Id: </h3>
+                <h3>Order Number: </h3>
               </label>
               <input
                 type="id"
@@ -85,7 +85,7 @@ class EditOrder extends Component {
             </div>
             <div className="customer_name">
               <label htmlFor="customer_name" aria-label="customer_name">
-                <h3>Order Name: *</h3>
+                <h3>Customer Name: *</h3>
               </label>
               <input
                 type="text"
@@ -118,19 +118,6 @@ class EditOrder extends Component {
                 id="p_title"
                 name="p_title"
                 value={newOrder.p_title || ""}
-                onChange={(e) => this.handleChange(e)}
-                required
-              />
-            </div>
-            <div className="">
-              <label htmlFor="status" aria-label="status">
-                <h3>Status: *</h3>
-              </label>
-              <input
-                type="text"
-                id="status"
-                name="status"
-                value={newOrder.status || ""}
                 onChange={(e) => this.handleChange(e)}
                 required
               />

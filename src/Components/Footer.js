@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import TokenService from "../services/token-service";
+
 import { Link } from "react-router-dom";
 import Context from "../Context";
-import tokenServiceCustomer from "../services/token-service-customer";
-import SiteSignup from "./SiteSignup";
 
 class Footer extends Component {
   static contextType = Context;

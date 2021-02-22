@@ -78,8 +78,8 @@ class App extends Component {
       });
     },
     // SITE RESOURCES
-
     addResourceToSite: (siteid, resource) => {
+      // add db connection to site-resources
       this.setState({
         sites: [
           ...this.state.sites.map((site) => {
