@@ -30,7 +30,7 @@ export default class SiteHeader extends React.Component {
         (site) => site.subdomain === this.props.match.params.subdomain
       ) || {};
     return (
-      <header>
+      <header className="site-header">
         <section className="logo">
           <h1>
             <Link to={`/s/${this.props.match.params.subdomain}`}>
@@ -52,12 +52,10 @@ export default class SiteHeader extends React.Component {
               </Link>
             </section>
             <nav>
-              <div className="nav-icon">
-                <h3>
-                  <Link to={`/s/${this.props.match.params.subdomain}/cart`}>
-                    <i className="fas fa-shopping-cart" />
-                  </Link>
-                </h3>
+              <div className="nav-site-icon">
+                <Link to={`/s/${this.props.match.params.subdomain}/cart`}>
+                  <i className="fas fa-shopping-cart" />
+                </Link>
               </div>
             </nav>
           </>

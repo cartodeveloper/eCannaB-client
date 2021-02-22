@@ -41,7 +41,7 @@ export default class Header extends React.Component {
             </section>
             <nav onClick={() => this.setState({ opened: !this.state.opened })}>
               <div className="nav-icon">
-                <h3>MENU</h3>
+                <img src="/images/nav_icon.png" alt="nav_icon" />
               </div>
               {this.state.opened && (
                 <ul id="menu">

@@ -31,16 +31,14 @@ export default class DeleteButton extends Component {
   };
   render() {
     return (
-      <div className="DeleteBtn">
-        <button
-          onClick={(e) => {
-            if (window.confirm("Are you sure you wish to delete your site?"))
-              this.handleDelete(e);
-          }}
-        >
-          Delete
-        </button>
-      </div>
+      <button
+        onClick={(e) => {
+          if (window.confirm("Are you sure you wish to delete your site?"))
+            this.handleDelete(e);
+        }}
+      >
+        Delete
+      </button>
     );
   }
 }

@@ -8,6 +8,7 @@ import DeleteSite from "./DeleteSite";
 
 class Dashboard extends Component {
   static contextType = Context;
+
   render() {
     let { orders = [] } = this.context;
     let { resources = [] } = this.context;
@@ -16,28 +17,35 @@ class Dashboard extends Component {
     return (
       <section className="dashboard">
         <h1>DASHBOARD</h1>
-        <section className="flex">
+        <section className="flex" id="banner-site">
           <div className="group">
-            <h2>Your Site</h2>
-            {!sites.length && (
-              <button type="click">
-                <Link to="/addsite">CREATE NEW SITE</Link>
-              </button>
-            )}
-            {sites.map((site) => (
-              <li key={site.id}>
-                SITE ID:<strong> {site.id} </strong>
-                <Link to={`/s/${site.subdomain}`}> {site.subdomain}</Link>
-                <button type="click">
-                  <Link to={`/editsite/${site.id}`}>Edit</Link>
-                </button>
-                <DeleteSite id={site.id} history={this.props.history} />
-              </li>
-            ))}
+            <fieldset>
+              <legend>
+                <h2>Your Site</h2>
+              </legend>
+              {!sites.length && (
+                <Link className="site" to="/addsite">
+                  CREATE NEW SITE
+                </Link>
+              )}
+              {sites.map((site) => (
+                <li key={site.id}>
+                  <Link className="site" to={`/s/${site.subdomain}`}>
+                    {site.subdomain}
+                  </Link>
+                  <div className="banner-buttons">
+                    <button>
+                      <Link to={`/editsite/${site.id}`}>Edit</Link>
+                    </button>
+                    <DeleteSite id={site.id} history={this.props.history} />
+                  </div>
+                </li>
+              ))}
+            </fieldset>
           </div>
         </section>
-        <section className="flex">
-          <div className="group">
+        <section className="flex" id="site-r-o">
+          <div className="group" id="all-resources">
             <h2>ALL RESOURCES</h2>
             <button type="click">
               <Link to="/addresource">Add Resource</Link>
@@ -80,12 +88,13 @@ class Dashboard extends Component {
             </table>
           </div>
         </section>
-        <section className="flex">
+        <section className="flex" id="products-user">
           <div className="group">
-            <h2>PRODUCTS</h2>
+            <h2 id="h2">PRODUCTS</h2>
             <button type="click">
               <Link to="/addproduct">CREATE NEW PRODUCT</Link>
             </button>
+
             <ProductList {...this.props} />
           </div>
         </section>

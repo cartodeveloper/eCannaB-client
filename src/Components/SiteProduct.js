@@ -42,37 +42,35 @@ export default class SiteProduct extends Component {
         );
 
     return (
-      <li className="product" key={id}>
-        <div className="card">
-          <div className="group">
-            <img src={p_image} alt="product" />
-          </div>
-          <div className="group">
-            <h2>{title}</h2>
-            <p>Price: {price}</p>
-            <p>Brand: {brand}</p>
-            <p>Available: {inStock}</p>
-            <p>Product Description: {p_description}</p>
+      <li className="site-product" key={id}>
+        <div className="group">
+          <img src={p_image} alt="product" />
+        </div>
+        <div className="group">
+          <h2>{title}</h2>
+          <p>Price: {price}</p>
+          <p>Brand: {brand}</p>
+          <p>Available: {inStock}</p>
+          <p>Product Description: {p_description}</p>
 
-            {this.context.cart.find((p) => p.pid === id) ? (
-              <span>In Cart</span>
-            ) : (
-              <>
-                {tokenService.hasAuthTokenSite() ? (
-                  <>
-                    <button onClick={this.handleAddToCart}>Add To Cart</button>
-                  </>
-                ) : (
-                  <section className="user">
-                    <p>Please be sure to Login to make an order.</p>
-                    <Link to={`/s/${this.props.match.params.subdomain}/login`}>
-                      Login
-                    </Link>
-                  </section>
-                )}
-              </>
-            )}
-          </div>
+          {this.context.cart.find((p) => p.pid === id) ? (
+            <span>In Cart</span>
+          ) : (
+            <>
+              {tokenService.hasAuthTokenSite() ? (
+                <>
+                  <button onClick={this.handleAddToCart}>Add To Cart</button>
+                </>
+              ) : (
+                <section className="user">
+                  <Link to={`/s/${this.props.match.params.subdomain}/login`}>
+                    Login
+                  </Link>
+                  <p>Please be sure to Login to make an order.</p>
+                </section>
+              )}
+            </>
+          )}
         </div>
       </li>
     );
