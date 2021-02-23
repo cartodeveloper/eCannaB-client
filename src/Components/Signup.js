@@ -6,7 +6,9 @@ export default class Signup extends Component {
   state = {
     error: null,
   };
-
+  handleClickCancel = () => {
+    this.props.history.push("/");
+  };
   handleSubmit = (e) => {
     e.preventDefault();
     const { email, password, confirmPassword } = e.target;
@@ -29,15 +31,19 @@ export default class Signup extends Component {
 
   render() {
     return (
-      <section>
-        <form
-          className="singup-form"
-          aria-label="signup-form"
-          onSubmit={this.handleSubmit}
-        >
-          {this.state.error && <p className="error">{this.state.error}</p>}
-          <fieldset>
-            <legend>Create Account</legend>
+      <section id="myModal" className="modal">
+        <div className="modal-content">
+          <span onClick={this.handleClickCancel} className="close">
+            &times;
+          </span>
+          <form
+            className="singup-form"
+            aria-label="signup-form"
+            onSubmit={this.handleSubmit}
+          >
+            {this.state.error && <p className="error">{this.state.error}</p>}
+
+            <h2>Create Account</h2>
             <div className="flex-wrap">
               <label htmlFor="new-email">Email</label>
               <div className="input-icons">
@@ -76,8 +82,8 @@ export default class Signup extends Component {
             <div>
               Already have an account? <Link to="/login"> Login</Link>
             </div>
-          </fieldset>
-        </form>
+          </form>
+        </div>
       </section>
     );
   }

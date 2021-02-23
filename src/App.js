@@ -147,6 +147,29 @@ class App extends Component {
       });
     },
     // ORDERS
+    setOrders: (orders) => {
+      this.setState({
+        orders,
+        error: null,
+      });
+    },
+    getOrders: () => {
+      fetch(`${config.API_BASE_URL}/orders`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${tokenService.getAuthToken()}`,
+        },
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(res.status);
+          }
+          return res.json();
+        })
+        .then(this.state.setOrders)
+        .catch((error) => this.setState({ error }));
+    },
     updateOrder: (newOrder, id) => {
       this.setState({
         orders: this.state.orders.map((o) => {
