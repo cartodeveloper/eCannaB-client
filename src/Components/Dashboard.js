@@ -56,16 +56,18 @@ class Dashboard extends Component {
                 <a target="_blank" rel="noreferrer" href={resource.link}>
                   {resource.name}
                 </a>
-                <button
-                  onClick={() =>
-                    this.context.addResourceToSite(
-                      this.context.sites[0].id,
-                      resource
-                    )
-                  }
-                >
-                  Add to Site
-                </button>
+                <div className="resourceSiteBtn">
+                  <button
+                    onClick={() =>
+                      this.context.addResourceToSite(
+                        this.context.sites[0].id,
+                        resource
+                      )
+                    }
+                  >
+                    Add to Site
+                  </button>
+                </div>
               </li>
             ))}
           </div>

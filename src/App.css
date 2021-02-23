@@ -267,7 +267,8 @@ table {
 #banner-site .site:hover,
 .banner-buttons button:hover,
 #all-resources button[type="click"]:hover,
-#products-user #c-p:hover {
+#products-user #c-p:hover,
+#all-resources li a:hover {
   background-color: rgb(76, 88, 39);
   color: white;
 }
@@ -303,7 +304,8 @@ table {
   }
 }
 
-#banner-site li {
+#banner-site li,
+#all-resources li {
   list-style: none;
   padding: 10px;
 }
@@ -356,6 +358,17 @@ table {
   border-radius: 3px;
   color: white;
   padding: 1.5%;
+}
+
+#all-resources li a {
+  padding: 5px;
+  text-decoration: none;
+  color: black;
+}
+
+.resourceSiteBtn {
+  position: relative;
+  float: right;
 }
 /* Footer */
 footer {

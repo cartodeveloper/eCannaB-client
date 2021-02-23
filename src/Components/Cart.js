@@ -6,6 +6,10 @@ import "../App.css";
 
 class Cart extends Component {
   static contextType = Context;
+
+  handleClickCancel = () => {
+    this.props.history.push(`/s/${this.props.match.params.subdomain}`);
+  };
   static defaultProps = {
     match: {
       params: {
@@ -15,21 +19,35 @@ class Cart extends Component {
   };
   state = {
     error: null,
-    newOrder: {},
-  };
-  handleClickCancel = () => {
-    this.props.history.push(`/s/${this.props.match.params.subdomain}`);
+    newOrder: {
+      cart: [],
+    },
   };
 
-  handleSubmit(e) {
+  /*AddCartToOrder(e) {
+this.setState({
+newOrder: {
+...this.state.newOrder,
+},
+});
+}*/
+  cartToState = () => {};
+
+  handleClick(e) {
     e.preventDefault();
-    this.setState({
-      newOrder: { ...this.state.newOrder },
-    });
-    this.setState({ error: null });
+    let customer_id = tokenServiceCustomer.getCustomerId();
+    //let order = e.target.value;
+
+    let payload = {
+      customer_id: customer_id,
+      cart: e.target.value,
+    };
+
+    console.log(payload, "this is the paylod");
+    //this.setState({ error: null });
     fetch(`${config.API_BASE_URL}/orders`, {
       method: "POST",
-      body: JSON.stringify(this.state.newOrder),
+      body: JSON.stringify(payload),
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${tokenServiceCustomer.getAuthTokenSite()}`,
@@ -49,12 +67,17 @@ class Cart extends Component {
         this.props.history.push(`/s/${this.props.match.params.subdomain}`);
       })
       .catch((e) => {
-        this.setState({ error: e.message });
+        //this.setState({ error: e.message });
       });
   }
 
   render() {
     let { cart = [] } = this.context;
+    let total = cart.reduce((total, p) => {
+      return total + Number(p.price);
+    }, 0);
+    console.log();
+    console.log(cart, "this is the cart");
     return (
       <section id="myModal" className="modal">
         <div className="modal-content">
@@ -74,14 +97,10 @@ class Cart extends Component {
           <hr />
           <h3>
             TOTAL:{" $"}
-            {parseFloat(
-              cart.reduce((total, p) => {
-                return total + Number(p.price);
-              }, 0)
-            )}
+            {parseFloat(total)}
           </h3>
           <section className="order">
-            <button>Place your order</button>
+            <button onClick={this.handleClick}>Place your order</button>
           </section>
         </div>
       </section>

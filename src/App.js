@@ -170,6 +170,11 @@ class App extends Component {
         .then(this.state.setOrders)
         .catch((error) => this.setState({ error }));
     },
+    addOrder: (newOrder) => {
+      this.setState({
+        orders: [...this.state.newOrder, newOrder],
+      });
+    },
     updateOrder: (newOrder, id) => {
       this.setState({
         orders: this.state.orders.map((o) => {
@@ -233,6 +238,7 @@ class App extends Component {
         this.state.getSites();
         this.state.getResources();
         this.state.getProducts();
+        this.state.getOrders();
       }
     }, 1000);
   }

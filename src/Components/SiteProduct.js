@@ -1,21 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Context from "../Context";
-import tokenService from "../services/token-service-customer";
+import tokenServiceCustomer from "../services/token-service-customer";
 
 export default class SiteProduct extends Component {
   static contextType = Context;
-
   static defaultProps = {
     match: {
       params: {
         id: 0,
       },
     },
-  };
-
-  handleClickCancel = () => {
-    this.props.history.push("/dashboard");
   };
 
   handleAddToCart = () => {
@@ -57,7 +52,7 @@ export default class SiteProduct extends Component {
             <span>In Cart</span>
           ) : (
             <>
-              {tokenService.hasAuthTokenSite() ? (
+              {tokenServiceCustomer.hasAuthTokenSite() ? (
                 <>
                   <button onClick={this.handleAddToCart}>Add To Cart</button>
                 </>
