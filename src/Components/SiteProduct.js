@@ -43,7 +43,7 @@ export default class SiteProduct extends Component {
         </div>
         <div className="group">
           <h2>{title}</h2>
-          <p>Price: {price}</p>
+          <p>Price: {("$", price)}</p>
           <p>Brand: {brand}</p>
           <p>Available: {inStock}</p>
           <p>Product Description: {p_description}</p>

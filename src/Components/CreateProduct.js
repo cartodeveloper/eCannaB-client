@@ -55,16 +55,20 @@ class CreateProduct extends Component {
   render() {
     const { error } = this.state;
     return (
-      <section className="create-product">
-        <h2>Create a new product...</h2>
-        <p>All fields with * are required</p>
-        <form
-          onSubmit={this.handleSubmit}
-          className="product-form"
-          aria-label="create-product"
-        >
-          {error && <p className="error">{error}</p>}
-          <fieldset>
+      <section id="myModal" className="modal">
+        <div className="modal-content">
+          <span onClick={this.handleClickCancel} className="close">
+            &times;
+          </span>
+          <h2>Create a new product...</h2>
+          <p>All fields with * are required</p>
+          <form
+            onSubmit={this.handleSubmit}
+            className="product-form"
+            aria-label="create-product"
+          >
+            {error && <p className="error">{error}</p>}
+
             <legend>Product Details</legend>
 
             <div className="title">
@@ -133,26 +137,25 @@ class CreateProduct extends Component {
                 required
               />
             </div>
-            <h3>Description:</h3>
-            <p>
-              In a paragraph, give your customer a description of the product.
-            </p>
-            <textarea
-              id="p_description"
-              name="p_description"
-              rows="5"
-              cols="50"
-              onChange={(e) => this.handleChange(e)}
-              placeholder="Amazing NANO CBD 100% Bioavailability- NON GMO"
-            ></textarea>
+            <div>
+              <h3>Description:</h3>
+              <p>
+                In a paragraph, give your customer a description of the product.
+              </p>
+              <textarea
+                id="p_description"
+                name="p_description"
+                rows="8"
+                cols="40"
+                onChange={(e) => this.handleChange(e)}
+                placeholder="Amazing NANO CBD 100% Bioavailability- NON GMO"
+              ></textarea>
+            </div>
             <section className="buttons-form">
-              <button type="submit" onClick={this.handleClickCancel}>
-                Cancel
-              </button>
               <button type="submit">Create Product</button>
             </section>
-          </fieldset>
-        </form>
+          </form>
+        </div>
       </section>
     );
   }

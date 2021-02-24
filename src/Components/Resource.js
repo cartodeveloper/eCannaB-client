@@ -29,11 +29,13 @@ export default class Resource extends Component {
             </a>
           </h3>
         </div>
-        <div className="group">
-          <button type="click">
-            <Link to={`/editresource/${id}`}>Edit</Link>
-          </button>
-          <DeleteResource id={id} history={this.props.history} />
+        <div className="flex-row">
+          <div className="group">
+            <button type="click">
+              <Link to={`/editresource/${id}`}>Edit</Link>
+            </button>
+            <DeleteResource id={id} history={this.props.history} />
+          </div>
         </div>
       </li>
     );

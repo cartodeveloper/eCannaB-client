@@ -31,18 +31,15 @@ export default class DeleteResource extends Component {
   };
   render() {
     return (
-      <div className="DeleteBtn">
-        <button
-          onClick={(e) => {
-            if (
-              window.confirm("Are you sure you wish to delete this resource?")
-            )
-              this.handleDelete(e);
-          }}
-        >
-          Delete
-        </button>
-      </div>
+      <button
+        type="click"
+        onClick={(e) => {
+          if (window.confirm("Are you sure you wish to delete this resource?"))
+            this.handleDelete(e);
+        }}
+      >
+        Delete
+      </button>
     );
   }
 }

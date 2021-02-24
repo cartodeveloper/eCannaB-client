@@ -32,6 +32,7 @@ export default class DeleteButton extends Component {
   render() {
     return (
       <button
+        id="delete"
         onClick={(e) => {
           if (window.confirm("Are you sure you wish to delete your site?"))
             this.handleDelete(e);

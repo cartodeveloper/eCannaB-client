@@ -24,18 +24,24 @@ export default class Product extends Component {
       <li className="product" key={id}>
         <div className="group">
           <img src={p_image} alt="product" />
+          <h3>{brand}</h3>
         </div>
         <div className="group">
           <h2>{title}</h2>
-          <h4>{brand}</h4>
-          <p>Price: {price}</p>
-          <p>in Stock: {in_stock}</p>
-          <p>Product Description: {p_description}</p>
-
-          <button type="click">
-            <Link to={`/editproduct/${id}`}>Edit</Link>
-          </button>
-          <DeleteProduct id={id} history={this.props.history} />
+          <p>
+            {" $"}
+            {price}
+          </p>
+          <p>in Stock:</p>
+          <span>{in_stock}</span>
+          <p>Product Description:</p>
+          <span>{p_description}</span>
+          <div className="controls">
+            <button type="click">
+              <Link to={`/editproduct/${id}`}>Edit</Link>
+            </button>
+            <DeleteProduct id={id} history={this.props.history} />
+          </div>
         </div>
       </li>
     );

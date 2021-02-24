@@ -3,7 +3,6 @@ import "../App.css";
 import ProductList from "./ProductList";
 import { Link } from "react-router-dom";
 import Context from "../Context";
-import Order from "./Order";
 import DeleteSite from "./DeleteSite";
 import ResourcesList from "./ResourcesList";
 
@@ -11,8 +10,6 @@ class Dashboard extends Component {
   static contextType = Context;
 
   render() {
-    let { orders = [] } = this.context;
-    let { resources = [] } = this.context;
     let { sites = [] } = this.context;
 
     return (
@@ -32,9 +29,14 @@ class Dashboard extends Component {
               )}
               {sites.map((site) => (
                 <li key={site.id}>
-                  <Link className="site" to={`/s/${site.subdomain}`}>
+                  <a
+                    className="site"
+                    target="_blank"
+                    rel="noreferrer"
+                    href={`/s/${site.subdomain}`}
+                  >
                     {site.subdomain}
-                  </Link>
+                  </a>
                   <div className="banner-buttons">
                     <button>
                       <Link to={`/editsite/${site.id}`}>Edit</Link>
@@ -51,14 +53,13 @@ class Dashboard extends Component {
           <button type="click" id="c-r">
             <Link to="/addresource">Add Resource</Link>
           </button>
-          <div>
-            {this.context.resources.length ? (
-              <ResourcesList {...this.props} />
-            ) : (
-              <p>No resources available yet...</p>
-            )}
-          </div>
-          {/*
+          {this.context.resources.length ? (
+            <ResourcesList {...this.props} />
+          ) : (
+            <p>No resources available yet...</p>
+          )}
+        </section>
+        {/*
             {resources.map((resource) => (
               <li key={resource.id}>
                 <a target="_blank" rel="noreferrer" href={resource.link}>
@@ -78,7 +79,7 @@ class Dashboard extends Component {
                 </div>
               </li>
             ))} */}
-        </section>
+
         <section className="flex" id="products-user">
           <div className="group">
             <h2 id="h2">PRODUCTS</h2>

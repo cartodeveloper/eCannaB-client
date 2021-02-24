@@ -80,6 +80,7 @@ class SiteHome extends Component {
             </>
           )}
         </section>
+
         <hr />
         <h2>PRODUCTS AVAILABLE</h2>
         <section className="input-search">

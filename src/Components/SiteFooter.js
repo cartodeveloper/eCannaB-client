@@ -19,8 +19,10 @@ class SiteFooter extends Component {
 
     return (
       <footer className="site-footer">
-        © 2021 <a href={siteSubdomain}>{siteSubdomain}</a>, Inc. Powered by:{" "}
-        <Link to="/"> eCannaB </Link>
+        © 2021 <a href={siteSubdomain}>{siteSubdomain}</a>, Inc. Powered by:
+        <Link to="/">
+          eCannaB <i className="fas fa-leaf"></i>
+        </Link>
       </footer>
     );
   }

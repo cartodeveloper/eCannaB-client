@@ -11,7 +11,6 @@ import CreateProduct from "./Components/CreateProduct";
 import AddResource from "./Components/AddResource";
 import EditProduct from "./Components/EditProduct";
 import EditOrder from "./Components/EditOrder";
-import data from "./data";
 import Context from "./Context";
 import SiteLogin from "./Components/SiteLogin";
 import SiteSignup from "./Components/SiteSignup";
@@ -307,29 +306,25 @@ class App extends Component {
             {/*Private routes for seller's customer = JUST the cart*/}
             <Route path="/s/:subdomain/cart" component={Cart} />
           </main>
-          <>
-            <footer>
-              <Route
-                exact
-                path={[
-                  "/",
-                  "/signup",
-                  "/login",
-                  "/dashboard",
-                  "/addsite",
-                  "/editsite/:id",
-                  "/editorder/:id",
-                  "/editproduct/:id",
-                  "/addproduct",
-                  "/addresource",
-                  "/editresource/:id",
-                  "/product/:id",
-                ]}
-                component={Footer}
-              />
-              <Route path="/s/:subdomain" component={SiteFooter} />
-            </footer>
-          </>
+          <Route
+            exact
+            path={[
+              "/",
+              "/signup",
+              "/login",
+              "/dashboard",
+              "/addsite",
+              "/editsite/:id",
+              "/editorder/:id",
+              "/editproduct/:id",
+              "/addproduct",
+              "/addresource",
+              "/editresource/:id",
+              "/product/:id",
+            ]}
+            component={Footer}
+          />
+          <Route path="/s/:subdomain" component={SiteFooter} />
         </div>
       </Context.Provider>
     );

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import tokenServiceCustomer from "../services/token-service-customer";
-import tokenService from "../services/token-service";
 import Context from "../Context";
 import "../App.css";
 

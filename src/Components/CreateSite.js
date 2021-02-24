@@ -50,17 +50,20 @@ class CreateSite extends Component {
   render() {
     const { error } = this.state;
     return (
-      <section className="create-site">
-        <h2>Fill out the form with your site information</h2>
-        <p>All fields with * are required</p>
-        <form
-          onSubmit={this.handleSubmit}
-          className="site-form"
-          aria-label="create-site"
-        >
-          {error && <p className="error">{error}</p>}
-          <fieldset>
-            <legend>Your Site</legend>
+      <section id="myModal" className="modal">
+        <div className="modal-content">
+          <span onClick={this.handleClickCancel} className="close">
+            &times;
+          </span>
+          <h2>Fill out the form with your site information</h2>
+          <p>All fields with * are required</p>
+          <form
+            onSubmit={this.handleSubmit}
+            className="site-form"
+            aria-label="create-site"
+          >
+            {error && <p className="error">{error}</p>}
+
             <div className="brand">
               <label htmlFor="brand" aria-label="brand">
                 <h3>Site/Brand Name: *</h3>
@@ -122,19 +125,16 @@ class CreateSite extends Component {
             <textarea
               id="seller_description"
               name="seller_description"
-              rows="5"
-              cols="50"
+              rows="8"
+              cols="40"
               onChange={(e) => this.handleChange(e)}
               placeholder="We're a brand commited with the health and overall wellness!"
             ></textarea>
             <section className="buttons-form">
-              <button type="submit" onClick={this.handleClickCancel}>
-                Cancel
-              </button>
               <button type="submit">Create Site</button>
             </section>
-          </fieldset>
-        </form>
+          </form>
+        </div>
       </section>
     );
   }

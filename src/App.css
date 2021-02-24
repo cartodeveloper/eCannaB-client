@@ -2,7 +2,17 @@
 body {
   font-family: "Roboto";
 }
-
+/* Reusable */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-row .group {
+  flex: 1;
+}
+.flex-row .group button {
+  margin: 10px;
+}
 /* Header */
 header,
 .site-header {
@@ -38,14 +48,16 @@ header,
 }
 .site-header .user a,
 #login-modal,
-.home .login a {
+.home .login a,
+.site-footer {
   background-color: rgb(91, 1, 133);
   color: white;
 }
 #login-modal {
   box-shadow: 5px 5px 5px 2px rgb(201, 201, 197);
 }
-#login-modal a {
+#login-modal a,
+.site-footer a {
   margin: 10px;
   color: white;
 }
@@ -86,7 +98,8 @@ nav,
 }
 nav a,
 .user a,
-.home .login a {
+.home .login a,
+.site-footer a {
   text-decoration: none;
   color: white;
 }
@@ -122,10 +135,12 @@ nav a,
 }
 
 .nav-icon,
-.nav-site-icon {
+.nav-site-icon,
+.site-footer {
   margin-top: 30px;
 }
-.nav-site-icon {
+.nav-site-icon,
+.site-footer {
   padding: 20px;
 }
 
@@ -173,7 +188,7 @@ ul#menu {
   font-size: 14px;
 }
 
-/* Card */
+/* Products*/
 .product,
 .site-product {
   display: flex;
@@ -189,7 +204,10 @@ ul#menu {
 }
 
 .product h2 {
-  font-size: 15px;
+  font-size: 22px;
+}
+h4 {
+  font-size: 18px;
 }
 .product p {
   font-size: 15px;
@@ -198,9 +216,19 @@ ul#menu {
   width: 100%;
   height: auto;
 }
-
+.product li {
+  background-color: rgba(10, 10, 10, 0.493);
+}
 .product {
   list-style: none;
+}
+
+.product p {
+  font-weight: bolder;
+  padding: auto;
+}
+.product p {
+  font-weight: bolder;
 }
 .group {
   flex: 1;
@@ -210,6 +238,7 @@ ul#menu {
 .group2 {
   flex: 2;
 }
+
 /* The Modal (background) */
 .modal {
   position: fixed;
@@ -269,9 +298,14 @@ table {
 .banner-buttons button:hover,
 #all-resources button[type="click"]:hover,
 #products-user #c-p:hover,
-#all-resources li a:hover {
+#all-resources li a:hover,
+.product .group .controls button[type="click"]:hover {
   background-color: rgb(76, 88, 39);
   color: white;
+}
+
+#fieldset {
+  padding: 10px;
 }
 
 #banner-site fieldset {
@@ -296,7 +330,7 @@ table {
   0% {
     transform: translate(10px, 10px) rotate(0deg);
   }
-  10% {
+  20% {
     transform: translate(-10px, -20px) rotate(0deg);
   }
 
@@ -310,6 +344,17 @@ table {
   list-style: none;
   padding: 10px;
 }
+#all-resources h3 {
+  font-size: 30px;
+  background-color: black;
+  border-radius: 4px;
+  color: white;
+}
+#all-resources h3 a:hover {
+  background-color: purple;
+  padding: 6px;
+  border-radius: 4px;
+}
 #banner-site button {
   margin: 10px;
 }
@@ -319,7 +364,8 @@ table {
 
 .banner-buttons button,
 #all-resources button[type="click"],
-#products-user #c-p {
+#products-user #c-p,
+.product .group .controls button[type="click"] {
   font-family: "Marcellus";
   text-transform: uppercase;
   cursor: pointer;
@@ -331,15 +377,18 @@ table {
   padding: 10px;
   border: 2px solid rgb(238, 255, 186);
 }
+
 #all-resources button[type="click"] {
   width: 150px;
   margin-bottom: 20px;
 }
+
 #products-user #c-p {
   width: 200px;
 }
 #all-resources button[type="click"] a,
-#products-user #c-p a {
+#products-user #c-p a,
+.product .group .controls a {
   text-decoration: none;
   color: white;
 }
@@ -349,7 +398,8 @@ table {
   text-decoration: none;
 }
 
-#banner-site .banner-buttons {
+#banner-site .banner-buttons,
+.product .group .controls button[type="click"] {
   margin-top: 20px;
 }
 
@@ -366,7 +416,7 @@ table {
 #all-resources li a {
   text-align: center;
   text-decoration: none;
-  color: black;
+  color: white;
 }
 #all-resources img {
   width: 100%;
@@ -384,7 +434,7 @@ ul#flex-container {
   flex-wrap: wrap;
 }
 ul#flex-container > * {
-  flex: 1 1 200px;
+  flex: 1 1;
 }
 
 /* Footer */
