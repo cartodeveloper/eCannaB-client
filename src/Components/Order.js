@@ -6,7 +6,7 @@ import Context from "../Context";
 export default class Order extends Component {
   static contextType = Context;
   render() {
-    const { id, customer_name, total, p_title } = this.props.id
+    const { id, customer_name, total, p_title } = this.props
       ? this.props
       : this.context.products.find(
           (p) => p.id === Number(this.props.match.params.id)

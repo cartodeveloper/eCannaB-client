@@ -39,21 +39,7 @@ export default class SiteHeader extends React.Component {
             </Link>
           </h1>
         </section>
-        <section>
-          {tokenService.hasAuthToken() ? (
-            <>
-              <p></p>
-            </>
-          ) : (
-            <>
-              <section className="user">
-                <Link to={`/s/${this.props.match.params.subdomain}/login`}>
-                  Login
-                </Link>
-              </section>
-            </>
-          )}
-        </section>
+
         {tokenServiceCustomer.hasAuthTokenSite() ? (
           <>
             <section className="user">

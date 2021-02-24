@@ -30,7 +30,7 @@ export default class SiteProduct extends Component {
 
   render() {
     const { id, title, p_image, price, inStock, brand, p_description } = this
-      .props.id
+      .props
       ? this.props
       : this.context.products.find(
           (p) => p.id === Number(this.props.match.params.id)

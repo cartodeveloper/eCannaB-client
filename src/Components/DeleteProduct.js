@@ -33,6 +33,7 @@ export default class DeleteButton extends Component {
     return (
       <div className="DeleteBtn">
         <button
+          type="click"
           onClick={(e) => {
             if (window.confirm("Are you sure you wish to delete this product?"))
               this.handleDelete(e);

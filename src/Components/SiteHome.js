@@ -7,6 +7,13 @@ import SiteResource from "../Components/SiteResource";
 
 class SiteHome extends Component {
   static contextType = Context;
+  static defaultProps = {
+    match: {
+      params: {
+        id: 0,
+      },
+    },
+  };
   state = {
     filter: {
       title: "",

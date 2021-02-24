@@ -13,10 +13,12 @@ class Footer extends Component {
   };
 
   render() {
-    let siteSubdomain = this.context.sites.map((site) => {
-      return site.subdomain;
-    });
-    return siteSubdomain ? (
+    const s =
+      this.context.sites.find(
+        (site) => site.subdomain === this.props.match.params.subdomain
+      ) || {};
+
+    return s ? (
       <footer className="eCannab-footer">
         <p>Copyright © 2021</p>
         <Link to="/">
@@ -25,7 +27,7 @@ class Footer extends Component {
       </footer>
     ) : (
       <footer className="site-footer">
-        © 2021 <a href={siteSubdomain}>{siteSubdomain}</a>, Inc. Powered by:{" "}
+        © 2021 <a href={s}>{s}</a>, Inc. Powered by:{" "}
         <Link to="/"> eCannaB </Link>
       </footer>
     );

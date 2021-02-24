@@ -14,7 +14,7 @@ export default class Product extends Component {
   };
   render() {
     const { id, title, p_image, price, in_stock, brand, p_description } = this
-      .props.id
+      .props
       ? this.props
       : this.context.products.find(
           (p) => p.id === Number(this.props.match.params.id)
@@ -23,9 +23,7 @@ export default class Product extends Component {
     return (
       <li className="product" key={id}>
         <div className="group">
-          <Link to={`/product/${id}`}>
-            <img src={p_image} alt="product" />
-          </Link>
+          <img src={p_image} alt="product" />
         </div>
         <div className="group">
           <h2>{title}</h2>

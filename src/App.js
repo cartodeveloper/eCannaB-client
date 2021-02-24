@@ -16,19 +16,20 @@ import Context from "./Context";
 import SiteLogin from "./Components/SiteLogin";
 import SiteSignup from "./Components/SiteSignup";
 import SiteHeader from "./Components/SiteHeader";
-import SiteProduct from "./Components/SiteProduct";
 import Cart from "./Components/Cart";
 import SiteHome from "./Components/SiteHome";
 import tokenService from "./services/token-service";
 import config from "./config";
 import EditSite from "./Components/EditSite";
 import Footer from "./Components/Footer";
+import SiteFooter from "./Components/SiteFooter";
 import Resource from "./Components/Resource";
 import PrivateRoute from "./Utils/PrivateRoute";
+import EditResource from "./Components/EditResource";
 
 class App extends Component {
   state = {
-    orders: data.ORDERS,
+    orders: [],
     products: [],
     resources: [],
     cart: [],
@@ -156,7 +157,7 @@ class App extends Component {
       });
     },
     getOrders: () => {
-      fetch(`${config.API_BASE_URL}/orders`, {
+      /* fetch(`${config.API_BASE_URL}/orders`, {
         method: "GET",
         headers: {
           "content-type": "application/json",
@@ -170,7 +171,7 @@ class App extends Component {
           return res.json();
         })
         .then(this.state.setOrders)
-        .catch((error) => this.setState({ error }));
+        .catch((error) => this.setState({ error })); */
     },
     addOrder: (newOrder) => {
       this.setState({
@@ -296,17 +297,39 @@ class App extends Component {
             <PrivateRoute path="/addproduct" component={CreateProduct} />
             <PrivateRoute path="/editorder/:id" component={EditOrder} />
             <PrivateRoute path="/editproduct/:id" component={EditProduct} />
+            <PrivateRoute path="/editresource/:id" component={EditResource} />
             <PrivateRoute path="/product/:id" component={Product} />
             <PrivateRoute path="/resource/:id" component={Resource} />
             {/*Seller Public Site Routes*/}
             <Route path="/s/:subdomain/" component={SiteHome} />
             <Route exact path="/s/:subdomain/signup" component={SiteSignup} />
             <Route path="/s/:subdomain/login" component={SiteLogin} />
-            <Route path="/s/:subdomain/product/:id" component={SiteProduct} />
             {/*Private routes for seller's customer = JUST the cart*/}
             <Route path="/s/:subdomain/cart" component={Cart} />
           </main>
-          <Footer />
+          <>
+            <footer>
+              <Route
+                exact
+                path={[
+                  "/",
+                  "/signup",
+                  "/login",
+                  "/dashboard",
+                  "/addsite",
+                  "/editsite/:id",
+                  "/editorder/:id",
+                  "/editproduct/:id",
+                  "/addproduct",
+                  "/addresource",
+                  "/editresource/:id",
+                  "/product/:id",
+                ]}
+                component={Footer}
+              />
+              <Route path="/s/:subdomain" component={SiteFooter} />
+            </footer>
+          </>
         </div>
       </Context.Provider>
     );

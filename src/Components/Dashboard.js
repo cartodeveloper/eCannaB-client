@@ -48,14 +48,14 @@ class Dashboard extends Component {
         </section>
         <section id="all-resources">
           <h2>ALL RESOURCES</h2>
-          <button type="click">
+          <button type="click" id="c-r">
             <Link to="/addresource">Add Resource</Link>
           </button>
           <div>
             {this.context.resources.length ? (
               <ResourcesList {...this.props} />
             ) : (
-              <p>No product has been created so far...</p>
+              <p>No resources available yet...</p>
             )}
           </div>
           {/*
@@ -79,26 +79,6 @@ class Dashboard extends Component {
               </li>
             ))} */}
         </section>
-        <section className="group" id="orders">
-          <h2>ORDERS</h2>
-          <table className="table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>CUSTOMER</th>
-                <th>TOTAL </th>
-                <th>PRODUCTS</th>
-                <th>ACTIONS</th>
-              </tr>
-            </thead>
-            <tbody>
-              {orders.map((order) => (
-                <Order key={order.id} {...order} {...this.props} />
-              ))}
-            </tbody>
-          </table>
-        </section>
-
         <section className="flex" id="products-user">
           <div className="group">
             <h2 id="h2">PRODUCTS</h2>

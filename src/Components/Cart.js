@@ -35,12 +35,9 @@ class Cart extends Component {
 
   handleClick(e) {
     e.preventDefault();
-    let customer_id = tokenServiceCustomer.getCustomerId();
-    console.log(customer_id);
     //let order = e.target.value;
 
     let payload = {
-      customer_id,
       cart: e.target.value,
     };
 
@@ -71,6 +68,15 @@ class Cart extends Component {
         //this.setState({ error: e.message });
       });
   }
+  componentDidMount() {
+    setTimeout(() => {
+      const id = Number(this.props.match.params.id);
+      const order = this.context.cart.map((c) => c.id === id);
+      this.setState({
+        newOrder: order,
+      });
+    }, 1000);
+  }
 
   render() {
     let { cart = [] } = this.context;
@@ -100,7 +106,7 @@ class Cart extends Component {
             {parseFloat(total)}
           </h3>
           <section className="order">
-            <button onClick={this.handleClick}>Place your order</button>
+            <button onClick={this.handleClick}>Place an order</button>
           </section>
         </div>
       </section>

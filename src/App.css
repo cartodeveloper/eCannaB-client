@@ -369,7 +369,7 @@ table {
   color: black;
 }
 #all-resources img {
-  width: 50%;
+  width: 100%;
   border-radius: 3px;
 }
 
@@ -429,5 +429,9 @@ main .dashboard {
   }
   ul#flex-container {
     flex-direction: row;
+  }
+  #all-resources img {
+    width: 90%;
+    border-radius: 3px;
   }
 }
