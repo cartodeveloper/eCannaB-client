@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Context from "../Context";
 import Order from "./Order";
 import DeleteSite from "./DeleteSite";
+import ResourcesList from "./ResourcesList";
 
 class Dashboard extends Component {
   static contextType = Context;
@@ -45,12 +46,19 @@ class Dashboard extends Component {
             </fieldset>
           </div>
         </section>
-        <section className="flex" id="site-r-o">
-          <div className="group" id="all-resources">
-            <h2>ALL RESOURCES</h2>
-            <button type="click">
-              <Link to="/addresource">Add Resource</Link>
-            </button>
+        <section id="all-resources">
+          <h2>ALL RESOURCES</h2>
+          <button type="click">
+            <Link to="/addresource">Add Resource</Link>
+          </button>
+          <div>
+            {this.context.resources.length ? (
+              <ResourcesList {...this.props} />
+            ) : (
+              <p>No product has been created so far...</p>
+            )}
+          </div>
+          {/*
             {resources.map((resource) => (
               <li key={resource.id}>
                 <a target="_blank" rel="noreferrer" href={resource.link}>
@@ -69,28 +77,28 @@ class Dashboard extends Component {
                   </button>
                 </div>
               </li>
-            ))}
-          </div>
-          <div className="group">
-            <h2>ORDERS</h2>
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>CUSTOMER</th>
-                  <th>TOTAL </th>
-                  <th>PRODUCTS</th>
-                  <th>ACTIONS</th>
-                </tr>
-              </thead>
-              <tbody>
-                {orders.map((order) => (
-                  <Order key={order.id} {...order} {...this.props} />
-                ))}
-              </tbody>
-            </table>
-          </div>
+            ))} */}
         </section>
+        <section className="group" id="orders">
+          <h2>ORDERS</h2>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>CUSTOMER</th>
+                <th>TOTAL </th>
+                <th>PRODUCTS</th>
+                <th>ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.map((order) => (
+                <Order key={order.id} {...order} {...this.props} />
+              ))}
+            </tbody>
+          </table>
+        </section>
+
         <section className="flex" id="products-user">
           <div className="group">
             <h2 id="h2">PRODUCTS</h2>
@@ -100,7 +108,7 @@ class Dashboard extends Component {
             {this.context.products.length ? (
               <ProductList {...this.props} />
             ) : (
-              <p>No product has been created so far..</p>
+              <p>No product has been created so far...</p>
             )}
           </div>
         </section>

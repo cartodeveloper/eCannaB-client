@@ -8,6 +8,7 @@ import Product from "./Components/Product";
 import LandingPage from "./Components/LandingPage";
 import CreateSite from "./Components/CreateSite";
 import CreateProduct from "./Components/CreateProduct";
+import AddResource from "./Components/AddResource";
 import EditProduct from "./Components/EditProduct";
 import EditOrder from "./Components/EditOrder";
 import data from "./data";
@@ -15,7 +16,6 @@ import Context from "./Context";
 import SiteLogin from "./Components/SiteLogin";
 import SiteSignup from "./Components/SiteSignup";
 import SiteHeader from "./Components/SiteHeader";
-import AddResource from "./Components/AddResource";
 import SiteProduct from "./Components/SiteProduct";
 import Cart from "./Components/Cart";
 import SiteHome from "./Components/SiteHome";
@@ -23,6 +23,7 @@ import tokenService from "./services/token-service";
 import config from "./config";
 import EditSite from "./Components/EditSite";
 import Footer from "./Components/Footer";
+import Resource from "./Components/Resource";
 
 class App extends Component {
   state = {
@@ -220,6 +221,21 @@ class App extends Component {
         resources: [...this.state.resources, newResource],
       });
     },
+    updateResource: (newResource, id) => {
+      this.setState({
+        resources: this.state.resources.map((r) => {
+          if (r.id === id) {
+            return newResource;
+          }
+          return r;
+        }),
+      });
+    },
+    deleteResource: (id) => {
+      this.setState({
+        resources: this.state.resources.filter((r) => r.id !== id),
+      });
+    },
 
     //Logout User
     logout: () => {
@@ -257,9 +273,10 @@ class App extends Component {
               "/addsite",
               "/editsite/:id",
               "/editorder/:id",
-              "/editproduct",
+              "/editproduct/:id",
               "/addproduct",
               "/addresource",
+              "/editresource/:id",
               "/product/:id",
             ]}
             component={Header}
@@ -279,6 +296,7 @@ class App extends Component {
             <Route path="/editorder/:id" component={EditOrder} />
             <Route path="/editproduct/:id" component={EditProduct} />
             <Route path="/product/:id" component={Product} />
+            <Route path="/resource/:id" component={Resource} />
             {/*Seller Public Site Routes*/}
             <Route path="/s/:subdomain/" component={SiteHome} />
             <Route exact path="/s/:subdomain/signup" component={SiteSignup} />

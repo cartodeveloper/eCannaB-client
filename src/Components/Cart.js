@@ -24,22 +24,23 @@ class Cart extends Component {
     },
   };
 
-  /*AddCartToOrder(e) {
-this.setState({
-newOrder: {
-...this.state.newOrder,
-},
-});
-}*/
+  AddCartToOrder(e) {
+    this.setState({
+      newOrder: {
+        ...this.state.newOrder,
+      },
+    });
+  }
   cartToState = () => {};
 
   handleClick(e) {
     e.preventDefault();
     let customer_id = tokenServiceCustomer.getCustomerId();
+    console.log(customer_id);
     //let order = e.target.value;
 
     let payload = {
-      customer_id: customer_id,
+      customer_id,
       cart: e.target.value,
     };
 
@@ -76,7 +77,6 @@ newOrder: {
     let total = cart.reduce((total, p) => {
       return total + Number(p.price);
     }, 0);
-    console.log();
     console.log(cart, "this is the cart");
     return (
       <section id="myModal" className="modal">

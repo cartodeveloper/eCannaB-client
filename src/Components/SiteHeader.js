@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import tokenServiceCustomer from "../services/token-service-customer";
+import tokenService from "../services/token-service";
 import Context from "../Context";
 import "../App.css";
 
@@ -37,6 +38,21 @@ export default class SiteHeader extends React.Component {
               <img src={s.logo} alt="seller_logo" />
             </Link>
           </h1>
+        </section>
+        <section>
+          {tokenService.hasAuthToken() ? (
+            <>
+              <p></p>
+            </>
+          ) : (
+            <>
+              <section className="user">
+                <Link to={`/s/${this.props.match.params.subdomain}/login`}>
+                  Login
+                </Link>
+              </section>
+            </>
+          )}
         </section>
         {tokenServiceCustomer.hasAuthTokenSite() ? (
           <>

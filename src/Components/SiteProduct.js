@@ -61,7 +61,7 @@ export default class SiteProduct extends Component {
                   <Link to={`/s/${this.props.match.params.subdomain}/login`}>
                     Login
                   </Link>
-                  <p>Please be sure to Login to make an order.</p>
+                  <p>Please be sure to Login to add products to the cart.</p>
                 </section>
               )}
             </>

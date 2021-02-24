@@ -24,9 +24,11 @@ export default class AddResource extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({ error: null });
+    const resource = this.state.newResource;
+    resource.site_id = this.context.sites[0].id;
     fetch(`${config.API_BASE_URL}/resources`, {
       method: "POST",
-      body: JSON.stringify(this.state.newResource),
+      body: JSON.stringify(resource),
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${tokenService.getAuthToken()}`,
@@ -84,6 +86,20 @@ export default class AddResource extends Component {
                 type="url"
                 id="link"
                 name="link"
+                onChange={(e) => this.handleChange(e)}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="r_image" aria-label="r_image">
+                <h3>Resource Image: *</h3>
+                <p>Please provide an image url</p>
+              </label>
+              <input
+                placeholder="https://..."
+                type="url"
+                id="r_image"
+                name="r_image"
                 onChange={(e) => this.handleChange(e)}
                 required
               />

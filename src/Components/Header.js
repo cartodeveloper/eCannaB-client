@@ -45,11 +45,11 @@ export default class Header extends React.Component {
               </div>
               {this.state.opened && (
                 <ul id="menu">
-                  <Link to="/dashboard">
-                    <li>Dashboard</li>
-                  </Link>
                   <Link to="/addproduct">
                     <li>+ Product</li>
+                  </Link>
+                  <Link to="/addresource">
+                    <li>+ Resource</li>
                   </Link>
                   {!this.context.sites.length && (
                     <Link to="/addsite">

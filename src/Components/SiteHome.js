@@ -1,6 +1,9 @@
 import Context from "../Context";
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import SiteProduct from "./SiteProduct";
+import tokenServiceCustomer from "../services/token-service-customer";
+import SiteResource from "../Components/SiteResource";
 
 class SiteHome extends Component {
   static contextType = Context;
@@ -36,6 +39,8 @@ class SiteHome extends Component {
         (site) => site.subdomain === this.props.match.params.subdomain
       ) || {};
 
+    let { resources = [] } = this.context;
+
     return (
       <section className="home">
         <h2>{site.seller_description}</h2>
@@ -44,24 +49,28 @@ class SiteHome extends Component {
         </section>
         <section>
           <h2>RESOURCES</h2>
-          {site.resources == null ? (
-            <>
-              <p>No Resources available at the moment...</p>
-            </>
+
+          {this.context.resources.lenght ? (
+            <p>No resources available at the moment</p>
           ) : (
-            Object.keys(site.resources).map((siteResource, i) => (
-              <li className="site-resources" key={i}>
-                <span className="site-resource-link">
-                  <a
-                    href={site.resources[siteResource].link}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    {site.resources[siteResource].name}
-                  </a>
-                </span>
-              </li>
-            ))
+            <>
+              {tokenServiceCustomer.hasAuthTokenSite() ? (
+                <>
+                  <ul id="flex-container" aria-live="polite">
+                    {resources.map((r) => (
+                      <SiteResource key={r.id} {...r} {...this.props} />
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <section className="login">
+                  <Link to={`/s/${this.props.match.params.subdomain}/login`}>
+                    Login
+                  </Link>
+                  <p>Please be sure to login to see the resources available.</p>
+                </section>
+              )}
+            </>
           )}
         </section>
         <hr />

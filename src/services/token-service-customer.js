@@ -13,8 +13,11 @@ const tokenServiceCustomer = {
   clearAuthTokenSite() {
     window.localStorage.removeItem(config.SITE_TOKEN_KEY);
   },
+  saveCustomerId(customer_id) {
+    return window.localStorage.setItem("customer_id", customer_id);
+  },
   getCustomerId(customer_id) {
-    return window.sessionStorage.getItem("customer_id", customer_id);
+    return window.localStorage.getItem("customer_id", customer_id);
   },
 };
 
