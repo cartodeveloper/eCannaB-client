@@ -24,6 +24,7 @@ import config from "./config";
 import EditSite from "./Components/EditSite";
 import Footer from "./Components/Footer";
 import Resource from "./Components/Resource";
+import PrivateRoute from "./Utils/PrivateRoute";
 
 class App extends Component {
   state = {
@@ -288,15 +289,15 @@ class App extends Component {
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
             {/*Private routes for eCannaB user= Seller*/}
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/addsite" component={CreateSite} />
-            <Route path="/editsite/:id" component={EditSite} />
-            <Route path="/addresource" component={AddResource} />
-            <Route path="/addproduct" component={CreateProduct} />
-            <Route path="/editorder/:id" component={EditOrder} />
-            <Route path="/editproduct/:id" component={EditProduct} />
-            <Route path="/product/:id" component={Product} />
-            <Route path="/resource/:id" component={Resource} />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <PrivateRoute path="/addsite" component={CreateSite} />
+            <PrivateRoute path="/editsite/:id" component={EditSite} />
+            <PrivateRoute path="/addresource" component={AddResource} />
+            <PrivateRoute path="/addproduct" component={CreateProduct} />
+            <PrivateRoute path="/editorder/:id" component={EditOrder} />
+            <PrivateRoute path="/editproduct/:id" component={EditProduct} />
+            <PrivateRoute path="/product/:id" component={Product} />
+            <PrivateRoute path="/resource/:id" component={Resource} />
             {/*Seller Public Site Routes*/}
             <Route path="/s/:subdomain/" component={SiteHome} />
             <Route exact path="/s/:subdomain/signup" component={SiteSignup} />
