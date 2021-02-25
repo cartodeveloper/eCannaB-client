@@ -11,7 +11,7 @@ export default class SiteResource extends Component {
     },
   };
   render() {
-    const { id, name, r_image, link } = this.props.id
+    const { id, name, r_image, link } = this.props
       ? this.props
       : this.context.resources.find(
           (r) => r.id === Number(this.props.match.params.id)

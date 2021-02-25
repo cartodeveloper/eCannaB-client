@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import DeleteOrder from "../Components/DeleteOrder";
+import DeleteOrder from "../DeleteOrder/DeleteOrder";
 import Context from "../../Context";
 
 export default class Order extends Component {
