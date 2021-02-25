@@ -15,7 +15,6 @@ class Dashboard extends Component {
     return (
       <section className="dashboard">
         <h1>DASHBOARD</h1>
-
         <section className="flex" id="banner-site">
           <div className="group">
             <fieldset>

@@ -32,7 +32,8 @@ header,
 .site-product .user a:hover,
 .site-header .user a:hover,
 .home .login a:hover,
-.modal-content button:hover {
+.modal-content button:hover,
+.register a:hover {
   background-color: black;
 }
 
@@ -43,7 +44,8 @@ header,
   background-color: rgb(91, 1, 133);
   border-radius: 10px;
 }
-.site-header .user a {
+.site-header .user a,
+.modal-content a {
   background-color: white;
   color: black;
 }
@@ -59,7 +61,8 @@ header,
   box-shadow: 5px 5px 5px 2px rgb(201, 201, 197);
 }
 #login-modal a,
-.site-footer a {
+.site-footer a,
+.register a:hover {
   margin: 10px;
   color: white;
 }
@@ -85,9 +88,15 @@ nav h3:hover,
 
 .user a,
 nav img,
-.home .login a {
+.home .login a,
+#landing-banner h2,
+#landing-banner p {
   padding: 15px;
 }
+#landing-banner h2 {
+  background-color: rgba(212, 200, 219, 0.39);
+}
+
 .home img {
   width: 100%;
 }
@@ -106,7 +115,8 @@ nav a,
   color: white;
 }
 
-.flex {
+.flex,
+.register a {
   padding: 2px;
 }
 .logo {
@@ -166,7 +176,8 @@ nav a,
   border-radius: 3px;
 }
 
-.modal-content button {
+.modal-content button,
+.landing-group {
   margin: 15px;
 }
 .nav-icon,
@@ -234,6 +245,7 @@ h4 {
   font-weight: bolder;
   padding: auto;
 }
+
 .product p {
   font-weight: bolder;
 }
@@ -269,7 +281,8 @@ h4 {
 }
 
 .modal-content input,
-.modal-content textarea {
+.modal-content textarea,
+.register a {
   padding: 10px;
   border: 2px solid rgb(76, 88, 39);
 }
@@ -283,7 +296,8 @@ h4 {
 }
 
 .close:hover,
-.close:focus {
+.close:focus,
+.register a {
   color: black;
   text-decoration: none;
   cursor: pointer;
@@ -326,7 +340,8 @@ table {
   padding: 10px;
 }
 .site-product #addToCart,
-.modal-content button {
+.modal-content button,
+.register a {
   text-transform: uppercase;
 }
 
@@ -340,8 +355,21 @@ table {
   animation: move 3s;
   background-size: cover;
 }
+#landing-banner {
+  background-image: url("./media/1.png");
+  animation: move 3s;
+  background-size: cover;
+}
+#landing-banner2 {
+  background-image: url("./media/3.png");
+  background-size: cover;
+}
+#landing-banner {
+  margin-top: 60px;
+}
 
-#banner-site h2 {
+#banner-site h2,
+.landing-group h2 {
   background-color: black;
   font-weight: lighter;
   padding: 5px;
@@ -510,5 +538,8 @@ main .dashboard {
   #all-resources img {
     width: 90%;
     border-radius: 3px;
+  }
+  .landing-group {
+    margin: 100px;
   }
 }

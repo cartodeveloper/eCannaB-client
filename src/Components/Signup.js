@@ -43,7 +43,7 @@ export default class Signup extends Component {
           >
             {this.state.error && <p className="error">{this.state.error}</p>}
 
-            <h2>Create Account</h2>
+            <h2>Create an account</h2>
             <div className="flex-wrap">
               <label htmlFor="new-email">Email</label>
               <div className="input-icons">
