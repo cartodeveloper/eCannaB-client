@@ -70,15 +70,18 @@ class EditResource extends Component {
   render() {
     const { error, newResource } = this.state;
     return newResource ? (
-      <section>
-        <form
-          className="add_resource"
-          aria-label="add_resource"
-          onSubmit={(e) => this.handleSubmit(e)}
-        >
-          {error && <p className="error">{error}</p>}
-          <fieldset>
-            <legend>Add Resource</legend>
+      <section id="myModal" className="modal">
+        <div className="modal-content">
+          <span onClick={this.handleClickCancel} className="close">
+            &times;
+          </span>
+          <form
+            className="add_resource"
+            aria-label="add_resource"
+            onSubmit={(e) => this.handleSubmit(e)}
+          >
+            {error && <p className="error">{error}</p>}
+            <h2>Edit Resource</h2>
             <div className="name">
               <label htmlFor="name" aria-label="name">
                 <h3>Resource Name: *</h3>
@@ -119,12 +122,9 @@ class EditResource extends Component {
                 required
               />
             </div>
-            <button type="submit" onClick={this.handleClickCancel}>
-              Cancel
-            </button>
-            <button type="submit">Add Resource</button>
-          </fieldset>
-        </form>
+            <button type="submit">Edit Resource</button>
+          </form>
+        </div>
       </section>
     ) : (
       <h2>Loading Resource...</h2>

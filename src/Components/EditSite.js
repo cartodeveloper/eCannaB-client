@@ -67,17 +67,22 @@ class EditSite extends Component {
   render() {
     const { error, newSite } = this.state;
     return newSite ? (
-      <section className="create-site">
-        <h2>Fill out the form with your site information</h2>
-        <p>All fields with * are required</p>
-        <form
-          onSubmit={this.handleSubmit}
-          className="site-form"
-          aria-label="create-site"
-        >
-          {error && <p className="error">{error}</p>}
-          <fieldset>
-            <legend>Your Site</legend>
+      <section id="myModal" className="modal">
+        <div className="modal-content">
+          <span onClick={this.handleClickCancel} className="close">
+            &times;
+          </span>
+
+          <p>All fields with * are required. Please provide an image url. </p>
+
+          <form
+            onSubmit={this.handleSubmit}
+            className="site-form"
+            aria-label="create-site"
+          >
+            {error && <p className="error">{error}</p>}
+
+            <h2>Edit Site</h2>
             <div className="brand">
               <label htmlFor="brand" aria-label="brand">
                 <h3>Site/Brand Name:*</h3>
@@ -106,8 +111,7 @@ class EditSite extends Component {
             </div>
             <div className="logo">
               <label htmlFor="logo" aria-label="logo">
-                <h3>Logo: *</h3>
-                <p>Please provide an image url</p>
+                <h3>Logo Image: *</h3>
               </label>
               <input
                 type="url"
@@ -121,7 +125,6 @@ class EditSite extends Component {
             <div className="banner">
               <label htmlFor="banner" aria-label="banner">
                 <h3>Banner Image: </h3>
-                <p>Please provide an image url</p>
               </label>
               <input
                 type="url"
@@ -132,26 +135,19 @@ class EditSite extends Component {
               />
             </div>
             <h3>Description: *</h3>
-            <p>
-              In a paragraph, explain what your brand is about and what
-              differentiates it from the others.
-            </p>
             <textarea
               id="seller_description"
               name="seller_description"
-              rows="5"
-              cols="50"
+              rows="4"
+              cols="40"
               value={newSite.seller_description || ""}
               onChange={(e) => this.handleChange(e)}
             ></textarea>
             <section className="buttons-form">
-              <button type="submit" onClick={this.handleClickCancel}>
-                Cancel
-              </button>
               <button type="submit">Update Site</button>
             </section>
-          </fieldset>
-        </form>
+          </form>
+        </div>
       </section>
     ) : (
       <h2>Loading Site...</h2>

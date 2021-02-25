@@ -31,7 +31,8 @@ header,
 }
 .site-product .user a:hover,
 .site-header .user a:hover,
-.home .login a:hover {
+.home .login a:hover,
+.modal-content button:hover {
   background-color: black;
 }
 
@@ -49,7 +50,8 @@ header,
 .site-header .user a,
 #login-modal,
 .home .login a,
-.site-footer {
+.site-footer,
+.site-product #addToCart {
   background-color: rgb(91, 1, 133);
   color: white;
 }
@@ -136,7 +138,8 @@ nav a,
 
 .nav-icon,
 .nav-site-icon,
-.site-footer {
+.site-footer,
+.landing-page {
   margin-top: 30px;
 }
 .nav-site-icon,
@@ -163,7 +166,11 @@ nav a,
   border-radius: 3px;
 }
 
-.nav-icon {
+.modal-content button {
+  margin: 15px;
+}
+.nav-icon,
+.modal-content button:hover {
   background-color: 454955;
   cursor: pointer;
 }
@@ -261,6 +268,12 @@ h4 {
   width: 80%;
 }
 
+.modal-content input,
+.modal-content textarea {
+  padding: 10px;
+  border: 2px solid rgb(76, 88, 39);
+}
+
 /* The Close Button */
 .close {
   color: #aaa;
@@ -299,13 +312,22 @@ table {
 #all-resources button[type="click"]:hover,
 #products-user #c-p:hover,
 #all-resources li a:hover,
-.product .group .controls button[type="click"]:hover {
+.product .group .controls button[type="click"]:hover,
+.modal-content button {
   background-color: rgb(76, 88, 39);
   color: white;
 }
 
-#fieldset {
+#fieldset,
+.site-product #addToCart,
+.modal-content button {
+  font-family: "Marcellus";
+  border-radius: 4px;
   padding: 10px;
+}
+.site-product #addToCart,
+.modal-content button {
+  text-transform: uppercase;
 }
 
 #banner-site fieldset {
@@ -355,6 +377,7 @@ table {
   padding: 6px;
   border-radius: 4px;
 }
+
 #banner-site button {
   margin: 10px;
 }
@@ -436,6 +459,9 @@ ul#flex-container {
 ul#flex-container > * {
   flex: 1 1;
 }
+ul#flex-container li {
+  list-style: none;
+}
 
 /* Footer */
 footer {
@@ -453,7 +479,8 @@ footer img {
   width: 120px;
 }
 
-footer img:hover {
+footer img:hover,
+.site-product #addToCart:hover {
   background-color: rgb(76, 88, 39);
   border-radius: 10px;
 }

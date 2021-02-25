@@ -54,7 +54,8 @@ class SiteHome extends Component {
         <section>
           <img src={site.banner} alt="site-banner" />
         </section>
-        <section>
+
+        <section id="all-resources">
           <h2>RESOURCES</h2>
 
           {this.context.resources.lenght ? (

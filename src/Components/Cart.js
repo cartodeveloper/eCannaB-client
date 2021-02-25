@@ -106,7 +106,9 @@ class Cart extends Component {
             {parseFloat(total)}
           </h3>
           <section className="order">
-            <button onClick={this.handleClick}>Place an order</button>
+            <button onClick={this.handleClick}>
+              <em>Cooming soon implementation to place orders</em>
+            </button>
           </section>
         </div>
       </section>

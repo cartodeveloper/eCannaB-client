@@ -68,17 +68,21 @@ class EditProduct extends Component {
   render() {
     const { error, newProduct } = this.state;
     return newProduct ? (
-      <section className="create-product">
-        <h2>Edit your product...</h2>
-        <p>All fields with * are required</p>
-        <form
-          onSubmit={this.handleSubmit}
-          className="product-form"
-          aria-label="create-product"
-        >
-          {error && <p className="error">{error}</p>}
-          <fieldset>
-            <legend>Product Details</legend>
+      <section id="myModal" className="modal">
+        <div className="modal-content">
+          <span onClick={this.handleClickCancel} className="close">
+            &times;
+          </span>
+          <h2>Edit your product...</h2>
+          <p>All fields with * are required</p>
+          <form
+            onSubmit={this.handleSubmit}
+            className="product-form"
+            aria-label="create-product"
+          >
+            {error && <p className="error">{error}</p>}
+
+            <h3>Product Details</h3>
             <div className="title">
               <label htmlFor="title" aria-label="title">
                 <h3>Title: *</h3>
@@ -150,13 +154,10 @@ class EditProduct extends Component {
               placeholder="Amazing NANO CBD 100% Bioavailability- NON GMO"
             ></textarea>
             <section className="buttons-form">
-              <button type="submit" onClick={this.handleClickCancel}>
-                Cancel
-              </button>
               <button type="submit">Update Product</button>
             </section>
-          </fieldset>
-        </form>
+          </form>
+        </div>
       </section>
     ) : (
       <h2>Loading Product...</h2>

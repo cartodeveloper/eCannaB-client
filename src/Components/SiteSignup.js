@@ -84,8 +84,9 @@ export default class SiteSignup extends Component {
                   name="password"
                 />
               </div>
-
-              <label htmlFor="confirm-password">Confirm password</label>
+            </div>
+            <div className="flex-wrap">
+              <label htmlFor="confirm-password">Confirm Password</label>
               <input
                 id="confirm-password"
                 type="password"
@@ -93,6 +94,7 @@ export default class SiteSignup extends Component {
                 name="confirmPassword"
               />
             </div>
+
             <button type="submit" aria-label="signup">
               Sign Up
             </button>

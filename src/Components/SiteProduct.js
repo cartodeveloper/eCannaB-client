@@ -29,7 +29,7 @@ export default class SiteProduct extends Component {
   };
 
   render() {
-    const { id, title, p_image, price, inStock, brand, p_description } = this
+    const { id, title, p_image, price, in_stock, brand, p_description } = this
       .props
       ? this.props
       : this.context.products.find(
@@ -43,18 +43,23 @@ export default class SiteProduct extends Component {
         </div>
         <div className="group">
           <h2>{title}</h2>
-          <p>Price: {("$", price)}</p>
-          <p>Brand: {brand}</p>
-          <p>Available: {inStock}</p>
-          <p>Product Description: {p_description}</p>
+          <h4>{brand}</h4>
+          <p>
+            {" $"}
+            {price}
+          </p>
 
+          <p>Available: {in_stock}</p>
+          <p>Product Description: {p_description}</p>
           {this.context.cart.find((p) => p.pid === id) ? (
             <span>In Cart</span>
           ) : (
             <>
               {tokenServiceCustomer.hasAuthTokenSite() ? (
                 <>
-                  <button onClick={this.handleAddToCart}>Add To Cart</button>
+                  <button id="addToCart" onClick={this.handleAddToCart}>
+                    Add To Cart
+                  </button>
                 </>
               ) : (
                 <section className="user">

@@ -57,9 +57,13 @@ export default class Header extends React.Component {
                     </Link>
                   )}
                   {this.context.sites.length ? (
-                    <Link to={`/s/${this.context.sites[0].subdomain}`}>
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href={`/s/${this.context.sites[0].subdomain}`}
+                    >
                       <li>My Site</li>
-                    </Link>
+                    </a>
                   ) : (
                     <p></p>
                   )}

@@ -66,50 +66,49 @@ export default class AddResource extends Component {
             onSubmit={(e) => this.handleSubmit(e)}
           >
             {error && <p className="error">{error}</p>}
-            <fieldset>
-              <legend>Add Resource</legend>
-              <div className="name">
-                <label htmlFor="name" aria-label="name">
-                  <h3>Resource Name: *</h3>
-                </label>
-                <input
-                  placeholder="eg. Why Nano CBD?"
-                  type="text"
-                  id="name"
-                  name="name"
-                  onChange={(e) => this.handleChange(e)}
-                  required
-                />
-              </div>
-              <div className="link">
-                <label htmlFor="link" aria-label="link">
-                  <h3>Resource Link: *</h3>
-                </label>
-                <input
-                  placeholder="https://..."
-                  type="url"
-                  id="link"
-                  name="link"
-                  onChange={(e) => this.handleChange(e)}
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="r_image" aria-label="r_image">
-                  <h3>Resource Image: *</h3>
-                  <p>Please provide an image url</p>
-                </label>
-                <input
-                  placeholder="https://..."
-                  type="url"
-                  id="r_image"
-                  name="r_image"
-                  onChange={(e) => this.handleChange(e)}
-                  required
-                />
-              </div>
-              <button type="submit">Add Resource</button>
-            </fieldset>
+
+            <h2>Add Resource</h2>
+            <div className="name">
+              <label htmlFor="name" aria-label="name">
+                <h3>Resource Name: *</h3>
+              </label>
+              <input
+                placeholder="eg. Why Nano CBD?"
+                type="text"
+                id="name"
+                name="name"
+                onChange={(e) => this.handleChange(e)}
+                required
+              />
+            </div>
+            <div className="link">
+              <label htmlFor="link" aria-label="link">
+                <h3>Resource Link: *</h3>
+              </label>
+              <input
+                placeholder="https://..."
+                type="url"
+                id="link"
+                name="link"
+                onChange={(e) => this.handleChange(e)}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="r_image" aria-label="r_image">
+                <h3>Resource Image: *</h3>
+                <p>Please provide an image url</p>
+              </label>
+              <input
+                placeholder="https://..."
+                type="url"
+                id="r_image"
+                name="r_image"
+                onChange={(e) => this.handleChange(e)}
+                required
+              />
+            </div>
+            <button type="submit">Add Resource</button>
           </form>
         </div>
       </section>
