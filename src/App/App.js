@@ -25,6 +25,7 @@ import SiteFooter from "../Components/SiteFooter/SiteFooter";
 import Resource from "../Components/Resource/Resource";
 import PrivateRoute from "../Utils/PrivateRoute";
 import EditResource from "../Components/EditResource/EditResource";
+import PrivateRouteCustomer from "../Utils/PrivateRouteCustomer";
 
 class App extends Component {
   state = {
@@ -304,7 +305,7 @@ class App extends Component {
             <Route exact path="/s/:subdomain/signup" component={SiteSignup} />
             <Route path="/s/:subdomain/login" component={SiteLogin} />
             {/*Private routes for seller's customer = JUST the cart*/}
-            <Route path="/s/:subdomain/cart" component={Cart} />
+            <PrivateRouteCustomer path="/s/:subdomain/cart" component={Cart} />
           </main>
           <Route
             exact
