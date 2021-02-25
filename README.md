@@ -98,7 +98,7 @@ The app's functionality includes:
   ![User Experience](https://github.com/cartodeveloper/eCannaB-client/blob/main/public/videos/user-experience.gif?raw=true)
 
 - Customer in user site experience:
-  ![User Experience](https://github.com/cartodeveloper/eCannaB-client/blob/main/public/videos/customer-users-experience.gif?raw=true)
+  ![User Experience](https://github.com/cartodeveloper/eCannaB-client/blob/main/public/videos/customer-usersite-experience.gif?raw=true)
 
 ---
 
