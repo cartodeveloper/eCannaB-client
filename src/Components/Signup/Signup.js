@@ -68,7 +68,7 @@ export default class Signup extends Component {
                 />
               </div>
 
-              <label htmlFor="confirm-password"></label>
+              <label htmlFor="confirm-password" id="confirm"></label>
               <input
                 id="confirm-password"
                 type="password"

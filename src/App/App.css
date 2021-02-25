@@ -397,6 +397,12 @@ table {
   }
 }
 
+.input-icons {
+  margin-bottom: 15px;
+}
+#confirm {
+  padding: 10px;
+}
 #banner-site li,
 #all-resources li {
   list-style: none;
