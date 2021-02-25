@@ -396,7 +396,18 @@ table {
     transform: translate(10px, -20px) rotate(0deg);
   }
 }
+.demo-credentials {
+  padding: 3px;
+  background-color: rgba(0, 0, 0, 0.897);
+  border-radius: 5px;
+  margin: 30px;
+  color: white;
+}
 
+#login-modal .demo-credentials {
+  color: rgb(91, 1, 133);
+  background-color: white;
+}
 .input-icons {
   margin-bottom: 15px;
 }

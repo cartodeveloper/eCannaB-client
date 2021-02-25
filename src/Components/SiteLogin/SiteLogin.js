@@ -86,6 +86,11 @@ export default class SiteLogin extends Component {
               </Link>
             </div>
           </form>
+          <div className="demo-credentials">
+            <h4>Demo Credentials</h4>
+            <h5>Email: customer@demo.com</h5>
+            <h5>Password: Customer123!</h5>
+          </div>
         </div>
       </section>
     );

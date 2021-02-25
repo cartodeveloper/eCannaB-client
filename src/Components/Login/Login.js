@@ -80,6 +80,11 @@ export default class Login extends Component {
               New customer? <Link to="/signup">Create your account</Link>
             </div>
           </form>
+          <div className="demo-credentials">
+            <h4>Demo Credentials</h4>
+            <h5>Email: demo@demo.com</h5>
+            <h5>Password: Demo123!</h5>
+          </div>
         </div>
       </section>
     );

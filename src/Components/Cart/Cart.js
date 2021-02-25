@@ -40,8 +40,6 @@ class Cart extends Component {
     let payload = {
       cart: e.target.value,
     };
-
-    console.log(payload, "this is the paylod");
     //this.setState({ error: null });
     fetch(`${config.API_BASE_URL}/orders`, {
       method: "POST",
@@ -83,7 +81,7 @@ class Cart extends Component {
     let total = cart.reduce((total, p) => {
       return total + Number(p.price);
     }, 0);
-    console.log(cart, "this is the cart");
+
     return (
       <section id="myModal" className="modal">
         <div className="modal-content">
