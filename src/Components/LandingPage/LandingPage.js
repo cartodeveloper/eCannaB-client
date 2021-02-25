@@ -33,8 +33,8 @@ function LandingPage() {
       <section className="landing-group">
         <h2>Add Products and Resources to your site.</h2>
         <p>
-          In your dashboard you will have a list of products and resources where
-          you can edit or delete at any time.
+          In your dashboard you can create products and resources, plus you can
+          edit or delete them at any time.
         </p>
       </section>
       <video width="100%" height="400" controls>
